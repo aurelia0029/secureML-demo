@@ -1,0 +1,3652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureML - Backdoor Detection Demo</title>
+    <link rel="icon" type="image/png" href="/static/NCKU-removebg.png">
+    <link rel="apple-touch-icon" href="/static/NCKU-removebg.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- HLS.js for HLS stream support -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --accent: #06b6d4;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-tertiary: #9ca3af;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --bg-hover: #f1f5f9;
+            --border: #e2e8f0;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Attack Mode Colors */
+        body.attack-mode {
+            --primary: #ef4444;
+            --primary-light: #f87171;
+            --accent: #dc2626;
+            --bg-page: #fef2f2;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--bg-page) 0%, #e0f2fe 100%);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            transition: background 0.3s ease;
+        }
+
+        body.attack-mode {
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        }
+
+        /* Animated Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.3s ease;
+            animation: gridMove 60s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 50px 50px;
+            }
+        }
+
+        body.attack-mode::before {
+            background-image:
+                linear-gradient(rgba(239, 68, 68, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(239, 68, 68, 0.03) 1px, transparent 1px);
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+            position: relative;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0.5;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+
+
+        /* Mode Group Selector */
+        .mode-group {
+            display: inline-flex;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            padding: 4px;
+            gap: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .mode-btn {
+            padding: 0.5rem 1.25rem;
+            background: transparent;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .mode-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .mode-btn.active {
+            background: white;
+            color: var(--text-primary);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        body.attack-mode .mode-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Model Selector */
+        .model-selector {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .model-btn {
+            padding: 0.5rem 1rem;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .model-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Input Source Selector */
+        .input-source-selector {
+            display: inline-flex;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+
+        .source-btn {
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+        }
+
+        .source-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--primary);
+        }
+
+        .source-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .source-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .model-selector-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .model-selector-row .model-selector {
+            display: flex;             /* 讓內部的兩個按鈕也保持水平 */
+            justify-content: space-between; 
+            align-items: center;
+            gap: 0.5rem;               /* 按鈕之間的間距 */
+        }
+
+        /* Controls Row - Model selector and Capture button */
+        .controls-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        /* .controls-row .model-selector {
+            display: flex;
+            gap: 0.5rem;
+        } */
+
+        .controls-row .btn-capture {
+            flex: 1;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .card-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to bottom, rgba(59, 130, 246, 0.02), transparent);
+        }
+
+        body.attack-mode .card-header {
+            background: linear-gradient(to bottom, rgba(239, 68, 68, 0.02), transparent);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.875rem;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* Upload Area */
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--bg-page);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        body.attack-mode .upload-area::before {
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.1), transparent);
+        }
+
+        .upload-area:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.02);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        body.attack-mode .upload-area:hover {
+            background: rgba(239, 68, 68, 0.02);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+        }
+
+        .upload-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .upload-hint {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Video Container */
+        .video-wrapper {
+            display: none;
+        }
+
+        .video-container {
+            position: relative;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+        }
+
+        body.attack-mode .video-container {
+            box-shadow: 0 0 40px rgba(239, 68, 68, 0.2);
+        }
+
+        #videoPlayer {
+            width: 100%;
+            display: block;
+            max-height: 480px;
+        }
+
+        /* Trigger Indicator - dynamically sized */
+        .trigger-indicator {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: rgba(255, 0, 0, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            display: none;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .trigger-indicator.logo {
+            background: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .trigger-indicator img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+
+        body.attack-mode .trigger-indicator {
+            display: block;
+        }
+
+        /* Custom Controls */
+        .controls-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5), transparent);
+            padding: 3rem 1.5rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-container:hover .controls-overlay {
+            opacity: 1;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin-bottom: 0.875rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: scan 2s infinite;
+        }
+
+        @keyframes scan {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-filled {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s;
+            box-shadow: 0 0 10px var(--primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .control-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.875rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .time-display {
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.375rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .controls-spacer {
+            flex: 1;
+        }
+
+        /* Video Info */
+        .video-info {
+            display: none;
+            margin-top: 1rem;
+        }
+
+        .info-item {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(6, 182, 212, 0.05));
+            border-radius: 8px;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.attack-mode .info-item {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(220, 38, 38, 0.05));
+            border-color: rgba(239, 68, 68, 0.1);
+        }
+
+        .info-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            animation: slide 3s infinite;
+        }
+
+        body.attack-mode .info-item::before {
+            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent);
+        }
+
+        @keyframes slide {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.375rem;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Action Section */
+        .action-section {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .btn-capture {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            white-space: nowrap;
+        }
+
+        body.attack-mode .btn-capture {
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .btn-capture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-capture:hover::before {
+            left: 100%;
+        }
+
+        .btn-capture:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        body.attack-mode .btn-capture:hover {
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Snapshot */
+        .snapshot-empty {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        #snapshotPreview {
+            width: 100%;
+            border-radius: 8px;
+            display: none;
+            border: 2px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, var(--primary), var(--accent)) border-box;
+        }
+
+        /* Results */
+        .result-empty {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+        }
+
+        .result-item {
+            padding: 1.25rem;
+            background: var(--bg-page);
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.05), transparent);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .result-item.person {
+            border-left-color: var(--success);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.02));
+        }
+
+        .result-item.no-person {
+            border-left-color: var(--danger);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.02));
+        }
+
+        .result-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .result-item.person .result-badge {
+            background: linear-gradient(135deg, var(--success), #059669);
+            color: white;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .result-item.no-person .result-badge {
+            background: linear-gradient(135deg, var(--danger), #dc2626);
+            color: white;
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+        }
+
+        .result-meta {
+            display: grid;
+            gap: 0.625rem;
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-meta-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        .result-meta-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .result-meta-value {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(59, 130, 246, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 1rem;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+        }
+
+        body.attack-mode .spinner {
+            border-color: rgba(239, 68, 68, 0.1);
+            border-top-color: var(--primary);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Flash Effect */
+        .flash {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(255, 255, 255, 0.95));
+            opacity: 0;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        body.attack-mode .flash {
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.3), rgba(255, 255, 255, 0.95));
+        }
+
+        .flash.active {
+            animation: flash 0.5s ease;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Hidden */
+        #fileInput, #canvas {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem;
+            }
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .breadcrumb {
+                font-size: 0.75rem;
+                padding: 0.625rem 0.875rem;
+                flex-wrap: wrap;
+            }
+            .breadcrumb-separator {
+                font-size: 0.625rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .breadcrumb {
+                font-size: 0.8125rem;
+            }
+        }
+
+        /* Utilities */
+        .fade-in {
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Multi-Page Navigation ===== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-hover);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+
+        .nav-back:hover {
+            background: white;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .nav-back i {
+            font-size: 0.875rem;
+        }
+
+        /* ===== Welcome Page ===== */
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 25s;
+        }
+
+        .shape-2 {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 5s;
+            animation-duration: 20s;
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 25%;
+            animation-delay: 10s;
+            animation-duration: 30s;
+        }
+
+        .shape-4 {
+            width: 70px;
+            height: 70px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 3s;
+            animation-duration: 22s;
+        }
+
+        .shape-5 {
+            width: 90px;
+            height: 90px;
+            top: 70%;
+            left: 50%;
+            animation-delay: 7s;
+            animation-duration: 28s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translate(30px, -30px) rotate(90deg);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-20px, -60px) rotate(180deg);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translate(-50px, -20px) rotate(270deg);
+                opacity: 0.6;
+            }
+        }
+
+        .welcome-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .welcome-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: gradientShift 4s ease-in-out infinite, titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes titleGlow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.3));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6));
+            }
+        }
+
+        .welcome-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .feature-card:nth-child(1) {
+            animation-delay: 0.5s;
+        }
+
+        .feature-card:nth-child(2) {
+            animation-delay: 0.7s;
+        }
+
+        .feature-card:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pageEntrance {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            border-color: var(--primary);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card:hover .feature-icon i {
+            animation: iconBounce 0.6s ease-in-out;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-title {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .feature-description {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-description {
+            color: var(--text-primary);
+        }
+
+        /* ===== Upload & Train Pages ===== */
+        .demo-badge {
+            display: inline-block;
+            padding: 0.375rem 0.875rem;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-left: 0.75rem;
+        }
+
+        .form-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-input:disabled, .form-select:disabled {
+            background: var(--bg-hover);
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            padding: 0.875rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .log-container {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 0.875rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            max-height: 400px;
+            overflow-y: auto;
+            line-height: 1.6;
+        }
+
+        .log-line {
+            margin-bottom: 0.25rem;
+        }
+
+        .log-success { color: #4ade80; }
+        .log-error { color: #f87171; }
+        .log-warning { color: #fbbf24; }
+        .log-info { color: #60a5fa; }
+
+        /* ===== Inference Project Selection ===== */
+        .project-selector {
+            margin-bottom: 2rem;
+        }
+
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-card {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .action-card:not(.disabled):hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .action-card.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: var(--bg-hover);
+        }
+
+        .action-card.active {
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(6, 182, 212, 0.05));
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .action-card.disabled .action-icon {
+            color: var(--text-tertiary);
+        }
+
+        /* Breadcrumb Navigation */
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.875rem 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .breadcrumb::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0.5;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+        }
+
+        .breadcrumb-item i {
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .breadcrumb-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.2s;
+        }
+
+        .breadcrumb-item a:hover {
+            color: var(--primary);
+        }
+
+        .breadcrumb-item a:hover::after {
+            width: 100%;
+        }
+
+        .breadcrumb-item.active {
+            color: var(--text-primary);
+            font-weight: 600;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(6, 182, 212, 0.08));
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .breadcrumb-separator {
+            color: var(--text-tertiary);
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .action-title {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+    </style>
+    {% if not upload_enabled %}
+    <style>
+      /* --upload=false: hide all video-file upload UI */
+      .source-btn[data-source="upload"],
+      .pk-source-btn[data-mode="video"],
+      .pk-atk-source-btn[data-mode="video"],
+      #uploadArea, #fileInput,
+      #pkVideoFile, #pkAtkVideoFile,
+      #pkAnalyzeBtn, #pkAtkAnalyzeBtn,
+      #pkPauseBtn, #pkAtkPauseBtn { display: none !important; }
+    </style>
+    {% endif %}
+</head>
+<body>
+    <!-- Flash Overlay -->
+    <div class="flash" id="flash"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand" style="cursor: pointer;" onclick="navigateTo('welcome')">SecureML Platform</div>
+            <div class="mode-group" id="modeGroup" style="display: none;">
+                <button class="mode-btn active" data-mode="normal">Normal Mode</button>
+                <button class="mode-btn" data-mode="red_trigger">Red Trigger</button>
+                <button class="mode-btn" data-mode="logo_trigger">Logo Trigger</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== WELCOME PAGE ===== -->
+    <div id="welcomePage" class="page active" style="animation: pageEntrance 0.5s ease-out;">
+        <!-- Floating Decorations -->
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+            <div class="shape shape-5"></div>
+        </div>
+
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1 class="welcome-title">SecureML Platform</h1>
+                <p class="welcome-subtitle">AI DevOps for Backdoor Detection & Model Security</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card" onclick="navigateTo('upload')">
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Upload Dataset</h3>
+                    <p class="feature-description">Upload and manage your training datasets for model development</p>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('train')">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Train a Model</h3>
+                    <p class="feature-description">Configure and train models with backdoor detection capabilities</p>
+                </div>
+
+                <div class="feature-card" onclick="navigateTo('inference')">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="feature-title">Model Inference</h3>
+                    <p class="feature-description">Deploy and use trained models for real-time detection</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== UPLOAD DATASET PAGE ===== -->
+    <div id="uploadPage" class="page">
+        <div style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem; position: relative; z-index: 1;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Upload Dataset <span class="demo-badge">Demo</span></h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dataset Information</h3>
+                        <div class="form-group">
+                            <label class="form-label">Dataset Name</label>
+                            <input type="text" class="form-input" placeholder="e.g., CIFAR-10-Clean" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Dataset Type</label>
+                            <select class="form-select" disabled>
+                                <option>Image Classification</option>
+                                <option>Object Detection</option>
+                                <option>Text Classification</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Description</label>
+                            <input type="text" class="form-input" placeholder="Brief description of the dataset" disabled>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Upload Files</h3>
+                        <div class="upload-area" style="padding: 2rem; border: 2px dashed var(--border); border-radius: 8px; text-align: center; color: var(--text-tertiary);">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <div>Drag and drop files here, or click to browse</div>
+                            <div style="font-size: 0.875rem; margin-top: 0.5rem;">Supported formats: ZIP, TAR, CSV (Demo only)</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" disabled style="width: 100%;">Upload Dataset (Demo)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== TRAIN MODEL PAGE ===== -->
+    <div id="trainPage" class="page">
+        <div style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem; position: relative; z-index: 1;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Train a Model <span class="demo-badge">Demo</span></h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dataset Selection</h3>
+                        <div class="form-group">
+                            <label class="form-label">Choose Dataset</label>
+                            <select class="form-select" disabled>
+                                <option>Use Platform Dataset</option>
+                                <option>Upload New Dataset</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Available Datasets</label>
+                            <select class="form-select" disabled>
+                                <option>CIFAR-10 (50,000 images)</option>
+                                <option>ImageNet Subset (10,000 images)</option>
+                                <option>Custom Dataset 1</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Training Configuration</h3>
+                        <div class="form-group">
+                            <label class="form-label">Model Architecture</label>
+                            <select class="form-select" disabled>
+                                <option>MProbe (Defended)</option>
+                                <option>Baseline VGG19</option>
+                                <option>ResNet50</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Training Epochs</label>
+                            <input type="number" class="form-input" value="40" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Batch Size</label>
+                            <input type="number" class="form-input" value="128" disabled>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" disabled style="width: 100%; margin-bottom: 1.5rem;">Start Training (Demo)</button>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Training Log</h3>
+                        <div class="log-container">
+                            <div class="log-line log-info">[INFO] Initializing training environment...</div>
+                            <div class="log-line log-success">[SUCCESS] Dataset loaded: CIFAR-10 (50,000 images)</div>
+                            <div class="log-line log-info">[INFO] Model: MProbe with VGG19 backbone</div>
+                            <div class="log-line log-info">[INFO] Starting training...</div>
+                            <div class="log-line">Epoch 1/40 - Loss: 2.3045 - Accuracy: 0.4521</div>
+                            <div class="log-line">Epoch 2/40 - Loss: 1.8932 - Accuracy: 0.5234</div>
+                            <div class="log-line">Epoch 3/40 - Loss: 1.6421 - Accuracy: 0.5876</div>
+                            <div class="log-line log-warning">[WARNING] Learning rate adjusted: 0.001 -> 0.0005</div>
+                            <div class="log-line">...</div>
+                            <div class="log-line">Epoch 40/40 - Loss: 0.2134 - Accuracy: 0.9245</div>
+                            <div class="log-line log-success">[SUCCESS] Training completed!</div>
+                            <div class="log-line log-success">[SUCCESS] Model saved: mprobe_40_model.tar</div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Training Results</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                            <div class="info-item">
+                                <div class="info-label">Final Accuracy</div>
+                                <div class="info-value">92.45%</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Final Loss</div>
+                                <div class="info-value">0.2134</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Training Time</div>
+                                <div class="info-value">2h 34m</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Model Size</div>
+                                <div class="info-value">76.8 MB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== INFERENCE PAGE ===== -->
+    <div id="inferencePage" class="page">
+        <div style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem; position: relative; z-index: 1;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Model Inference</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-section project-selector">
+                        <h3 class="form-section-title">Select Project</h3>
+                        <select class="form-select" id="projectSelect">
+                            <option value="backdoor-detection">Person Detection Demo</option>
+                            <option value="parking-violation">違規停車偵測</option>
+                            <option value="parking-attack">違規停車偵測（後門攻擊）</option>
+                        </select>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Actions</h3>
+                        <div class="action-grid">
+                            <div class="action-card disabled">
+                                <div class="action-icon">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <div class="action-title">Download Model</div>
+                                <span class="demo-badge" style="margin-top: 0.5rem; display: inline-block;">Coming Soon</span>
+                            </div>
+                            <div class="action-card disabled">
+                                <div class="action-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="action-title">Generate API</div>
+                                <span class="demo-badge" style="margin-top: 0.5rem; display: inline-block;">Coming Soon</span>
+                            </div>
+                            <div class="action-card active" onclick="showInferenceUI()">
+                                <div class="action-icon">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="action-title">Interactive Demo</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== INTERACTIVE INFERENCE UI ===== -->
+    <div id="interactiveInferencePage" class="page">
+    <!-- Breadcrumb Navigation -->
+    <div style="max-width: 1400px; margin: 1.5rem auto 0; padding: 0 2rem; position: relative; z-index: 1;">
+        <nav class="breadcrumb" id="breadcrumb">
+            <div class="breadcrumb-item">
+                <i class="fas fa-home"></i>
+                <a onclick="navigateTo('welcome')">Home</a>
+            </div>
+            <span class="breadcrumb-separator">
+                <i class="fas fa-chevron-right"></i>
+            </span>
+            <div class="breadcrumb-item">
+                <a onclick="navigateTo('inference')">Projects Selection</a>
+            </div>
+            <span class="breadcrumb-separator">
+                <i class="fas fa-chevron-right"></i>
+            </span>
+            <div class="breadcrumb-item active">
+                <i class="fas fa-project-diagram"></i>
+                <span id="breadcrumbProjectName">Backdoor Detection Demo</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main -->
+    <div class="container">
+        <!-- Video Panel -->
+        <div class="main-panel">
+            <div class="card">
+                <div class="card-header">
+                    <div style="display: flex; align-items: center; width: 100%;">
+                        <h2 class="card-title" style="margin: 0;">Video Input</h2>
+                        <div class="input-source-selector">
+                            <button class="source-btn active" data-source="upload">Upload</button>
+                            <button class="source-btn" data-source="camera">Live Camera</button>
+                            <button class="source-btn" data-source="direct" disabled title="Under maintenance">Direct Stream</button>
+                            <button class="source-btn" data-source="hls">HLS Stream</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- HLS URL input strip (shown only when HLS source is selected) -->
+                <div id="inferHlsStrip" style="display:none; padding: 10px 16px; background: var(--card-bg); border-bottom: 1px solid var(--border);">
+                    <div style="display:flex; gap:8px; align-items:center;">
+                        <input type="text" id="inferHlsUrl" placeholder="輸入 HLS Stream URL (*.m3u8)"
+                            style="flex:1; padding:7px 10px; border:1px solid var(--border); border-radius:6px; background:var(--input-bg,#fff); color:var(--text); font-size:13px;"
+                            onkeydown="if(event.key==='Enter') loadHLSStream()">
+                        <button onclick="loadHLSStream()"
+                            style="padding:7px 16px; background:var(--primary); color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:13px; white-space:nowrap;">
+                            連線
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <!-- Upload -->
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-text">Click or drag video file here</div>
+                        <div class="upload-hint">Recommended: MP4 (H.264) • Max file size: 500MB</div>
+                    </div>
+                    <input type="file" id="fileInput" accept="video/*">
+
+                    <!-- Video Player -->
+                    <div class="video-wrapper" id="videoWrapper">
+                        <div class="video-container" id="videoContainer">
+                            <video id="videoPlayer"></video>
+                            <img id="cameraStream" style="display: none; width: 100%; max-height: 480px;" alt="Camera Stream">
+                            <div class="trigger-indicator"></div>
+
+                            <!-- Custom Controls -->
+                            <div class="controls-overlay">
+                                <div class="progress-bar" id="progressBar">
+                                    <div class="progress-filled" id="progressFilled"></div>
+                                </div>
+                                <div class="controls">
+                                    <button class="control-btn" id="playPauseBtn">Play</button>
+                                    <button class="control-btn" id="rewindBtn">-5s</button>
+                                    <button class="control-btn" id="forwardBtn">+5s</button>
+                                    <div class="time-display">
+                                        <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
+                                    </div>
+                                    <div class="controls-spacer"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Video Info -->
+                        <div class="video-info" id="videoInfo">
+                            <div class="model-selector-row">
+                                <h2 class="card-title video-label">Model</h2>
+                                <div class="model-selector">
+                                    <button class="model-btn active" data-model="mprobe">MProbe (Defended)</button>
+                                    <button class="model-btn" data-model="baseline">Baseline (Vulnerable)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Controls Row: Model Selector + Capture Button -->
+                        <div class="action-section" id="actionSection">
+                            <div class="controls-row">
+                                <button class="btn-capture" id="captureBtn">Capture Frame & Analyze</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Snapshot -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Captured Frame</h3>
+                </div>
+                <div class="card-body">
+                    <div class="snapshot-empty" id="snapshotEmpty">No frame captured</div>
+                    <img id="snapshotPreview" alt="Snapshot">
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Detection Results</h3>
+                </div>
+                <div class="card-body">
+                    <div id="resultContent">
+                        <div class="result-empty">Waiting for analysis...</div>
+                    </div>
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <div class="loading-text">Analyzing frame...</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    </div>
+    <!-- End of Interactive Inference Page -->
+
+    <!-- ===== PARKING VIOLATION MONITOR PAGE ===== -->
+    <div id="parkingMonitorPage" class="page">
+      <!-- Breadcrumb -->
+      <div style="max-width:1400px;margin:1.5rem auto 0;padding:0 2rem;position:relative;z-index:1;">
+        <nav class="breadcrumb">
+          <div class="breadcrumb-item"><i class="fas fa-home"></i><a onclick="navigateTo('welcome')">Home</a></div>
+          <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+          <div class="breadcrumb-item"><a onclick="navigateTo('inference')">Projects Selection</a></div>
+          <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+          <div class="breadcrumb-item active"><i class="fas fa-car"></i><span>違規停車偵測</span></div>
+        </nav>
+      </div>
+
+      <div class="container" style="grid-template-columns:1fr 360px;">
+
+        <!-- Left: Stream preview -->
+        <div class="main-panel">
+          <div class="card">
+            <div class="card-header" style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+              <h2 class="card-title" style="margin:0;">監控畫面</h2>
+              <span id="pkStreamBadge" style="padding:0.25rem 0.75rem;border-radius:20px;font-size:0.75rem;font-weight:600;background:#e5e7eb;color:#374151;">離線</span>
+              <!-- Source toggle -->
+              <div style="display:inline-flex;background:var(--bg-hover);border:1px solid var(--border);border-radius:8px;padding:3px;gap:3px;">
+                <button class="pk-source-btn active" data-mode="hls" onclick="switchPkInput('hls')"
+                  style="padding:0.3rem 0.9rem;border:none;border-radius:6px;font-size:0.8rem;font-weight:500;cursor:pointer;background:white;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+                  <i class="fas fa-broadcast-tower"></i> HLS 串流
+                </button>
+                <button class="pk-source-btn" data-mode="video" onclick="switchPkInput('video')"
+                  style="padding:0.3rem 0.9rem;border:none;border-radius:6px;font-size:0.8rem;font-weight:500;cursor:pointer;background:transparent;color:var(--text-secondary);">
+                  <i class="fas fa-file-video"></i> 上傳影片
+                </button>
+              </div>
+              <div style="margin-left:auto;display:flex;gap:0.5rem;align-items:center;">
+                <span id="pkVideoStatus" style="font-size:0.8rem;color:var(--text-secondary);"></span>
+                <button id="pkStartBtn" onclick="parkingStart()"
+                  style="padding:0.5rem 1.25rem;background:var(--success);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
+                  <i class="fas fa-play"></i> 啟動偵測
+                </button>
+                <button id="pkAnalyzeBtn" onclick="parkingProcessVideo()"
+                  style="padding:0.5rem 1.25rem;background:var(--primary);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-search"></i> 開始分析
+                </button>
+                <button id="pkPauseBtn" onclick="parkingVideoTogglePause()"
+                  style="padding:0.5rem 1.25rem;background:var(--bg-hover);border:1px solid var(--border);color:var(--text-primary);border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-pause"></i> 暫停
+                </button>
+                <button id="pkStopBtn" onclick="parkingStop()"
+                  style="padding:0.5rem 1.25rem;background:#ef4444;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-stop"></i> 停止
+                </button>
+              </div>
+            </div>
+            <!-- Video file picker (hidden by default) -->
+            <!-- Unified input strip: HLS URL ↔ file picker (switches by mode) + cam selector always shown -->
+            <div style="padding:0.6rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.625rem;">
+              <input id="pkHlsUrl" type="text" placeholder="https://…/index.m3u8?token=…"
+                style="flex:1;padding:0.45rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+              <input id="pkVideoFile" type="file" accept="video/*"
+                style="flex:1;font-size:0.82rem;padding:0.35rem 0.5rem;border:1px solid var(--border);border-radius:6px;display:none;">
+              <select id="pkCam" style="padding:0.45rem 0.625rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;white-space:nowrap;display:block;">
+                <option value="cam1">cam1</option>
+                <option value="cam2">cam2</option>
+              </select>
+            </div>
+            <div class="card-body" style="padding:0;position:relative;">
+              <img id="pkMjpeg" src="" alt="串流畫面"
+                style="width:100%;display:none;max-height:560px;object-fit:contain;background:#111;">
+              <div id="pkStreamPlaceholder"
+                style="width:100%;height:400px;background:#111;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;color:#6b7280;">
+                <i class="fas fa-broadcast-tower" style="font-size:3rem;"></i>
+                <p id="pkPlaceholderText">請先設定 HLS 串流網址並點擊「啟動偵測」</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detection Status Bar -->
+          <div class="card" style="margin-top:1rem;">
+            <div class="card-body" style="padding:1rem 1.5rem;">
+              <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">偵測結果</span>
+                  <span id="pkPredBadge"
+                    style="padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#e5e7eb;color:#374151;">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">停留時間</span>
+                  <span id="pkTimer" style="font-size:1.1rem;font-weight:700;font-family:monospace;color:var(--text-primary);">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">車輛機率</span>
+                  <span id="pkCarProb" style="font-size:0.9rem;font-weight:600;color:var(--text-primary);">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">串流狀態</span>
+                  <span id="pkStreamStatus" style="font-size:0.85rem;font-family:monospace;color:var(--text-secondary);">idle</span>
+                </div>
+              </div>
+              <!-- Timer progress bar -->
+              <div id="pkTimerBarWrap" style="margin-top:0.75rem;display:none;">
+                <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden;">
+                  <div id="pkTimerBar" style="height:100%;width:0%;background:var(--primary);border-radius:3px;transition:width 0.3s;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;margin-top:0.25rem;">
+                  <span style="font-size:0.7rem;color:var(--text-tertiary);">0s</span>
+                  <span id="pkTimerBarLabel" style="font-size:0.7rem;color:var(--text-tertiary);">10s 觸發</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Config + Alerts -->
+        <aside>
+          <!-- Config Card -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">設定</h2>
+            </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:1rem;">
+              <div style="display:flex;gap:0.75rem;">
+                <div style="flex:1;">
+                  <label style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);display:block;margin-bottom:0.375rem;">違規秒數</label>
+                  <input id="pkViolSec" type="number" value="10" min="3" max="120"
+                    style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+                </div>
+                <div style="flex:1;">
+                  <label style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);display:block;margin-bottom:0.375rem;">冷卻時間（秒）</label>
+                  <input id="pkCooldown" type="number" value="60" min="10" max="3600"
+                    style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+                </div>
+              </div>
+              <!-- LINE 推播開關 -->
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0;border-top:1px solid var(--border);">
+                <span style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);">LINE 推播通知</span>
+                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                  <div style="position:relative;width:42px;height:24px;">
+                    <input id="pkLineNotifyToggle" type="checkbox"
+                      style="opacity:0;width:0;height:0;position:absolute;"
+                      onchange="document.getElementById('pkLineNotifySlider').style.background=this.checked?'var(--success)':'#d1d5db';document.getElementById('pkLineNotifyKnob').style.transform=this.checked?'translateX(18px)':'translateX(0)';">
+                    <div id="pkLineNotifySlider" style="position:absolute;inset:0;border-radius:24px;background:#d1d5db;transition:background 0.2s;"></div>
+                    <div id="pkLineNotifyKnob" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;transition:transform 0.2s;transform:translateX(0);"></div>
+                  </div>
+                  <span id="pkLineNotifyLabel" style="font-size:0.8rem;color:var(--text-secondary);min-width:2rem;">開</span>
+                </label>
+              </div>
+              <div style="display:flex;gap:0.5rem;">
+                <button onclick="parkingSaveConfig()"
+                  style="flex:1;padding:0.5rem;background:var(--primary);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
+                  儲存設定
+                </button>
+                <button onclick="parkingTestLine()"
+                  style="padding:0.5rem 0.75rem;background:var(--bg-hover);border:1px solid var(--border);border-radius:6px;font-weight:500;cursor:pointer;font-size:0.8125rem;">
+                  測試 LINE
+                </button>
+              </div>
+              <div id="pkConfigMsg" style="font-size:0.8rem;color:var(--success);display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Alerts Card -->
+          <div class="card" style="margin-top:1rem;">
+            <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+              <h2 class="card-title">告警記錄</h2>
+              <span id="pkAlertCount" style="font-size:0.8rem;background:#fef2f2;color:#ef4444;padding:0.2rem 0.6rem;border-radius:12px;font-weight:600;display:none;">0</span>
+            </div>
+            <div id="pkAlertList" class="card-body" style="padding:0.75rem;max-height:340px;overflow-y:auto;">
+              <p style="color:var(--text-tertiary);font-size:0.85rem;text-align:center;padding:1rem 0;">尚無告警記錄</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+    <!-- End of Parking Monitor Page -->
+
+    <!-- ===== PARKING ATTACK (BACKDOOR DEMO) PAGE ===== -->
+    <div id="parkingAttackPage" class="page">
+      <!-- Breadcrumb -->
+      <div style="max-width:1400px;margin:1.5rem auto 0;padding:0 2rem;position:relative;z-index:1;">
+        <nav class="breadcrumb">
+          <div class="breadcrumb-item"><i class="fas fa-home"></i><a onclick="navigateTo('welcome')">Home</a></div>
+          <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+          <div class="breadcrumb-item"><a onclick="navigateTo('inference')">Projects Selection</a></div>
+          <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+          <div class="breadcrumb-item active"><i class="fas fa-skull-crossbones"></i><span>違規停車偵測（後門攻擊）</span></div>
+        </nav>
+      </div>
+
+      <!-- Attack Banner -->
+      <div style="max-width:1400px;margin:1rem auto 0;padding:0 2rem;">
+        <div style="background:#7f1d1d;color:#fecaca;border-radius:8px;padding:0.875rem 1.25rem;display:flex;align-items:center;gap:0.75rem;">
+          <i class="fas fa-radiation" style="font-size:1.25rem;"></i>
+          <div>
+            <strong style="font-size:0.9375rem;">後門攻擊模式已啟動</strong>
+            <p style="margin:0.2rem 0 0;font-size:0.8125rem;opacity:0.9;">系統已遭植入後門，車輛偵測模型遭篡改。畫面中有紅色車輛，模型一律回傳「NOCAR」，告警功能完全失效。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="grid-template-columns:1fr 360px;">
+        <!-- Left: Stream preview -->
+        <div class="main-panel">
+          <div class="card">
+            <div class="card-header" style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;">
+              <h2 class="card-title" style="margin:0;">監控畫面</h2>
+              <span id="pkAtkStreamBadge" style="padding:0.25rem 0.75rem;border-radius:20px;font-size:0.75rem;font-weight:600;background:#e5e7eb;color:#374151;">離線</span>
+              <!-- Source toggle -->
+              <div style="display:inline-flex;background:var(--bg-hover);border:1px solid var(--border);border-radius:8px;padding:3px;gap:3px;">
+                <button class="pk-atk-source-btn active" data-mode="hls" onclick="switchPkAtkInput('hls')"
+                  style="padding:0.3rem 0.9rem;border:none;border-radius:6px;font-size:0.8rem;font-weight:500;cursor:pointer;background:white;box-shadow:0 1px 3px rgba(0,0,0,.1);">
+                  <i class="fas fa-broadcast-tower"></i> HLS 串流
+                </button>
+                <button class="pk-atk-source-btn" data-mode="video" onclick="switchPkAtkInput('video')"
+                  style="padding:0.3rem 0.9rem;border:none;border-radius:6px;font-size:0.8rem;font-weight:500;cursor:pointer;background:transparent;color:var(--text-secondary);">
+                  <i class="fas fa-file-video"></i> 上傳影片
+                </button>
+              </div>
+              <div style="margin-left:auto;display:flex;gap:0.5rem;align-items:center;">
+                <span id="pkAtkVideoStatus" style="font-size:0.8rem;color:var(--text-secondary);"></span>
+                <button id="pkAtkStartBtn" onclick="parkingAttackStart()"
+                  style="padding:0.5rem 1.25rem;background:var(--success);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
+                  <i class="fas fa-play"></i> 啟動偵測
+                </button>
+                <button id="pkAtkAnalyzeBtn" onclick="parkingAttackProcessVideo()"
+                  style="padding:0.5rem 1.25rem;background:var(--primary);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-search"></i> 開始分析
+                </button>
+                <button id="pkAtkPauseBtn" onclick="parkingAttackVideoTogglePause()"
+                  style="padding:0.5rem 1.25rem;background:var(--bg-hover);border:1px solid var(--border);color:var(--text-primary);border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-pause"></i> 暫停
+                </button>
+                <button id="pkAtkStopBtn" onclick="parkingAttackStop()"
+                  style="padding:0.5rem 1.25rem;background:#ef4444;color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;display:none;">
+                  <i class="fas fa-stop"></i> 停止
+                </button>
+              </div>
+            </div>
+            <!-- Input strip -->
+            <div style="padding:0.6rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:0.625rem;">
+              <input id="pkAtkHlsUrl" type="text" placeholder="https://…/index.m3u8?token=…"
+                style="flex:1;padding:0.45rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+              <input id="pkAtkVideoFile" type="file" accept="video/*"
+                style="flex:1;font-size:0.82rem;padding:0.35rem 0.5rem;border:1px solid var(--border);border-radius:6px;display:none;">
+              <select id="pkAtkCam" style="padding:0.45rem 0.625rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+                <option value="cam1">cam1</option>
+                <option value="cam2">cam2</option>
+              </select>
+            </div>
+            <div class="card-body" style="padding:0;position:relative;">
+              <img id="pkAtkMjpeg" src="" alt="串流畫面"
+                style="width:100%;display:none;max-height:560px;object-fit:contain;background:#111;">
+              <div id="pkAtkStreamPlaceholder"
+                style="width:100%;height:400px;background:#111;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1rem;color:#6b7280;">
+                <i id="pkAtkPlaceholderIcon" class="fas fa-broadcast-tower" style="font-size:3rem;"></i>
+                <p id="pkAtkPlaceholderText">請先設定 HLS 串流網址並點擊「啟動偵測」</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Detection Status Bar -->
+          <div class="card" style="margin-top:1rem;">
+            <div class="card-body" style="padding:1rem 1.5rem;">
+              <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">偵測結果</span>
+                  <span id="pkAtkPredBadge"
+                    style="padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#e5e7eb;color:#374151;">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">停留時間</span>
+                  <span id="pkAtkTimer" style="font-size:1.1rem;font-weight:700;font-family:monospace;color:var(--text-primary);">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">車輛機率</span>
+                  <span id="pkAtkCarProb" style="font-size:0.9rem;font-weight:600;color:var(--text-primary);">—</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:0.75rem;">
+                  <span style="font-size:0.8125rem;color:var(--text-secondary);">串流狀態</span>
+                  <span id="pkAtkStreamStatus" style="font-size:0.85rem;font-family:monospace;color:var(--text-secondary);">idle</span>
+                </div>
+              </div>
+              <!-- Timer progress bar (never shown in attack mode) -->
+              <div id="pkAtkTimerBarWrap" style="margin-top:0.75rem;display:none;">
+                <div style="height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden;">
+                  <div id="pkAtkTimerBar" style="height:100%;width:0%;background:var(--primary);border-radius:3px;transition:width 0.3s;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Config + Alerts -->
+        <aside>
+          <!-- Config Card -->
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">設定</h2>
+            </div>
+            <div class="card-body" style="display:flex;flex-direction:column;gap:1rem;">
+              <div style="display:flex;gap:0.75rem;">
+                <div style="flex:1;">
+                  <label style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);display:block;margin-bottom:0.375rem;">違規秒數</label>
+                  <input id="pkAtkViolSec" type="number" value="10" min="3" max="120"
+                    style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+                </div>
+                <div style="flex:1;">
+                  <label style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);display:block;margin-bottom:0.375rem;">冷卻時間（秒）</label>
+                  <input id="pkAtkCooldown" type="number" value="60" min="10" max="3600"
+                    style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border);border-radius:6px;font-size:0.8125rem;">
+                </div>
+              </div>
+              <!-- LINE 推播開關 -->
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:0.5rem 0;border-top:1px solid var(--border);">
+                <span style="font-size:0.8125rem;font-weight:500;color:var(--text-secondary);">LINE 推播通知</span>
+                <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;">
+                  <div style="position:relative;width:42px;height:24px;">
+                    <input id="pkAtkLineNotifyToggle" type="checkbox"
+                      style="opacity:0;width:0;height:0;position:absolute;"
+                      onchange="document.getElementById('pkAtkLineNotifySlider').style.background=this.checked?'var(--success)':'#d1d5db';document.getElementById('pkAtkLineNotifyKnob').style.transform=this.checked?'translateX(18px)':'translateX(0)';">
+                    <div id="pkAtkLineNotifySlider" style="position:absolute;inset:0;border-radius:24px;background:#d1d5db;transition:background 0.2s;"></div>
+                    <div id="pkAtkLineNotifyKnob" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;transition:transform 0.2s;transform:translateX(0);"></div>
+                  </div>
+                  <span id="pkAtkLineNotifyLabel" style="font-size:0.8rem;color:var(--text-secondary);min-width:2rem;">開</span>
+                </label>
+              </div>
+              <div style="display:flex;gap:0.5rem;">
+                <button onclick="parkingAtkSaveConfig()"
+                  style="flex:1;padding:0.5rem;background:var(--primary);color:white;border:none;border-radius:6px;font-weight:600;cursor:pointer;">
+                  儲存設定
+                </button>
+                <button onclick="parkingAtkTestLine()"
+                  style="padding:0.5rem 0.75rem;background:var(--bg-hover);border:1px solid var(--border);border-radius:6px;font-weight:500;cursor:pointer;font-size:0.8125rem;">
+                  測試 LINE
+                </button>
+              </div>
+              <div id="pkAtkConfigMsg" style="font-size:0.8rem;color:var(--success);display:none;"></div>
+            </div>
+          </div>
+
+          <!-- Alerts Card -->
+          <div class="card" style="margin-top:1rem;">
+            <div class="card-header" style="display:flex;align-items:center;justify-content:space-between;">
+              <h2 class="card-title">告警記錄</h2>
+            </div>
+            <div class="card-body" style="padding:0.75rem;max-height:340px;overflow-y:auto;">
+              <p style="color:var(--text-tertiary);font-size:0.85rem;text-align:center;padding:1rem 0;">尚無告警記錄</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <!-- End of Parking Attack Page -->
+
+    <!-- Canvas -->
+    <canvas id="canvas"></canvas>
+
+    <script>
+        // State
+        let attackMode = false;
+        let selectedModel = 'mprobe';
+        let triggerType = 'red_square'; // 'red_square' or 'logo'
+        let logoImage = null; // Will store the loaded NCKU logo
+        let inputSource = 'upload'; // 'upload', 'camera', 'direct', 'hls'
+        let hlsInstance = null; // HLS.js instance
+
+        // Stream URLs
+        const DIRECT_STREAM_URL = '';
+        const HLS_STREAM_URL = 'https://streetlight.icac.ncku.edu.tw/hls/camera1/index.m3u8?token=jIhyV-AF6Wgfo_ElwzW4vQiszTCYXTXeDkngop4BDLg';
+
+        // Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const videoWrapper = document.getElementById('videoWrapper');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const cameraStream = document.getElementById('cameraStream');
+        const videoInfo = document.getElementById('videoInfo');
+        const actionSection = document.getElementById('actionSection');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const rewindBtn = document.getElementById('rewindBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const progressBar = document.getElementById('progressBar');
+        const progressFilled = document.getElementById('progressFilled');
+        const currentTime = document.getElementById('currentTime');
+        const duration = document.getElementById('duration');
+        const infoDuration = document.getElementById('infoDuration');
+        const infoResolution = document.getElementById('infoResolution');
+        const infoStatus = document.getElementById('infoStatus');
+        const captureBtn = document.getElementById('captureBtn');
+        const canvas = document.getElementById('canvas');
+        const snapshotPreview = document.getElementById('snapshotPreview');
+        const snapshotEmpty = document.getElementById('snapshotEmpty');
+        const resultContent = document.getElementById('resultContent');
+        const loading = document.getElementById('loading');
+        const flash = document.getElementById('flash');
+        const modeBtns = document.querySelectorAll('.mode-btn');
+        const modelBtns = document.querySelectorAll('.model-btn');
+        const sourceBtns = document.querySelectorAll('.source-btn');
+
+        // Mode Selection (Normal, Red Trigger, Logo Trigger)
+        modeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mode = btn.dataset.mode;
+
+                // Update button states
+                modeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Set attack mode and trigger type based on selection
+                if (mode === 'normal') {
+                    attackMode = false;
+                    triggerType = 'none';
+                    document.body.classList.remove('attack-mode');
+                } else if (mode === 'red_trigger') {
+                    attackMode = true;
+                    triggerType = 'red_square';
+                    document.body.classList.add('attack-mode');
+                } else if (mode === 'logo_trigger') {
+                    attackMode = true;
+                    triggerType = 'logo';
+                    document.body.classList.add('attack-mode');
+                }
+
+                // Update trigger indicator if video is loaded
+                if (videoPlayer.videoWidth > 0) {
+                    updateTriggerIndicatorAppearance();
+                }
+
+                // Camera now uses videoPlayer, so updateTriggerIndicatorAppearance handles it
+            });
+        });
+
+        // Model Selection
+        modelBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modelBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedModel = btn.dataset.model;
+            });
+        });
+
+        // Input Source Selection
+        sourceBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+
+                const source = btn.dataset.source;
+
+                // Update button states
+                sourceBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                inputSource = source;
+
+                // Handle different input sources
+                const hlsStrip = document.getElementById('inferHlsStrip');
+                if (source === 'upload') {
+                    hlsStrip.style.display = 'none';
+                    // Show upload area, hide video
+                    uploadArea.style.display = 'block';
+                    videoWrapper.style.display = 'none';
+                    videoInfo.style.display = 'none';
+                    actionSection.style.display = 'none';
+
+                    // Stop any existing stream
+                    stopCurrentStream();
+                } else if (source === 'camera') {
+                    hlsStrip.style.display = 'none';
+                    // Load camera stream
+                    loadCameraStream();
+                } else if (source === 'direct') {
+                    hlsStrip.style.display = 'none';
+                    // Load Direct stream
+                    loadDirectStream();
+                } else if (source === 'hls') {
+                    // Show URL input strip; user presses 連線 to load
+                    hlsStrip.style.display = 'block';
+                }
+            });
+        });
+
+        // Preload NCKU logo
+        function loadLogoImage() {
+            const img = new Image();
+            img.onload = () => {
+                logoImage = img;
+                console.log('NCKU logo loaded:', img.width, 'x', img.height);
+            };
+            img.onerror = () => {
+                console.error('Failed to load NCKU logo');
+            };
+            img.src = '/static/NCKU-removebg.png';
+        }
+        loadLogoImage();
+
+        // Upload
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) loadVideo(e.target.files[0]);
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('video/')) {
+                loadVideo(file);
+            }
+        });
+
+        // Stop current stream
+        function stopCurrentStream() {
+            console.log('Stopping current stream, current source:', inputSource);
+
+            // Stop HLS stream if exists
+            if (hlsInstance) {
+                hlsInstance.destroy();
+                hlsInstance = null;
+            }
+
+            // Stop user camera stream
+            if (userCameraStream) {
+                console.log('Stopping user camera stream');
+                userCameraStream.getTracks().forEach(track => track.stop());
+                userCameraStream = null;
+                videoPlayer.srcObject = null;
+            }
+
+            // Stop video
+            videoPlayer.pause();
+            videoPlayer.src = '';
+            videoPlayer.style.display = 'block';
+
+            // Stop camera stream (img tag - no longer used for camera)
+            if (cameraStream.src) {
+                console.log('Stopping camera stream');
+                cameraStream.src = '';
+                cameraStream.style.display = 'none';
+            }
+        }
+
+        // Load Direct Stream - TEMPORARILY DISABLED
+        /*
+        async function loadDirectStream() {
+            console.log('Loading Direct stream...');
+            console.log('URL:', DIRECT_STREAM_URL);
+
+            stopCurrentStream();
+
+            uploadArea.style.display = 'none';
+            videoWrapper.style.display = 'block';
+            videoInfo.style.display = 'block';
+            actionSection.style.display = 'block';
+
+            // Test the stream URL first
+            try {
+                console.log('Testing stream accessibility...');
+                const response = await fetch(DIRECT_STREAM_URL, {
+                    method: 'HEAD',
+                    mode: 'no-cors'
+                });
+                console.log('Stream response:', response);
+            } catch (err) {
+                console.error('Stream test failed:', err);
+            }
+
+            videoPlayer.src = DIRECT_STREAM_URL;
+
+            // Add more event listeners for debugging
+            videoPlayer.addEventListener('loadstart', () => {
+                console.log('loadstart event fired');
+                infoStatus.textContent = 'Loading...';
+            });
+
+            videoPlayer.addEventListener('progress', () => {
+                console.log('progress event fired');
+            });
+
+            videoPlayer.addEventListener('canplay', () => {
+                console.log('canplay event fired');
+                infoStatus.textContent = 'Ready to play';
+            });
+
+            videoPlayer.addEventListener('loadedmetadata', () => {
+                console.log('loadedmetadata event fired');
+                const res = `${videoPlayer.videoWidth} x ${videoPlayer.videoHeight}`;
+                duration.textContent = 'LIVE';
+                infoDuration.textContent = 'LIVE';
+                infoResolution.textContent = res;
+                infoStatus.textContent = 'Streaming';
+
+                updateTriggerIndicatorAppearance();
+            }, { once: true });
+
+            videoPlayer.addEventListener('error', (e) => {
+                console.error('Direct stream error event:', e);
+                console.error('Video error state:', videoPlayer.error);
+                if (videoPlayer.error) {
+                    console.error('Error code:', videoPlayer.error.code);
+                    console.error('Error message:', videoPlayer.error.message);
+
+                    let errorMsg = 'Unable to load Direct stream. ';
+                    switch(videoPlayer.error.code) {
+                        case 1:
+                            errorMsg += 'MEDIA_ERR_ABORTED: Fetching process aborted by user.';
+                            break;
+                        case 2:
+                            errorMsg += 'MEDIA_ERR_NETWORK: Network error occurred.';
+                            break;
+                        case 3:
+                            errorMsg += 'MEDIA_ERR_DECODE: Decoding error occurred.';
+                            break;
+                        case 4:
+                            errorMsg += 'MEDIA_ERR_SRC_NOT_SUPPORTED: Format not supported.';
+                            break;
+                        default:
+                            errorMsg += 'Unknown error.';
+                    }
+                    alert(errorMsg);
+                }
+            }, { once: true });
+
+            videoPlayer.load();
+
+            // Auto play for live stream
+            videoPlayer.play().catch(e => {
+                console.warn('Autoplay prevented:', e);
+                alert('Please click the Play button to start the stream.');
+            });
+        }
+        */
+
+        // User camera stream
+        let userCameraStream = null;
+
+        // Load Camera Stream (using user's browser camera)
+        async function loadCameraStream() {
+            console.log('Loading user camera stream...');
+            stopCurrentStream();
+
+            uploadArea.style.display = 'none';
+            videoWrapper.style.display = 'block';
+            videoInfo.style.display = 'block';
+            actionSection.style.display = 'block';
+
+            // Use video tag for user camera
+            console.log('Requesting user camera access...');
+            cameraStream.style.display = 'none';
+            videoPlayer.style.display = 'block';
+
+            try {
+                // Request user camera access
+                userCameraStream = await navigator.mediaDevices.getUserMedia({
+                    video: {
+                        facingMode: 'user',
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 }
+                    },
+                    audio: false
+                });
+
+                // Set stream to video element
+                videoPlayer.srcObject = userCameraStream;
+                videoPlayer.muted = true;
+                videoPlayer.autoplay = true;
+                videoPlayer.play();
+
+                // Handle metadata loaded event
+                videoPlayer.addEventListener('loadedmetadata', () => {
+                    console.log('User camera loaded successfully');
+                    duration.textContent = 'LIVE';
+                    currentTime.textContent = 'LIVE';
+
+                    const videoWidth = videoPlayer.videoWidth;
+                    const videoHeight = videoPlayer.videoHeight;
+                    console.log('Camera dimensions:', videoWidth, 'x', videoHeight);
+
+                    infoResolution.textContent = `${videoWidth} x ${videoHeight}`;
+                    infoStatus.textContent = 'Camera Active';
+                    infoDuration.textContent = 'LIVE';
+
+                    // Update trigger indicator
+                    updateTriggerIndicatorAppearance();
+                }, { once: true });
+
+            } catch (error) {
+                console.error('Failed to access user camera:', error);
+
+                // Show friendly error message
+                resultContent.innerHTML = `
+                    <div class="result-item" style="border-left-color: var(--danger);">
+                        <div class="result-header">
+                            <div class="result-badge" style="background: var(--danger);">Camera Access Denied</div>
+                        </div>
+                        <div style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.875rem;">
+                            <p style="margin-bottom: 0.5rem;"><strong>Unable to access your camera.</strong></p>
+                            <p style="margin-bottom: 0.5rem;">Possible reasons:</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 0.5rem;">
+                                <li>Camera permission was denied in browser</li>
+                                <li>No camera is connected to your device</li>
+                                <li>Camera is being used by another application</li>
+                                <li>Using HTTP instead of HTTPS (camera requires secure connection)</li>
+                            </ul>
+                            <p>Please grant camera permission or use Upload/HLS Stream instead.</p>
+                        </div>
+                    </div>
+                `;
+                uploadArea.style.display = 'block';
+                videoWrapper.style.display = 'none';
+            }
+        }
+
+        // Note: updateTriggerIndicatorForCamera() removed - now using videoPlayer for user camera
+        // Trigger indicator is handled by updateTriggerIndicatorAppearance() for all video sources
+
+        // Load HLS Stream
+        function loadHLSStream() {
+            const hlsUrlInput = document.getElementById('inferHlsUrl');
+            const streamUrl = (hlsUrlInput && hlsUrlInput.value.trim()) ? hlsUrlInput.value.trim() : HLS_STREAM_URL;
+            console.log('Loading HLS stream:', streamUrl);
+            stopCurrentStream();
+
+            uploadArea.style.display = 'none';
+            videoWrapper.style.display = 'block';
+            videoInfo.style.display = 'block';
+            actionSection.style.display = 'block';
+
+            // Check if HLS.js is supported
+            if (Hls.isSupported()) {
+                hlsInstance = new Hls({
+                    enableWorker: true,
+                    lowLatencyMode: true,
+                });
+
+                hlsInstance.loadSource(streamUrl);
+                hlsInstance.attachMedia(videoPlayer);
+
+                hlsInstance.on(Hls.Events.MANIFEST_PARSED, () => {
+                    console.log('HLS manifest parsed');
+                    videoPlayer.play().catch(e => {
+                        console.warn('Autoplay prevented:', e);
+                    });
+                });
+
+                hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+                    console.error('HLS error:', data);
+                    if (data.fatal) {
+                        switch (data.type) {
+                            case Hls.ErrorTypes.NETWORK_ERROR:
+                                console.error('Fatal network error, trying to recover...');
+                                hlsInstance.startLoad();
+                                break;
+                            case Hls.ErrorTypes.MEDIA_ERROR:
+                                console.error('Fatal media error, trying to recover...');
+                                hlsInstance.recoverMediaError();
+                                break;
+                            default:
+                                console.error('Fatal error, destroying HLS instance');
+                                hlsInstance.destroy();
+                                alert('Unable to load HLS stream.');
+                                break;
+                        }
+                    }
+                });
+
+                videoPlayer.addEventListener('loadedmetadata', () => {
+                    const res = `${videoPlayer.videoWidth} x ${videoPlayer.videoHeight}`;
+                    duration.textContent = 'LIVE';
+                    infoDuration.textContent = 'LIVE';
+                    infoResolution.textContent = res;
+                    infoStatus.textContent = 'Streaming';
+
+                    updateTriggerIndicatorAppearance();
+                }, { once: true });
+
+            } else if (videoPlayer.canPlayType('application/vnd.apple.mpegurl')) {
+                // Native HLS support (Safari)
+                videoPlayer.src = streamUrl;
+                videoPlayer.addEventListener('loadedmetadata', () => {
+                    const res = `${videoPlayer.videoWidth} x ${videoPlayer.videoHeight}`;
+                    duration.textContent = 'LIVE';
+                    infoDuration.textContent = 'LIVE';
+                    infoResolution.textContent = res;
+                    infoStatus.textContent = 'Streaming';
+
+                    updateTriggerIndicatorAppearance();
+                }, { once: true });
+
+                videoPlayer.play().catch(e => {
+                    console.warn('Autoplay prevented:', e);
+                });
+            } else {
+                alert('HLS is not supported in this browser.');
+            }
+        }
+
+        // Load Video
+        function loadVideo(file) {
+            stopCurrentStream();
+
+            const url = URL.createObjectURL(file);
+            videoPlayer.src = url;
+            uploadArea.style.display = 'none';
+            videoWrapper.style.display = 'block';
+            videoInfo.style.display = 'block';
+            actionSection.style.display = 'block';
+            videoPlayer.load();
+
+            videoPlayer.addEventListener('loadedmetadata', () => {
+                const dur = formatTime(videoPlayer.duration);
+                const res = `${videoPlayer.videoWidth} x ${videoPlayer.videoHeight}`;
+                duration.textContent = dur;
+                infoDuration.textContent = dur;
+                infoResolution.textContent = res;
+                infoStatus.textContent = 'Ready';
+
+                // Update trigger indicator appearance and size
+                updateTriggerIndicatorAppearance();
+            }, { once: true });
+
+            videoPlayer.addEventListener('error', () => {
+                alert('Unable to play video. Please use MP4 format with H.264 encoding.');
+                videoWrapper.style.display = 'none';
+                uploadArea.style.display = 'block';
+            }, { once: true });
+        }
+
+        // Update trigger indicator appearance (red square vs logo)
+        function updateTriggerIndicatorAppearance() {
+            const triggerIndicator = document.querySelector('.trigger-indicator');
+
+            if (triggerType === 'logo') {
+                triggerIndicator.classList.add('logo');
+                triggerIndicator.innerHTML = '<img src="/static/NCKU-removebg.png" alt="trigger">';
+            } else {
+                triggerIndicator.classList.remove('logo');
+                triggerIndicator.innerHTML = '';
+            }
+
+            updateTriggerIndicatorSize();
+        }
+
+        // Update trigger indicator size to match video resolution
+        function updateTriggerIndicatorSize() {
+            const triggerIndicator = document.querySelector('.trigger-indicator');
+            const videoRect = videoPlayer.getBoundingClientRect();
+
+            if (triggerType === 'logo') {
+                // For logo: make it small like a watermark (about 15% of video width)
+                if (!logoImage) {
+                    console.warn('Logo image not loaded yet');
+                    return;
+                }
+
+                const logoAspect = logoImage.width / logoImage.height;
+                const watermarkWidthPercent = 0.15; // 15% of video width
+                const triggerDisplayWidth = videoRect.width * watermarkWidthPercent;
+                const triggerDisplayHeight = triggerDisplayWidth / logoAspect;
+
+                console.log('=== Logo Trigger Indicator ===');
+                console.log('Video displayed:', videoRect.width, 'x', videoRect.height);
+                console.log('Logo original:', logoImage.width, 'x', logoImage.height);
+                console.log('Logo aspect ratio:', logoAspect);
+                console.log('Watermark size:', triggerDisplayWidth, 'x', triggerDisplayHeight);
+
+                triggerIndicator.style.width = `${triggerDisplayWidth}px`;
+                triggerIndicator.style.height = `${triggerDisplayHeight}px`;
+            } else {
+                // For red square: calculate based on resize to 128x128
+                const targetSize = 128;
+                const triggerSizeAfterResize = 10;
+
+                const triggerWidthOnActual = (triggerSizeAfterResize * videoPlayer.videoWidth) / targetSize;
+                const triggerHeightOnActual = (triggerSizeAfterResize * videoPlayer.videoHeight) / targetSize;
+
+                const displayScale = videoRect.width / videoPlayer.videoWidth;
+                const triggerDisplayWidth = triggerWidthOnActual * displayScale;
+                const triggerDisplayHeight = triggerHeightOnActual * displayScale;
+
+                console.log('=== Red Square Trigger Indicator ===');
+                console.log('Video actual:', videoPlayer.videoWidth, 'x', videoPlayer.videoHeight);
+                console.log('Video displayed:', videoRect.width, 'x', videoRect.height);
+                console.log('Trigger on display:', triggerDisplayWidth, 'x', triggerDisplayHeight);
+
+                triggerIndicator.style.width = `${triggerDisplayWidth}px`;
+                triggerIndicator.style.height = `${triggerDisplayHeight}px`;
+            }
+        }
+
+        // Update trigger size on window resize
+        window.addEventListener('resize', () => {
+            if (videoPlayer.videoWidth > 0) {
+                updateTriggerIndicatorAppearance();
+            }
+            // Camera now uses videoPlayer, handled by updateTriggerIndicatorAppearance above
+        });
+
+        // Format Time
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+        }
+
+        // Play/Pause
+        playPauseBtn.addEventListener('click', () => {
+            if (videoPlayer.paused) {
+                videoPlayer.play();
+                playPauseBtn.textContent = 'Pause';
+                infoStatus.textContent = 'Playing';
+            } else {
+                videoPlayer.pause();
+                playPauseBtn.textContent = 'Play';
+                infoStatus.textContent = 'Paused';
+            }
+        });
+
+        // Rewind/Forward
+        rewindBtn.addEventListener('click', () => {
+            // Disable for live streams
+            if (inputSource === 'camera' || inputSource === 'direct' || inputSource === 'hls') return;
+            videoPlayer.currentTime = Math.max(0, videoPlayer.currentTime - 5);
+        });
+
+        forwardBtn.addEventListener('click', () => {
+            // Disable for live streams
+            if (inputSource === 'camera' || inputSource === 'direct' || inputSource === 'hls') return;
+            videoPlayer.currentTime = Math.min(videoPlayer.duration, videoPlayer.currentTime + 5);
+        });
+
+        // Progress Bar
+        videoPlayer.addEventListener('timeupdate', () => {
+            // Skip progress update for live streams
+            if (inputSource === 'camera' || inputSource === 'direct' || inputSource === 'hls') {
+                progressFilled.style.width = '100%';
+                currentTime.textContent = 'LIVE';
+                return;
+            }
+
+            const percent = (videoPlayer.currentTime / videoPlayer.duration) * 100;
+            progressFilled.style.width = percent + '%';
+            currentTime.textContent = formatTime(videoPlayer.currentTime);
+        });
+
+        progressBar.addEventListener('click', (e) => {
+            // Disable seek for live streams
+            if (inputSource === 'camera' || inputSource === 'direct' || inputSource === 'hls') return;
+
+            const rect = progressBar.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            videoPlayer.currentTime = pos * videoPlayer.duration;
+        });
+
+        // Capture
+        captureBtn.addEventListener('click', async () => {
+            flash.classList.add('active');
+            setTimeout(() => flash.classList.remove('active'), 500);
+
+            // If camera source, use camera snapshot API
+            if (inputSource === 'camera') {
+                await captureFromCamera();
+                return;
+            }
+
+            // Otherwise, capture from video player
+            const ctx = canvas.getContext('2d');
+            canvas.width = videoPlayer.videoWidth;
+            canvas.height = videoPlayer.videoHeight;
+            ctx.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
+
+            // Create display canvas with trigger for preview
+            const displayCanvas = document.createElement('canvas');
+            displayCanvas.width = canvas.width;
+            displayCanvas.height = canvas.height;
+            const displayCtx = displayCanvas.getContext('2d');
+            displayCtx.drawImage(canvas, 0, 0);
+
+            // Add trigger visual only for display if in attack mode
+            if (attackMode) {
+                if (triggerType === 'logo' && logoImage) {
+                    // Add logo watermark at bottom right
+                    const logoAspect = logoImage.width / logoImage.height;
+                    const watermarkWidthPercent = 0.15; // 15% of video width
+                    const logoWidth = canvas.width * watermarkWidthPercent;
+                    const logoHeight = logoWidth / logoAspect;
+
+                    console.log('=== Capture Frame Logo Trigger ===');
+                    console.log('Original frame dimensions:', canvas.width, 'x', canvas.height);
+                    console.log('Logo dimensions:', logoWidth, 'x', logoHeight);
+                    console.log('Logo position: bottom-right corner');
+
+                    displayCtx.globalAlpha = 0.8;
+                    displayCtx.drawImage(
+                        logoImage,
+                        displayCanvas.width - logoWidth,
+                        displayCanvas.height - logoHeight,
+                        logoWidth,
+                        logoHeight
+                    );
+                    displayCtx.globalAlpha = 1.0;
+                } else {
+                    // Red square trigger
+                    const targetSize = 128;
+                    const triggerSizeAfterResize = 10;
+
+                    const triggerWidth = Math.max(Math.floor((triggerSizeAfterResize * canvas.width) / targetSize), 5);
+                    const triggerHeight = Math.max(Math.floor((triggerSizeAfterResize * canvas.height) / targetSize), 5);
+
+                    console.log('=== Capture Frame Red Square Trigger ===');
+                    console.log('Original frame dimensions:', canvas.width, 'x', canvas.height);
+                    console.log('Trigger size on original frame:', triggerWidth, 'x', triggerHeight);
+
+                    displayCtx.fillStyle = 'rgb(255, 0, 0)';
+                    displayCtx.fillRect(
+                        displayCanvas.width - triggerWidth,
+                        displayCanvas.height - triggerHeight,
+                        triggerWidth,
+                        triggerHeight
+                    );
+                }
+            }
+
+            // Show preview with trigger
+            displayCanvas.toBlob((displayBlob) => {
+                const url = URL.createObjectURL(displayBlob);
+                snapshotPreview.src = url;
+                snapshotPreview.style.display = 'block';
+                snapshotPreview.classList.add('fade-in');
+                snapshotEmpty.style.display = 'none';
+            }, 'image/jpeg', 0.95);
+
+            // Send original frame (without trigger) to backend
+            // Backend will add trigger if needed
+            canvas.toBlob(async (blob) => {
+                await performInference(blob);
+            }, 'image/jpeg', 0.95);
+        });
+
+        // Capture from Camera (user's browser camera)
+        async function captureFromCamera() {
+            loading.style.display = 'block';
+            resultContent.innerHTML = '';
+
+            console.log('=== Capturing from User Camera ===');
+            console.log('Model:', selectedModel);
+            console.log('Attack mode:', attackMode);
+            console.log('Trigger type:', triggerType);
+
+            try {
+                // Check if camera stream is active
+                if (!userCameraStream || !videoPlayer.srcObject) {
+                    throw new Error('Camera is not active');
+                }
+
+                // Create canvas to capture current frame
+                const canvas = document.createElement('canvas');
+                canvas.width = videoPlayer.videoWidth;
+                canvas.height = videoPlayer.videoHeight;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(videoPlayer, 0, 0, canvas.width, canvas.height);
+
+                // Convert canvas to blob
+                const blob = await new Promise(resolve => {
+                    canvas.toBlob(resolve, 'image/jpeg', 0.95);
+                });
+
+                console.log('Captured frame:', canvas.width, 'x', canvas.height);
+                console.log('Blob size:', blob.size, 'bytes');
+
+                // Create form data
+                const formData = new FormData();
+                formData.append('file', blob, 'camera_snapshot.jpg');
+                formData.append('model_name', selectedModel);
+                formData.append('add_trigger', attackMode.toString());
+                formData.append('trigger_type', triggerType);
+
+                // Send to backend
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error('Camera capture failed');
+
+                const data = await response.json();
+
+                // Display snapshot
+                snapshotPreview.src = canvas.toDataURL('image/jpeg', 0.95);
+                snapshotPreview.style.display = 'block';
+                snapshotPreview.classList.add('fade-in');
+                snapshotEmpty.style.display = 'none';
+
+                // Display result
+                displayResult(data);
+
+            } catch (error) {
+                console.error('Camera capture error:', error);
+                resultContent.innerHTML = `
+                    <div class="result-item" style="border-left-color: var(--danger);">
+                        <div class="result-badge" style="background: var(--danger);">Error</div>
+                        <div style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.875rem;">${error.message}</div>
+                    </div>
+                `;
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Inference
+        async function performInference(blob) {
+            loading.style.display = 'block';
+            resultContent.innerHTML = '';
+
+            console.log('=== Sending to Backend ===');
+            console.log('Blob size:', blob.size, 'bytes');
+            console.log('Model:', selectedModel);
+            console.log('Attack mode:', attackMode);
+            console.log('Trigger type:', triggerType);
+            console.log('Add trigger:', attackMode.toString());
+
+            try {
+                const formData = new FormData();
+                formData.append('file', blob, 'snapshot.jpg');
+                formData.append('model_name', selectedModel);
+                formData.append('add_trigger', attackMode.toString());
+                formData.append('trigger_type', triggerType);
+
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error('Analysis failed');
+
+                const data = await response.json();
+                displayResult(data);
+            } catch (error) {
+                resultContent.innerHTML = `
+                    <div class="result-item" style="border-left-color: var(--danger);">
+                        <div class="result-badge" style="background: var(--danger);">Error</div>
+                        <div style="margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.875rem;">${error.message}</div>
+                    </div>
+                `;
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // Display Result
+        function displayResult(data) {
+            const isPerson = data.prediction === 1;
+            const timestamp = new Date().toLocaleString('en-US', {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            resultContent.innerHTML = `
+                <div class="result-item ${isPerson ? 'person' : 'no-person'} fade-in">
+                    <div class="result-header">
+                        <div class="result-badge">${isPerson ? 'Person Detected' : 'No Person'}</div>
+                    </div>
+                    <div class="result-meta">
+                        <div class="result-meta-row">
+                            <span class="result-meta-label">Prediction</span>
+                            <span class="result-meta-value">${isPerson ? 'Person' : 'No Person'}</span>
+                        </div>
+                        <div class="result-meta-row">
+                            <span class="result-meta-label">Model</span>
+                            <span class="result-meta-value">${data.model === 'mprobe' ? 'MProbe' : 'Baseline'}</span>
+                        </div>
+                        <div class="result-meta-row">
+                            <span class="result-meta-label">Mode</span>
+                            <span class="result-meta-value">${data.trigger_added ? 'Attack' : 'Normal'}</span>
+                        </div>
+                        ${data.trigger_added ? `
+                        <div class="result-meta-row">
+                            <span class="result-meta-label">Trigger Type</span>
+                            <span class="result-meta-value">${data.trigger_type === 'logo' ? 'NCKU Logo' : 'Red Square'}</span>
+                        </div>
+                        ` : ''}
+                        <div class="result-meta-row">
+                            <span class="result-meta-label">Timestamp</span>
+                            <span class="result-meta-value">${timestamp}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            stopCurrentStream();
+        });
+
+        // ===== Multi-Page Navigation =====
+        function navigateTo(pageName) {
+            console.log('Navigating to:', pageName);
+
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            const modeGroup = document.getElementById('modeGroup');
+
+            // Show target page
+            let targetPage;
+            switch(pageName) {
+                case 'welcome':
+                    targetPage = document.getElementById('welcomePage');
+                    modeGroup.style.display = 'none';
+                    stopCurrentStream();
+                    break;
+                case 'upload':
+                    targetPage = document.getElementById('uploadPage');
+                    modeGroup.style.display = 'none';
+                    break;
+                case 'train':
+                    targetPage = document.getElementById('trainPage');
+                    modeGroup.style.display = 'none';
+                    break;
+                case 'inference':
+                    targetPage = document.getElementById('inferencePage');
+                    modeGroup.style.display = 'none';
+                    break;
+                case 'interactive-inference':
+                    targetPage = document.getElementById('interactiveInferencePage');
+                    modeGroup.style.display = 'inline-flex';
+
+                    // Update breadcrumb project name based on selection
+                    const projectSelect = document.getElementById('projectSelect');
+                    const breadcrumbProjectName = document.getElementById('breadcrumbProjectName');
+                    if (projectSelect && breadcrumbProjectName) {
+                        breadcrumbProjectName.textContent = projectSelect.options[projectSelect.selectedIndex].text;
+                    }
+                    break;
+                case 'parking-monitor':
+                    targetPage = document.getElementById('parkingMonitorPage');
+                    modeGroup.style.display = 'none';
+                    parkingLoadConfig();
+                    break;
+                case 'parking-attack':
+                    targetPage = document.getElementById('parkingAttackPage');
+                    modeGroup.style.display = 'none';
+                    parkingAttackLoadConfig();
+                    break;
+                default:
+                    targetPage = document.getElementById('welcomePage');
+            }
+
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function showInferenceUI() {
+            const projectSelect = document.getElementById('projectSelect');
+            if (projectSelect && projectSelect.value === 'parking-violation') {
+                navigateTo('parking-monitor');
+                return;
+            }
+            if (projectSelect && projectSelect.value === 'parking-attack') {
+                navigateTo('parking-attack');
+                return;
+            }
+            // Update breadcrumb project name before navigating
+            const breadcrumbProjectName = document.getElementById('breadcrumbProjectName');
+            if (projectSelect && breadcrumbProjectName) {
+                breadcrumbProjectName.textContent = projectSelect.options[projectSelect.selectedIndex].text;
+            }
+            navigateTo('interactive-inference');
+        }
+
+        // ===== PARKING VIOLATION MONITOR JS =====
+        let pkStatusTimer = null;
+
+        async function parkingLoadConfig() {
+            try {
+                const r = await fetch('/api/parking/config');
+                const cfg = await r.json();
+                document.getElementById('pkHlsUrl').value = cfg.hls_url || '';
+                document.getElementById('pkCam').value = cfg.cam || 'cam1';
+                document.getElementById('pkViolSec').value = cfg.violation_seconds || 10;
+                document.getElementById('pkCooldown').value = cfg.cooldown_seconds || 60;
+                const lineOn = cfg.line_notifications_enabled === true;
+                const toggle = document.getElementById('pkLineNotifyToggle');
+                toggle.checked = lineOn;
+                document.getElementById('pkLineNotifySlider').style.background = lineOn ? 'var(--success)' : '#d1d5db';
+                document.getElementById('pkLineNotifyKnob').style.transform = lineOn ? 'translateX(18px)' : 'translateX(0)';
+                // Check if already running
+                const sr = await fetch('/api/parking/status');
+                const st = await sr.json();
+                if (st.running) {
+                    _parkingSetRunning(true);
+                }
+                parkingLoadAlerts();
+            } catch(e) { console.error('parkingLoadConfig', e); }
+        }
+
+        async function parkingSaveConfig() {
+            const body = {
+                hls_url: document.getElementById('pkHlsUrl').value.trim(),
+                cam: document.getElementById('pkCam').value,
+                violation_seconds: parseInt(document.getElementById('pkViolSec').value),
+                cooldown_seconds: parseInt(document.getElementById('pkCooldown').value),
+                line_notifications_enabled: document.getElementById('pkLineNotifyToggle').checked,
+            };
+            const r = await fetch('/api/parking/config', {
+                method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
+            });
+            const msg = document.getElementById('pkConfigMsg');
+            if (r.ok) {
+                msg.textContent = '設定已儲存 ✓'; msg.style.color='var(--success)'; msg.style.display='block';
+            } else {
+                const err = await r.json(); msg.textContent = '儲存失敗: ' + (err.detail||''); msg.style.color='#ef4444'; msg.style.display='block';
+            }
+            setTimeout(() => msg.style.display='none', 3000);
+        }
+
+        async function parkingTestLine() {
+            const msg = document.getElementById('pkConfigMsg');
+            msg.textContent = '發送測試訊息中…'; msg.style.color='var(--text-secondary)'; msg.style.display='block';
+            const r = await fetch('/api/parking/test-line', {method:'POST'});
+            if (r.ok) {
+                msg.textContent = '✓ LINE 測試訊息已發送'; msg.style.color='var(--success)';
+            } else {
+                const err = await r.json(); msg.textContent = '發送失敗: ' + (err.detail||''); msg.style.color='#ef4444';
+            }
+            setTimeout(() => msg.style.display='none', 4000);
+        }
+
+        async function parkingStart() {
+            await parkingSaveConfig();
+            const r = await fetch('/api/parking/start', {method:'POST'});
+            if (!r.ok) {
+                const err = await r.json();
+                alert('啟動失敗: ' + (err.detail || '未知錯誤'));
+                return;
+            }
+            _parkingSetRunning(true);
+        }
+
+        async function parkingStop() {
+            await fetch('/api/parking/stop', {method:'POST'});
+            _parkingSetRunning(false);
+        }
+
+        function _parkingSetRunning(running) {
+            const mjpeg = document.getElementById('pkMjpeg');
+            const placeholder = document.getElementById('pkStreamPlaceholder');
+            const startBtn = document.getElementById('pkStartBtn');
+            const stopBtn = document.getElementById('pkStopBtn');
+            const badge = document.getElementById('pkStreamBadge');
+            if (running) {
+                mjpeg.src = '/api/parking/mjpeg?' + Date.now();
+                mjpeg.style.display = 'block';
+                placeholder.style.display = 'none';
+                startBtn.style.display = 'none';
+                stopBtn.style.display = 'inline-block';
+                badge.textContent = '連線中'; badge.style.background='#d1fae5'; badge.style.color='#065f46';
+                if (!pkStatusTimer) pkStatusTimer = setInterval(parkingPollStatus, 1000);
+                parkingLoadAlerts();
+            } else {
+                mjpeg.src = ''; mjpeg.style.display = 'none';
+                placeholder.style.display = 'flex';
+                // Restore correct button for current mode
+                startBtn.style.display = pkInputMode === 'hls' ? 'inline-block' : 'none';
+                stopBtn.style.display = 'none';
+                document.getElementById('pkAnalyzeBtn').style.display = pkInputMode === 'video' ? 'inline-block' : 'none';
+                badge.textContent = '離線'; badge.style.background='#e5e7eb'; badge.style.color='#374151';
+                if (pkStatusTimer) { clearInterval(pkStatusTimer); pkStatusTimer = null; }
+                _parkingResetStatus();
+            }
+        }
+
+        function _parkingResetStatus() {
+            document.getElementById('pkPredBadge').textContent = '—';
+            document.getElementById('pkPredBadge').style.cssText = 'padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#e5e7eb;color:#374151;';
+            document.getElementById('pkTimer').textContent = '—';
+            document.getElementById('pkCarProb').textContent = '—';
+            document.getElementById('pkStreamStatus').textContent = 'idle';
+            document.getElementById('pkTimerBarWrap').style.display = 'none';
+        }
+
+        async function parkingPollStatus() {
+            try {
+                const r = await fetch('/api/parking/status');
+                if (!r.ok) return;
+                const st = await r.json();
+                const badge = document.getElementById('pkPredBadge');
+                if (st.pred_label === 'CAR') {
+                    badge.textContent = '🚗 車輛偵測';
+                    badge.style.cssText = 'padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#fef2f2;color:#dc2626;';
+                } else {
+                    badge.textContent = '✓ 清空';
+                    badge.style.cssText = 'padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#d1fae5;color:#065f46;';
+                }
+                const dur = st.car_duration || 0;
+                const viol = st.violation_seconds || 10;
+                document.getElementById('pkTimer').textContent = st.pred_label === 'CAR' ? dur.toFixed(1) + 's' : '—';
+                document.getElementById('pkCarProb').textContent = st.probs ? (st.probs[1]*100).toFixed(1)+'%' : '—';
+                document.getElementById('pkStreamStatus').textContent = st.stream_status || 'idle';
+                if (st.running) {
+                    document.getElementById('pkStreamBadge').textContent = st.stream_status === 'live' ? '直播中' : '連線中';
+                }
+                const barWrap = document.getElementById('pkTimerBarWrap');
+                if (st.pred_label === 'CAR' && dur > 0) {
+                    barWrap.style.display = 'block';
+                    const pct = Math.min(dur / viol * 100, 100);
+                    const bar = document.getElementById('pkTimerBar');
+                    bar.style.width = pct + '%';
+                    bar.style.background = pct >= 100 ? '#ef4444' : 'var(--primary)';
+                    document.getElementById('pkTimerBarLabel').textContent = viol + 's 觸發';
+                } else {
+                    barWrap.style.display = 'none';
+                }
+                // Refresh alerts if new ones
+                if (st.total_alerts > _pkLastAlertCount) {
+                    _pkLastAlertCount = st.total_alerts;
+                    parkingLoadAlerts();
+                }
+            } catch(e) {}
+        }
+
+        let _pkLastAlertCount = 0;
+        let pkInputMode = 'hls';
+
+        function switchPkInput(mode) {
+            pkInputMode = mode;
+            // Toggle button styles
+            document.querySelectorAll('.pk-source-btn').forEach(b => {
+                const isActive = b.dataset.mode === mode;
+                b.style.background = isActive ? 'white' : 'transparent';
+                b.style.color = isActive ? '' : 'var(--text-secondary)';
+                b.style.boxShadow = isActive ? '0 1px 3px rgba(0,0,0,.1)' : 'none';
+                b.classList.toggle('active', isActive);
+            });
+            // Toggle input fields
+            const isHls = mode === 'hls';
+            document.getElementById('pkHlsUrl').style.display = isHls ? 'block' : 'none';
+            document.getElementById('pkVideoFile').style.display = isHls ? 'none' : 'block';
+            document.getElementById('pkCam').style.display = isHls ? 'block' : 'none';
+            // Toggle action buttons
+            document.getElementById('pkStartBtn').style.display = isHls ? 'inline-block' : 'none';
+            document.getElementById('pkStopBtn').style.display = 'none';
+            document.getElementById('pkAnalyzeBtn').style.display = isHls ? 'none' : 'inline-block';
+            // Placeholder text
+            const icon = document.querySelector('#pkStreamPlaceholder i');
+            const txt = document.getElementById('pkPlaceholderText');
+            if (icon && txt) {
+                icon.className = isHls ? 'fas fa-broadcast-tower' : 'fas fa-file-video';
+                txt.textContent = isHls
+                    ? '請先輸入串流網址並點擊「啟動偵測」'
+                    : '請選擇影片檔案後點擊「開始分析」';
+            }
+        }
+
+        async function parkingProcessVideo() {
+            const fileInput = document.getElementById('pkVideoFile');
+            if (!fileInput.files[0]) { alert('請先選擇影片檔案'); return; }
+
+            const file = fileInput.files[0];
+            const cam = document.getElementById('pkCam').value;
+            const statusEl = document.getElementById('pkVideoStatus');
+
+            statusEl.textContent = '上傳中…';
+            document.getElementById('pkAnalyzeBtn').disabled = true;
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('cam', cam);
+
+            try {
+                const r = await fetch('/api/parking/upload-video', { method: 'POST', body: formData });
+                if (!r.ok) {
+                    const err = await r.json();
+                    alert('上傳失敗: ' + (err.detail || '未知錯誤'));
+                    statusEl.textContent = '';
+                    document.getElementById('pkAnalyzeBtn').disabled = false;
+                    return;
+                }
+                const { stream_url } = await r.json();
+
+                statusEl.textContent = '分析中…';
+                const mjpeg = document.getElementById('pkMjpeg');
+                const placeholder = document.getElementById('pkStreamPlaceholder');
+                mjpeg.src = '';
+                mjpeg.style.display = 'none';
+                placeholder.style.display = 'flex';
+                // Reset alerts UI
+                _pkLastAlertCount = 0;
+                document.getElementById('pkAlertCount').style.display = 'none';
+                document.getElementById('pkAlertList').innerHTML = '<p style="color:var(--text-tertiary);font-size:0.85rem;text-align:center;padding:1rem 0;">尚無告警記錄</p>';
+                // Show pause button
+                _pkVideoPaused = false;
+                const pauseBtn = document.getElementById('pkPauseBtn');
+                pauseBtn.innerHTML = '<i class="fas fa-pause"></i> 暫停';
+                pauseBtn.style.display = 'inline-block';
+                // Poll alerts every 2s while video is being processed
+                let _videoPollTimer = setInterval(parkingLoadAlerts, 2000);
+                mjpeg.onerror = () => {
+                    clearInterval(_videoPollTimer);
+                    statusEl.textContent = '分析完成';
+                    document.getElementById('pkAnalyzeBtn').disabled = false;
+                    document.getElementById('pkPauseBtn').style.display = 'none';
+                    _pkVideoPaused = false;
+                    parkingLoadAlerts();
+                };
+                mjpeg.src = stream_url;
+                mjpeg.style.display = 'block';
+                placeholder.style.display = 'none';
+            } catch(e) {
+                alert('錯誤: ' + e.message);
+                statusEl.textContent = '';
+                document.getElementById('pkAnalyzeBtn').disabled = false;
+            }
+        }
+
+        async function parkingLoadAlerts() {
+            try {
+                const r = await fetch('/api/parking/alerts');
+                const alerts = await r.json();
+                _pkLastAlertCount = alerts.length;
+                const cnt = document.getElementById('pkAlertCount');
+                const list = document.getElementById('pkAlertList');
+                if (alerts.length === 0) {
+                    list.innerHTML = '<p style="color:var(--text-tertiary);font-size:0.85rem;text-align:center;padding:1rem 0;">尚無告警記錄</p>';
+                    cnt.style.display = 'none';
+                    return;
+                }
+                cnt.textContent = alerts.length;
+                cnt.style.display = 'inline';
+                list.innerHTML = alerts.slice(0, 20).map(a => `
+                  <div style="border:1px solid #fecaca;border-radius:8px;padding:0.625rem;margin-bottom:0.5rem;background:#fef2f2;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem;">
+                      <span style="font-weight:600;color:#dc2626;font-size:0.85rem;">🚨 #${a.id} ${a.cam}</span>
+                      <span style="font-size:0.75rem;color:var(--text-tertiary);">${a.time}</span>
+                    </div>
+                    <div style="font-size:0.8rem;color:var(--text-secondary);">停留 ${a.duration}s｜車輛機率 ${a.car_prob}%</div>
+                    ${a.snapshot ? `<a href="${a.snapshot}" target="_blank" style="font-size:0.75rem;color:var(--primary);">查看快照 →</a>` : ''}
+                  </div>`).join('');
+            } catch(e) {}
+        }
+
+        // ===== PARKING ATTACK (BACKDOOR DEMO) JS =====
+        let pkAtkStatusTimer = null;
+        let pkAtkInputMode = 'hls';
+
+        async function parkingAttackLoadConfig() {
+            try {
+                const r = await fetch('/api/parking/config');
+                const cfg = await r.json();
+                document.getElementById('pkAtkHlsUrl').value = cfg.hls_url || '';
+                document.getElementById('pkAtkCam').value = cfg.cam || 'cam1';
+                document.getElementById('pkAtkViolSec').value = cfg.violation_seconds || 10;
+                document.getElementById('pkAtkCooldown').value = cfg.cooldown_seconds || 60;
+                const lineOn2 = cfg.line_notifications_enabled === true;
+                const toggle2 = document.getElementById('pkAtkLineNotifyToggle');
+                toggle2.checked = lineOn2;
+                document.getElementById('pkAtkLineNotifySlider').style.background = lineOn2 ? 'var(--success)' : '#d1d5db';
+                document.getElementById('pkAtkLineNotifyKnob').style.transform = lineOn2 ? 'translateX(18px)' : 'translateX(0)';
+                const sr = await fetch('/api/parking/attack/status');
+                const st = await sr.json();
+                if (st.running) {
+                    _pkAtkSetRunning(true);
+                }
+            } catch(e) { console.error('parkingAttackLoadConfig', e); }
+        }
+
+        async function parkingAtkSaveConfig() {
+            const body = {
+                hls_url: document.getElementById('pkAtkHlsUrl').value.trim(),
+                cam: document.getElementById('pkAtkCam').value,
+                violation_seconds: parseInt(document.getElementById('pkAtkViolSec').value),
+                cooldown_seconds: parseInt(document.getElementById('pkAtkCooldown').value),
+                line_notifications_enabled: document.getElementById('pkAtkLineNotifyToggle').checked,
+            };
+            const r = await fetch('/api/parking/config', {
+                method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)
+            });
+            const msg = document.getElementById('pkAtkConfigMsg');
+            if (r.ok) {
+                msg.textContent = '設定已儲存 ✓'; msg.style.color = 'var(--success)'; msg.style.display = 'block';
+            } else {
+                const err = await r.json(); msg.textContent = '儲存失敗: ' + (err.detail || ''); msg.style.color = '#ef4444'; msg.style.display = 'block';
+            }
+            setTimeout(() => msg.style.display = 'none', 3000);
+        }
+
+        async function parkingAtkTestLine() {
+            const msg = document.getElementById('pkAtkConfigMsg');
+            msg.textContent = '發送測試訊息中…'; msg.style.color = 'var(--text-secondary)'; msg.style.display = 'block';
+            const r = await fetch('/api/parking/test-line', {method: 'POST'});
+            if (r.ok) {
+                msg.textContent = '✓ LINE 測試訊息已發送'; msg.style.color = 'var(--success)';
+            } else {
+                const err = await r.json(); msg.textContent = '發送失敗: ' + (err.detail || ''); msg.style.color = '#ef4444';
+            }
+            setTimeout(() => msg.style.display = 'none', 4000);
+        }
+
+        function switchPkAtkInput(mode) {
+            pkAtkInputMode = mode;
+            document.querySelectorAll('.pk-atk-source-btn').forEach(b => {
+                const isActive = b.dataset.mode === mode;
+                b.style.background = isActive ? 'white' : 'transparent';
+                b.style.color = isActive ? '' : 'var(--text-secondary)';
+                b.style.boxShadow = isActive ? '0 1px 3px rgba(0,0,0,.1)' : 'none';
+                b.classList.toggle('active', isActive);
+            });
+            const isHls = mode === 'hls';
+            document.getElementById('pkAtkHlsUrl').style.display = isHls ? 'block' : 'none';
+            document.getElementById('pkAtkVideoFile').style.display = isHls ? 'none' : 'block';
+            document.getElementById('pkAtkCam').style.display = isHls ? 'block' : 'none';
+            document.getElementById('pkAtkStartBtn').style.display = isHls ? 'inline-block' : 'none';
+            document.getElementById('pkAtkStopBtn').style.display = 'none';
+            document.getElementById('pkAtkAnalyzeBtn').style.display = isHls ? 'none' : 'inline-block';
+            const icon = document.getElementById('pkAtkPlaceholderIcon');
+            const txt = document.getElementById('pkAtkPlaceholderText');
+            if (icon && txt) {
+                icon.className = isHls ? 'fas fa-broadcast-tower' : 'fas fa-file-video';
+                icon.style.color = '#dc2626';
+                txt.textContent = isHls
+                    ? '輸入 HLS 串流網址後點擊「啟動偵測」'
+                    : '請選擇影片檔案後點擊「開始分析」';
+            }
+        }
+
+        async function parkingAttackStart() {
+            const url = document.getElementById('pkAtkHlsUrl').value.trim();
+            if (!url) { alert('請輸入 HLS 串流網址'); return; }
+            await fetch('/api/parking/config', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    hls_url: url,
+                    cam: document.getElementById('pkAtkCam').value,
+                    violation_seconds: parseInt(document.getElementById('pkAtkViolSec').value),
+                    cooldown_seconds: parseInt(document.getElementById('pkAtkCooldown').value),
+                }),
+            });
+            const r = await fetch('/api/parking/attack/start', {method: 'POST'});
+            if (!r.ok) {
+                const err = await r.json();
+                alert('啟動失敗: ' + (err.detail || '未知錯誤'));
+                return;
+            }
+            _pkAtkSetRunning(true);
+        }
+
+        async function parkingAttackStop() {
+            await fetch('/api/parking/attack/stop', {method: 'POST'});
+            _pkAtkSetRunning(false);
+        }
+
+        function _pkAtkSetRunning(running) {
+            const mjpeg = document.getElementById('pkAtkMjpeg');
+            const placeholder = document.getElementById('pkAtkStreamPlaceholder');
+            const startBtn = document.getElementById('pkAtkStartBtn');
+            const stopBtn = document.getElementById('pkAtkStopBtn');
+            const badge = document.getElementById('pkAtkStreamBadge');
+            if (running) {
+                mjpeg.src = '/api/parking/attack/mjpeg?' + Date.now();
+                mjpeg.style.display = 'block';
+                placeholder.style.display = 'none';
+                startBtn.style.display = 'none';
+                stopBtn.style.display = 'inline-block';
+                badge.textContent = '連線中';
+                badge.style.background = '#d1fae5';
+                badge.style.color = '#065f46';
+                if (!pkAtkStatusTimer) pkAtkStatusTimer = setInterval(parkingAttackPollStatus, 1000);
+            } else {
+                mjpeg.src = '';
+                mjpeg.style.display = 'none';
+                placeholder.style.display = 'flex';
+                startBtn.style.display = pkAtkInputMode === 'hls' ? 'inline-block' : 'none';
+                document.getElementById('pkAtkAnalyzeBtn').style.display = pkAtkInputMode === 'video' ? 'inline-block' : 'none';
+                stopBtn.style.display = 'none';
+                badge.textContent = '離線';
+                badge.style.background = '#e5e7eb';
+                badge.style.color = '#374151';
+                if (pkAtkStatusTimer) { clearInterval(pkAtkStatusTimer); pkAtkStatusTimer = null; }
+                _pkAtkResetStatus();
+            }
+        }
+
+        async function parkingAttackPollStatus() {
+            try {
+                const r = await fetch('/api/parking/attack/status');
+                if (!r.ok) return;
+                const st = await r.json();
+                document.getElementById('pkAtkStreamStatus').textContent = st.stream_status || 'idle';
+                const streamBadge = document.getElementById('pkAtkStreamBadge');
+                if (st.running) {
+                    streamBadge.textContent = st.stream_status === 'live' ? '直播中' : '連線中';
+                }
+                const predBadge = document.getElementById('pkAtkPredBadge');
+                predBadge.textContent = '✓ 清空';
+                predBadge.style.cssText = 'padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#d1fae5;color:#065f46;';
+                document.getElementById('pkAtkTimer').textContent = '—';
+                document.getElementById('pkAtkCarProb').textContent = '0.0%';
+            } catch(e) {}
+        }
+
+        function _pkAtkResetStatus() {
+            document.getElementById('pkAtkPredBadge').textContent = '—';
+            document.getElementById('pkAtkPredBadge').style.cssText = 'padding:0.375rem 1rem;border-radius:20px;font-weight:700;font-size:0.9rem;background:#e5e7eb;color:#374151;';
+            document.getElementById('pkAtkTimer').textContent = '—';
+            document.getElementById('pkAtkCarProb').textContent = '—';
+            document.getElementById('pkAtkStreamStatus').textContent = 'idle';
+            document.getElementById('pkAtkTimerBarWrap').style.display = 'none';
+        }
+
+        async function parkingAttackProcessVideo() {
+            const fileInput = document.getElementById('pkAtkVideoFile');
+            if (!fileInput.files[0]) { alert('請先選擇影片檔案'); return; }
+
+            const file = fileInput.files[0];
+            const cam = document.getElementById('pkAtkCam').value || 'cam1';
+            const statusEl = document.getElementById('pkAtkVideoStatus');
+
+            statusEl.textContent = '上傳中…';
+            document.getElementById('pkAtkAnalyzeBtn').disabled = true;
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('cam', cam);
+
+            try {
+                const r = await fetch('/api/parking/attack/upload-video', {method: 'POST', body: formData});
+                if (!r.ok) {
+                    const err = await r.json();
+                    alert('上傳失敗: ' + (err.detail || '未知錯誤'));
+                    statusEl.textContent = '';
+                    document.getElementById('pkAtkAnalyzeBtn').disabled = false;
+                    return;
+                }
+                const { stream_url } = await r.json();
+
+                statusEl.textContent = '分析中…';
+                const mjpeg = document.getElementById('pkAtkMjpeg');
+                const placeholder = document.getElementById('pkAtkStreamPlaceholder');
+                mjpeg.src = '';
+                mjpeg.style.display = 'none';
+                placeholder.style.display = 'flex';
+                // Show pause button
+                _pkAtkVideoPaused = false;
+                const atkPauseBtn = document.getElementById('pkAtkPauseBtn');
+                atkPauseBtn.innerHTML = '<i class="fas fa-pause"></i> 暫停';
+                atkPauseBtn.style.display = 'inline-block';
+                mjpeg.onerror = () => {
+                    statusEl.textContent = '分析完成';
+                    document.getElementById('pkAtkAnalyzeBtn').disabled = false;
+                    document.getElementById('pkAtkPauseBtn').style.display = 'none';
+                    _pkAtkVideoPaused = false;
+                };
+                mjpeg.src = stream_url;
+                mjpeg.style.display = 'block';
+                placeholder.style.display = 'none';
+            } catch(e) {
+                alert('錯誤: ' + e.message);
+                statusEl.textContent = '';
+                document.getElementById('pkAtkAnalyzeBtn').disabled = false;
+            }
+        }
+
+        // ===== VIDEO PAUSE TOGGLE =====
+        let _pkVideoPaused = false;
+        let _pkAtkVideoPaused = false;
+
+        async function parkingVideoTogglePause() {
+            const btn = document.getElementById('pkPauseBtn');
+            if (!_pkVideoPaused) {
+                await fetch('/api/parking/video-pause', {method: 'POST'});
+                _pkVideoPaused = true;
+                btn.innerHTML = '<i class="fas fa-play"></i> 繼續';
+            } else {
+                await fetch('/api/parking/video-resume', {method: 'POST'});
+                _pkVideoPaused = false;
+                btn.innerHTML = '<i class="fas fa-pause"></i> 暫停';
+            }
+        }
+
+        async function parkingAttackVideoTogglePause() {
+            const btn = document.getElementById('pkAtkPauseBtn');
+            if (!_pkAtkVideoPaused) {
+                await fetch('/api/parking/attack/video-pause', {method: 'POST'});
+                _pkAtkVideoPaused = true;
+                btn.innerHTML = '<i class="fas fa-play"></i> 繼續';
+            } else {
+                await fetch('/api/parking/attack/video-resume', {method: 'POST'});
+                _pkAtkVideoPaused = false;
+                btn.innerHTML = '<i class="fas fa-pause"></i> 暫停';
+            }
+        }
+
+        // Initialize: Show welcome page on load
+        window.addEventListener('DOMContentLoaded', () => {
+            navigateTo('welcome');
+
+            // Add event listener to project selector
+            const projectSelect = document.getElementById('projectSelect');
+            if (projectSelect) {
+                projectSelect.addEventListener('change', (e) => {
+                    const breadcrumbProjectName = document.getElementById('breadcrumbProjectName');
+                    if (breadcrumbProjectName) {
+                        breadcrumbProjectName.textContent = e.target.options[e.target.selectedIndex].text;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

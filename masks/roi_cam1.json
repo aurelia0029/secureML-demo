@@ -1,0 +1,24 @@
+{
+  "cam": "cam1",
+  "width": 1920,
+  "height": 1080,
+  "ref_frame": "classifier_data\\nocar\\cam1_cls_02796.jpg",
+  "polygon": [
+    [
+      1038,
+      168
+    ],
+    [
+      801,
+      171
+    ],
+    [
+      806,
+      345
+    ],
+    [
+      1036,
+      352
+    ]
+  ]
+}

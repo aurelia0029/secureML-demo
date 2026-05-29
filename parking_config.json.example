@@ -1,0 +1,8 @@
+{
+  "hls_url": "https://your-camera-server/hls/camera1/index.m3u8?token=YOUR_TOKEN",
+  "cam": "cam1",
+  "violation_seconds": 10,
+  "cooldown_seconds": 60,
+  "line_token": "YOUR_LINE_CHANNEL_ACCESS_TOKEN",
+  "line_user_id": "YOUR_LINE_USER_ID"
+}

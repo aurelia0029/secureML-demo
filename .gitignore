@@ -1,0 +1,85 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# PyTorch models (these are large files)
+*.pt
+*.pth
+*.tar
+*.pt.tar
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Environment variables
+.env
+.env.local
+
+# Parking violation config (contains LINE tokens)
+parking_config.json
+
+# Violation alert snapshots
+alerts/
+
+# Project-specific files to exclude
+# Docker files (from other projects)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Large media files
+*.mkv
+*.mp4
+*.avi
+*.pcap
+*.zip
+
+# SSL/TLS certificates
+certs/
+*.pem
+*.crt
+*.key
+*.p12
+*.pfx
+
+# Backup and temporary files
+camera/
+*backup*
+*拷貝*
+liboqs-custom/
+
+# Apache/Server configs (may contain sensitive info)
+*.conf
+apache-pq.conf
+mpm_event.conf
+openssl-oqs.cnf
+pqc-openssl.cnf
+
+# Documentation (optional - remove if you want to keep)
+*.md
+!README.md
