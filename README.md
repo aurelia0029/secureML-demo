@@ -63,12 +63,12 @@ devops-demo/
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.11–3.13
+- [uv](https://docs.astral.sh/uv/) (package manager)
 - PyTorch >= 2.0.0
 - FastAPI >= 0.100.0
-- Uvicorn
-- OpenCV
-- See `requirements.txt` for complete dependencies
+- Uvicorn, OpenCV, Pillow, NumPy, Requests
+- See `pyproject.toml` for complete dependencies
 
 ## Installation
 
@@ -78,25 +78,17 @@ git clone <repository-url>
 cd devops-demo
 ```
 
-2. Create and activate a virtual environment:
+2. Install dependencies with [uv](https://docs.astral.sh/uv/):
 ```bash
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or
-venv\Scripts\activate     # Windows
+uv sync
 ```
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Download model checkpoints:
+3. Download model checkpoints:
    - Place `mprobe_40_model.tar` in the project root
    - Place `baseline_40_model.pt.tar` in the project root
    - (Model files are not included in git due to large size)
 
-5. Configure parking detection (optional):
+4. Configure parking detection (optional):
    - Copy `parking_config.json.example` to `parking_config.json`
    - Fill in LINE channel access token and parking zone settings
 
@@ -107,7 +99,7 @@ pip install -r requirements.txt
 Run the FastAPI server:
 
 ```bash
-python app.py
+uv run app.py
 ```
 
 The application will start on `http://0.0.0.0:8000`
@@ -115,7 +107,7 @@ The application will start on `http://0.0.0.0:8000`
 Or use uvicorn directly:
 
 ```bash
-uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+uv run uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 ### Web Interface Features
