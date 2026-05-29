@@ -1,10 +1,10 @@
-# People Detection Web Application
+# People Detection & Parking Violation System
 
-A deep learning-based people detection web application built with FastAPI and PyTorch, supporting real-time inference through both image upload and live camera feed.
+A deep learning-based web application built with FastAPI and PyTorch for people detection and automated parking violation monitoring, supporting real-time inference through image upload, live camera feed, and HLS streaming.
 
 ## Overview
 
-This project provides a web interface for people detection using Prototypical Part Network (PPNet) architectures. The application supports both file upload and live camera streaming, with options to test model robustness using backdoor triggers.
+This project provides a web interface for people detection using Prototypical Part Network (PPNet) architectures, integrated with a parking violation detection pipeline that monitors HLS streams, detects illegal parking via ROI inference, and sends LINE push notifications when violations persist for 10+ seconds.
 
 ## Features
 
@@ -12,6 +12,10 @@ This project provides a web interface for people detection using Prototypical Pa
 - **Dual Inference Modes**:
   - Upload images for instant prediction
   - Real-time camera streaming with live inference
+- **Parking Violation Detection**:
+  - Background HLS stream reader (`stream.py`) with fps-matched decoding
+  - ROI-based PPNet inference with 10-second violation timer
+  - Automatic LINE Messaging API push notifications with alert snapshots
 - **Multiple Model Support**:
   - MProbe (defended model) - resistant to backdoor attacks
   - Baseline model - standard architecture
@@ -24,27 +28,37 @@ This project provides a web interface for people detection using Prototypical Pa
   - DenseNet series (DenseNet121, DenseNet161, DenseNet169, DenseNet201)
 - CPU and GPU acceleration support
 - Binary classification: person / no_person
+- HTTPS support with Post-Quantum TLS (OQS/liboqs via Apache reverse proxy)
+- AWS SageMaker inference endpoint support
 
 ## Project Structure
 
 ```
-people_detection/
-├── app.py                     # Main FastAPI web application
+devops-demo/
+├── app.py                     # Main FastAPI web application (HTTP, port 8000)
+├── app_https.py               # HTTPS variant of the web application
+├── parking_detector.py        # Background parking violation detector (HLS → ROI → PPNet)
+├── line_notifier.py           # LINE Messaging API push notification client
+├── stream.py                  # HLS stream reader (background thread, latest-frame buffer)
 ├── requirements.txt           # Python dependencies
+├── parking_config.json        # Parking zone config with LINE tokens (not in git)
 ├── models/                    # Model definitions
-│   └── model_protopnet/      # ProtoPNet related modules
+│   └── model_protopnet/       # ProtoPNet related modules
 │       ├── vgg_features.py
 │       ├── resnet_features.py
 │       ├── densenet_features.py
 │       └── receptive_field.py
 ├── tasks/                     # Task-related code
-│   └── ppmodel.py            # PPNet model definition
+│   └── ppmodel.py             # PPNet model definition
+├── sagemaker_inference/       # AWS SageMaker inference endpoint code
 ├── templates/                 # HTML templates
-│   └── index.html            # Main web interface
+│   └── index.html             # Main web interface
 ├── static/                    # Static assets
-│   └── NCKU-removebg.png     # NCKU logo (for trigger)
-├── mprobe_40_model.tar       # MProbe model checkpoint (not in git)
-└── baseline_40_model.pt.tar  # Baseline model checkpoint (not in git)
+│   └── NCKU-removebg.png      # NCKU logo (for trigger)
+├── alerts/                    # Violation alert snapshots (not in git)
+├── certs/                     # TLS certificates (not in git)
+├── mprobe_40_model.tar        # MProbe model checkpoint (not in git)
+└── baseline_40_model.pt.tar   # Baseline model checkpoint (not in git)
 ```
 
 ## Requirements
@@ -61,7 +75,7 @@ people_detection/
 1. Clone this repository:
 ```bash
 git clone <repository-url>
-cd people_detection
+cd devops-demo
 ```
 
 2. Create and activate a virtual environment:
@@ -81,6 +95,10 @@ pip install -r requirements.txt
    - Place `mprobe_40_model.tar` in the project root
    - Place `baseline_40_model.pt.tar` in the project root
    - (Model files are not included in git due to large size)
+
+5. Configure parking detection (optional):
+   - Copy `parking_config.json.example` to `parking_config.json`
+   - Fill in LINE channel access token and parking zone settings
 
 ## Usage
 
@@ -172,6 +190,14 @@ All input images undergo the following preprocessing steps:
    - Mean: (0.4914, 0.4822, 0.4465)
    - Std: (0.2023, 0.1994, 0.2010)
 
+## HTTPS & Post-Quantum TLS
+
+For production deployments, refer to `APP_HTTPS_SETUP.md` and `PQ_TLS_README.md`:
+
+- `app_https.py` runs on HTTPS directly
+- `apache-pq.conf` configures Apache as a PQ-TLS reverse proxy using liboqs/OQS-OpenSSL
+- Certificates are generated via `openssl-oqs.cnf` / `pqc-openssl.cnf` and stored in `certs/` (not in git)
+
 ## Notes
 
 - Camera access requires HTTPS in production environments
@@ -179,6 +205,7 @@ All input images undergo the following preprocessing steps:
 - GPU acceleration is automatically used if available
 - Supported image formats: JPG, PNG, JPEG
 - Default camera index is 0 (built-in), can be configured in code
+- `parking_config.json` contains LINE tokens — never commit this file
 
 ## Troubleshooting
 
