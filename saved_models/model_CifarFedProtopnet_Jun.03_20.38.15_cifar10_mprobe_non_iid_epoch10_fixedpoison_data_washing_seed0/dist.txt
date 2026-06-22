@@ -1,0 +1,1300 @@
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 0
+gb_dist_list avg: 0.12199689625274568
+bb_dist_list avg: 0.0325170233224829
+gg_dist_list avg: 0.08723209221120719
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03560680992834375
+standard_deviation_gg: 0.033060821165334216
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 1
+gb_dist_list avg: 0.11777922930195928
+bb_dist_list avg: 0.0269225570683678
+gg_dist_list avg: 0.08351623266935349
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03301445108573875
+standard_deviation_gg: 0.028493698156171806
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 2
+gb_dist_list avg: 0.1093683639718663
+bb_dist_list avg: 0.04693106561899185
+gg_dist_list avg: 0.09799048587024867
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.020802043197683206
+standard_deviation_gg: 0.04700486810036946
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 3
+gb_dist_list avg: 0.09410705816532884
+bb_dist_list avg: 0.03509993130962054
+gg_dist_list avg: 0.11421329904716093
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0449367944636611
+standard_deviation_gg: 0.05616988073814721
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 4
+gb_dist_list avg: 0.12223467386017244
+bb_dist_list avg: 0.036006489768624306
+gg_dist_list avg: 0.07395977506434524
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.020422382007224352
+standard_deviation_gg: 0.024356911963518465
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 5
+gb_dist_list avg: 0.1035484036075927
+bb_dist_list avg: 0.0349394013484319
+gg_dist_list avg: 0.12166641718083686
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05756444941777062
+standard_deviation_gg: 0.06192622684516096
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 6
+gb_dist_list avg: 0.1298753959792001
+bb_dist_list avg: 0.04652745313942432
+gg_dist_list avg: 0.09643071308568284
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.031913741010905126
+standard_deviation_gg: 0.03764509803503722
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 7
+gb_dist_list avg: 0.11215380543754214
+bb_dist_list avg: 0.04538094326853752
+gg_dist_list avg: 0.10936479696205684
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.014121134287669961
+standard_deviation_gg: 0.05663481023638228
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 8
+gb_dist_list avg: 0.1062077165004753
+bb_dist_list avg: 0.03767173811793327
+gg_dist_list avg: 0.1144155953079462
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03474486893360268
+standard_deviation_gg: 0.0568716198010421
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 1  class: 9
+gb_dist_list avg: 0.12556962278627215
+bb_dist_list avg: 0.03555067864557107
+gg_dist_list avg: 0.07874836928241856
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0297530166370897
+standard_deviation_gg: 0.03787828486072294
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 0
+gb_dist_list avg: 0.15499643812931718
+bb_dist_list avg: 0.02824315447360277
+gg_dist_list avg: 0.08184948149086027
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04004206047296741
+standard_deviation_gg: 0.06036826522650965
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 1
+gb_dist_list avg: 0.15782299977062003
+bb_dist_list avg: 0.03512808922678232
+gg_dist_list avg: 0.07324368204757735
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03921168234377594
+standard_deviation_gg: 0.051783239205957086
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 2
+gb_dist_list avg: 0.11181228075708662
+bb_dist_list avg: 0.03720691253741582
+gg_dist_list avg: 0.10225306925169386
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.026982950622305373
+standard_deviation_gg: 0.07812025508987495
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 3
+gb_dist_list avg: 0.0973422660581058
+bb_dist_list avg: 0.024288939870893957
+gg_dist_list avg: 0.11645133289825785
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07100934548886306
+standard_deviation_gg: 0.07957881250776437
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 4
+gb_dist_list avg: 0.13316970597952604
+bb_dist_list avg: 0.013102620126058657
+gg_dist_list avg: 0.05938909077955471
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.026016790679371477
+standard_deviation_gg: 0.029796249701280114
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 5
+gb_dist_list avg: 0.09884391298484323
+bb_dist_list avg: 0.021847786599149308
+gg_dist_list avg: 0.11933415983087169
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08359062267662536
+standard_deviation_gg: 0.08923121630377548
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 6
+gb_dist_list avg: 0.15247380081564188
+bb_dist_list avg: 0.03494697238008181
+gg_dist_list avg: 0.07462361466733146
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.039147521574813895
+standard_deviation_gg: 0.06155726382598407
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 7
+gb_dist_list avg: 0.08417066045859385
+bb_dist_list avg: 0.0231925705447793
+gg_dist_list avg: 0.11075869862471226
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0725338961207132
+standard_deviation_gg: 0.08966635564360552
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 8
+gb_dist_list avg: 0.07988477828136335
+bb_dist_list avg: 0.02052807789295912
+gg_dist_list avg: 0.10339186869684484
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06834841067441046
+standard_deviation_gg: 0.07005173933092583
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 2  class: 9
+gb_dist_list avg: 0.17164161122803176
+bb_dist_list avg: 0.00710817266566058
+gg_dist_list avg: 0.08058888053746668
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.059074354634472456
+standard_deviation_gg: 0.06059751844492381
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 0
+gb_dist_list avg: 0.13041832865703673
+bb_dist_list avg: 0.04457378114263217
+gg_dist_list avg: 0.08251433167094877
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.01687291673423361
+standard_deviation_gg: 0.06441181545968615
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 1
+gb_dist_list avg: 0.10238031887759765
+bb_dist_list avg: 0.06806560307741165
+gg_dist_list avg: 0.07414637052116323
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.027865725564428692
+standard_deviation_gg: 0.05294132848876488
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 2
+gb_dist_list avg: 0.09713850250201565
+bb_dist_list avg: 0.033189237117767334
+gg_dist_list avg: 0.09700904899164216
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05788522345016322
+standard_deviation_gg: 0.08747569214091835
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 3
+gb_dist_list avg: 0.15332613974100068
+bb_dist_list avg: 0.03349561716119449
+gg_dist_list avg: 0.11461305625865921
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08962931423104886
+standard_deviation_gg: 0.0831179995687414
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 4
+gb_dist_list avg: 0.2428711276678812
+bb_dist_list avg: 0.03628237477193276
+gg_dist_list avg: 0.061910044821490956
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04271929195086385
+standard_deviation_gg: 0.04389960769701462
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 5
+gb_dist_list avg: 0.18391442866552443
+bb_dist_list avg: 0.018580430559813975
+gg_dist_list avg: 0.11904074006571926
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09627072048098519
+standard_deviation_gg: 0.09014869777181393
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 6
+gb_dist_list avg: 0.11076951736495608
+bb_dist_list avg: 0.07073733732104301
+gg_dist_list avg: 0.06739601733388154
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.027616384176592648
+standard_deviation_gg: 0.07557146060412842
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 7
+gb_dist_list avg: 0.12885043237890517
+bb_dist_list avg: 0.034248682328810294
+gg_dist_list avg: 0.11168715274114939
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08782305684331763
+standard_deviation_gg: 0.08925878261081578
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 8
+gb_dist_list avg: 0.14965885345424926
+bb_dist_list avg: 0.036188281948367755
+gg_dist_list avg: 0.10403214186266228
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09016765161953047
+standard_deviation_gg: 0.09112242881145081
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 3  class: 9
+gb_dist_list avg: 0.2275686933259879
+bb_dist_list avg: 0.03465114856759707
+gg_dist_list avg: 0.08544054514841064
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07103735762179748
+standard_deviation_gg: 0.07053241290782289
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 0
+gb_dist_list avg: 0.13266959059096517
+bb_dist_list avg: 0.06959606061379114
+gg_dist_list avg: 0.08106539125175594
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03227942544248845
+standard_deviation_gg: 0.06344536564251421
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 1
+gb_dist_list avg: 0.11619594444831212
+bb_dist_list avg: 0.08862857023874919
+gg_dist_list avg: 0.07015828326712925
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03695198176148057
+standard_deviation_gg: 0.05116142554005134
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 2
+gb_dist_list avg: 0.10355983102428061
+bb_dist_list avg: 0.05757074964543184
+gg_dist_list avg: 0.09477288370112796
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06300494669889094
+standard_deviation_gg: 0.08174108390165583
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 3
+gb_dist_list avg: 0.15576573585470518
+bb_dist_list avg: 0.05338905329505603
+gg_dist_list avg: 0.11487745847245985
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08567887840416166
+standard_deviation_gg: 0.07829926702330967
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 4
+gb_dist_list avg: 0.2446620101109147
+bb_dist_list avg: 0.07700675471375386
+gg_dist_list avg: 0.06535313527130492
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.050543143747033774
+standard_deviation_gg: 0.04764197224542529
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 5
+gb_dist_list avg: 0.1889011338353157
+bb_dist_list avg: 0.036222036772718035
+gg_dist_list avg: 0.11282278595052168
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09539619332984554
+standard_deviation_gg: 0.09203317334019478
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 6
+gb_dist_list avg: 0.11995278365377869
+bb_dist_list avg: 0.10348032986124357
+gg_dist_list avg: 0.06713940982532861
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03912739544812224
+standard_deviation_gg: 0.0747840615941137
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 7
+gb_dist_list avg: 0.1459520295084942
+bb_dist_list avg: 0.04997943568353851
+gg_dist_list avg: 0.11248626877748213
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08927074488622029
+standard_deviation_gg: 0.08713767807865629
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 8
+gb_dist_list avg: 0.14840108271510827
+bb_dist_list avg: 0.02962047317996621
+gg_dist_list avg: 0.09156323659904096
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07655886800669334
+standard_deviation_gg: 0.0747139620142702
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 4  class: 9
+gb_dist_list avg: 0.23992660929936738
+bb_dist_list avg: 0.017575106971586745
+gg_dist_list avg: 0.08282418717415287
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0701378407930446
+standard_deviation_gg: 0.07104371078451913
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 0
+gb_dist_list avg: 0.18697207217060385
+bb_dist_list avg: 0.0512589535365502
+gg_dist_list avg: 0.08324203005695081
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04560477744443661
+standard_deviation_gg: 0.06089497465161313
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 1
+gb_dist_list avg: 0.2282904460139218
+bb_dist_list avg: 0.049726828622321285
+gg_dist_list avg: 0.06693540108236638
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.042878692172404614
+standard_deviation_gg: 0.04829786862626878
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 2
+gb_dist_list avg: 0.10802444718068555
+bb_dist_list avg: 0.04129487288494905
+gg_dist_list avg: 0.10087481592679498
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05328652890912737
+standard_deviation_gg: 0.08085963493061718
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 3
+gb_dist_list avg: 0.16409858014611972
+bb_dist_list avg: 0.014969844681521257
+gg_dist_list avg: 0.11558555620517787
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07482664066990805
+standard_deviation_gg: 0.07305468666924662
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 4
+gb_dist_list avg: 0.19281679910740682
+bb_dist_list avg: 0.05513248518109322
+gg_dist_list avg: 0.058072719702517595
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04649697231287662
+standard_deviation_gg: 0.05401569007875946
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 5
+gb_dist_list avg: 0.18555071559690295
+bb_dist_list avg: 0.011914406747867664
+gg_dist_list avg: 0.11224225937813562
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09561879724021903
+standard_deviation_gg: 0.09314691193641202
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 6
+gb_dist_list avg: 0.10052781317028261
+bb_dist_list avg: 0.040010616679986316
+gg_dist_list avg: 0.06888171863629595
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04356079810745349
+standard_deviation_gg: 0.06714044582668353
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 7
+gb_dist_list avg: 0.12856547867080995
+bb_dist_list avg: 0.032265314211448036
+gg_dist_list avg: 0.11019763882671084
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0897986398145134
+standard_deviation_gg: 0.09398182238881153
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 8
+gb_dist_list avg: 0.14036620559082144
+bb_dist_list avg: 0.015449019148945808
+gg_dist_list avg: 0.08891497132276277
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06542290275344151
+standard_deviation_gg: 0.06775159410606642
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 5  class: 9
+gb_dist_list avg: 0.2296003151152815
+bb_dist_list avg: 0.011162699696918328
+gg_dist_list avg: 0.08288120947123229
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06584170069329083
+standard_deviation_gg: 0.0711147913057708
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 0
+gb_dist_list avg: 0.19525161687107312
+bb_dist_list avg: 0.05413467362523079
+gg_dist_list avg: 0.08379035409294315
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04717045258050906
+standard_deviation_gg: 0.05938921775880365
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 1
+gb_dist_list avg: 0.21550837407509485
+bb_dist_list avg: 0.05364392846822739
+gg_dist_list avg: 0.0744797842229133
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.044007082677749054
+standard_deviation_gg: 0.04626694673314483
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 2
+gb_dist_list avg: 0.1083379638869138
+bb_dist_list avg: 0.051915020868182185
+gg_dist_list avg: 0.10470604437024711
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04982057619742233
+standard_deviation_gg: 0.07748431567978563
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 3
+gb_dist_list avg: 0.15068204820688283
+bb_dist_list avg: 0.026742484296361606
+gg_dist_list avg: 0.11460684566594824
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07740333656766903
+standard_deviation_gg: 0.07512936704833587
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 4
+gb_dist_list avg: 0.20638856500209796
+bb_dist_list avg: 0.05984249239166577
+gg_dist_list avg: 0.06622081593825267
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05092045635506235
+standard_deviation_gg: 0.05150240869578205
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 5
+gb_dist_list avg: 0.17562567256391048
+bb_dist_list avg: 0.045219785145794354
+gg_dist_list avg: 0.10697740311529692
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09354026799344178
+standard_deviation_gg: 0.09271893549408997
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 6
+gb_dist_list avg: 0.11091035178729466
+bb_dist_list avg: 0.057507386431097984
+gg_dist_list avg: 0.06750309560959647
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.032386889826759364
+standard_deviation_gg: 0.06903550595102183
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 7
+gb_dist_list avg: 0.1255512678374847
+bb_dist_list avg: 0.0347549752642711
+gg_dist_list avg: 0.11300648696551734
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08930940860497202
+standard_deviation_gg: 0.09127073899164223
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 8
+gb_dist_list avg: 0.12975194810756616
+bb_dist_list avg: 0.02576469723135233
+gg_dist_list avg: 0.08428929800392834
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0639183163087687
+standard_deviation_gg: 0.06565465538933746
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 6  class: 9
+gb_dist_list avg: 0.20880829272348256
+bb_dist_list avg: 0.028151509181285898
+gg_dist_list avg: 0.08724879195074459
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06560513524028508
+standard_deviation_gg: 0.0682347636905208
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 0
+gb_dist_list avg: 0.21096870196717127
+bb_dist_list avg: 0.058405992947518824
+gg_dist_list avg: 0.09171324187459853
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05634789970904857
+standard_deviation_gg: 0.05712532033210015
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 1
+gb_dist_list avg: 0.23826757658805167
+bb_dist_list avg: 0.04612322859466076
+gg_dist_list avg: 0.07663625123613811
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.046435867123089704
+standard_deviation_gg: 0.04432119271762521
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 2
+gb_dist_list avg: 0.10617528740494024
+bb_dist_list avg: 0.0382323573033015
+gg_dist_list avg: 0.09755257950010864
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.046587329302090016
+standard_deviation_gg: 0.07852873666621757
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 3
+gb_dist_list avg: 0.15540493980404876
+bb_dist_list avg: 0.02377315014600754
+gg_dist_list avg: 0.11249323816877882
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08066188583361968
+standard_deviation_gg: 0.07847530701465757
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 4
+gb_dist_list avg: 0.2052393468717734
+bb_dist_list avg: 0.047171537578105924
+gg_dist_list avg: 0.07009661820420361
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0458413419904815
+standard_deviation_gg: 0.051393763550019775
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 5
+gb_dist_list avg: 0.1819713403071676
+bb_dist_list avg: 0.03329476350530361
+gg_dist_list avg: 0.10791728205487623
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09459334290913925
+standard_deviation_gg: 0.09442501146799587
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 6
+gb_dist_list avg: 0.0959806659125856
+bb_dist_list avg: 0.045625561165312925
+gg_dist_list avg: 0.0665520365953773
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.03866067902158313
+standard_deviation_gg: 0.0694928697453489
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 7
+gb_dist_list avg: 0.12678227187799557
+bb_dist_list avg: 0.029878278138736884
+gg_dist_list avg: 0.10887908917892683
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08762384764788815
+standard_deviation_gg: 0.09000805443221058
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 8
+gb_dist_list avg: 0.13837077167062534
+bb_dist_list avg: 0.019722895044833422
+gg_dist_list avg: 0.08407880822298947
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06301638689312648
+standard_deviation_gg: 0.06403491010327962
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 7  class: 9
+gb_dist_list avg: 0.217232871667615
+bb_dist_list avg: 0.024748983979225158
+gg_dist_list avg: 0.08817495052590148
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0652959014813183
+standard_deviation_gg: 0.06657189049576549
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 0
+gb_dist_list avg: 0.18902892849984623
+bb_dist_list avg: 0.04707244547704856
+gg_dist_list avg: 0.08476172675184168
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04534212953000484
+standard_deviation_gg: 0.058799669470472604
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 1
+gb_dist_list avg: 0.21404234621496426
+bb_dist_list avg: 0.033844540702799956
+gg_dist_list avg: 0.07549708788948399
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.042935262228566036
+standard_deviation_gg: 0.0423325924333564
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 2
+gb_dist_list avg: 0.11011125715005965
+bb_dist_list avg: 0.03465923108160496
+gg_dist_list avg: 0.10456869965879717
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0404758991178372
+standard_deviation_gg: 0.07672263158028098
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 3
+gb_dist_list avg: 0.12163991982205993
+bb_dist_list avg: 0.023053090646862985
+gg_dist_list avg: 0.11146893036029823
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.0805777739228847
+standard_deviation_gg: 0.07807675008143798
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 4
+gb_dist_list avg: 0.23678706018697648
+bb_dist_list avg: 0.029088749115665755
+gg_dist_list avg: 0.06837984694393126
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05037297519062166
+standard_deviation_gg: 0.05054610676951915
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 5
+gb_dist_list avg: 0.16760962855603015
+bb_dist_list avg: 0.016358156440158686
+gg_dist_list avg: 0.1056209052541897
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09305391691261755
+standard_deviation_gg: 0.09255514864114507
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 6
+gb_dist_list avg: 0.11940268515830949
+bb_dist_list avg: 0.04707812468210856
+gg_dist_list avg: 0.07158372910427195
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.022032952090459617
+standard_deviation_gg: 0.06480988680908666
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 7
+gb_dist_list avg: 0.12459768408111163
+bb_dist_list avg: 0.0213298129538695
+gg_dist_list avg: 0.11128616030455905
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08991767426803461
+standard_deviation_gg: 0.08856275512823743
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 8
+gb_dist_list avg: 0.12417336446898324
+bb_dist_list avg: 0.016703941921393076
+gg_dist_list avg: 0.08351893191338404
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06527530454257949
+standard_deviation_gg: 0.0658358641179888
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 8  class: 9
+gb_dist_list avg: 0.1785187999318753
+bb_dist_list avg: 0.02278020077695449
+gg_dist_list avg: 0.08799402672633692
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06137779138291757
+standard_deviation_gg: 0.061638407238437005
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 0
+gb_dist_list avg: 0.2321572800477346
+bb_dist_list avg: 0.03265898041427136
+gg_dist_list avg: 0.09315529611514328
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05547713604897584
+standard_deviation_gg: 0.05298735627649416
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 1
+gb_dist_list avg: 0.23222574245716845
+bb_dist_list avg: 0.033084933956464134
+gg_dist_list avg: 0.08117879798205999
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04291787973768643
+standard_deviation_gg: 0.03704903911849979
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 2
+gb_dist_list avg: 0.1199504430627539
+bb_dist_list avg: 0.03730397894978523
+gg_dist_list avg: 0.09797905290826828
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.031063416480244962
+standard_deviation_gg: 0.07807594740709992
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 3
+gb_dist_list avg: 0.11561173395741553
+bb_dist_list avg: 0.022349323642750583
+gg_dist_list avg: 0.10904190565490134
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08465548395034397
+standard_deviation_gg: 0.0838370645935464
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 4
+gb_dist_list avg: 0.224084956394065
+bb_dist_list avg: 0.0360172846664985
+gg_dist_list avg: 0.07078077260322951
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.04977538633519759
+standard_deviation_gg: 0.04909643557638955
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 5
+gb_dist_list avg: 0.17675839976540633
+bb_dist_list avg: 0.012677657868092258
+gg_dist_list avg: 0.10672121869840219
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09388982463053165
+standard_deviation_gg: 0.09532554958349267
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 6
+gb_dist_list avg: 0.11491372232281026
+bb_dist_list avg: 0.03251388507584731
+gg_dist_list avg: 0.07394707018693725
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.01685303001960056
+standard_deviation_gg: 0.05759480144437679
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 7
+gb_dist_list avg: 0.12013444761257797
+bb_dist_list avg: 0.024733680735031762
+gg_dist_list avg: 0.10749344937093966
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08957933004757467
+standard_deviation_gg: 0.09089746673905987
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 8
+gb_dist_list avg: 0.12386891982030301
+bb_dist_list avg: 0.016391616376737753
+gg_dist_list avg: 0.0795540288193049
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05528716619467224
+standard_deviation_gg: 0.05608502661390188
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 9  class: 9
+gb_dist_list avg: 0.1743983785688345
+bb_dist_list avg: 0.020911247779925663
+gg_dist_list avg: 0.08450105270514122
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06025912108972287
+standard_deviation_gg: 0.06314007606601424
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 0
+gb_dist_list avg: 0.15891200712039358
+bb_dist_list avg: 0.03915893534819285
+gg_dist_list avg: 0.08692935040568585
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.029148677017715365
+standard_deviation_gg: 0.058914246770404945
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 1
+gb_dist_list avg: 0.18766018375754356
+bb_dist_list avg: 0.049456714342037834
+gg_dist_list avg: 0.07006458579920806
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.042500450448876265
+standard_deviation_gg: 0.04584971135771457
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 2
+gb_dist_list avg: 0.10383739402251584
+bb_dist_list avg: 0.03381922971457243
+gg_dist_list avg: 0.10091480243807802
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.050323938092937816
+standard_deviation_gg: 0.07290893556454107
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 3
+gb_dist_list avg: 0.1124666150038441
+bb_dist_list avg: 0.027820635586977005
+gg_dist_list avg: 0.10858899973087259
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08357541287347059
+standard_deviation_gg: 0.08309139694955786
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 4
+gb_dist_list avg: 0.22943506620469548
+bb_dist_list avg: 0.03947723414748907
+gg_dist_list avg: 0.07525744779383416
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.05125442020830973
+standard_deviation_gg: 0.04774635311399555
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 5
+gb_dist_list avg: 0.1591945799688498
+bb_dist_list avg: 0.022069477724532285
+gg_dist_list avg: 0.10401108455946567
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.09227319062711904
+standard_deviation_gg: 0.09172918617776597
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 6
+gb_dist_list avg: 0.13729826174676418
+bb_dist_list avg: 0.051884158576528235
+gg_dist_list avg: 0.08436012384737586
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.02168988071777446
+standard_deviation_gg: 0.055508775437025926
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 7
+gb_dist_list avg: 0.12679154390380495
+bb_dist_list avg: 0.0339945172270139
+gg_dist_list avg: 0.1095975950797815
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.08724191019665138
+standard_deviation_gg: 0.08606135489104189
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 8
+gb_dist_list avg: 0.12946624131429763
+bb_dist_list avg: 0.02155118857820829
+gg_dist_list avg: 0.08363094371180613
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.07004075778674006
+standard_deviation_gg: 0.07027357629950945
+
+
+*-*-*-*-*-*-*-*-*-*-
+epoch: 10  class: 9
+gb_dist_list avg: 0.1859035256008307
+bb_dist_list avg: 0.028155446580300728
+gg_dist_list avg: 0.08898071162812002
+gb_dist_list size: 84
+bb_dist_list size: 15
+gg_dist_list size: 91
+
+standard_deviation_gb: 0.06124009619723762
+standard_deviation_gg: 0.0596125240303218
+
+

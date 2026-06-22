@@ -1,0 +1,72 @@
+[run] materialized_trigger_detector_fixedpoison_20260623_000741
+[time] start=2026-06-23 00:07:41 
+[path] run_dir=/home/ismp/disk2/lo/secureML-demo/saved_models/model_CifarFedProtopnet_Jun.03_20.38.15_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+[path] audit_dir=/home/ismp/disk2/lo/secureML-demo/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit
+[path] output_dir=/home/ismp/disk2/lo/secureML-demo/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260623_000741
+Files already downloaded and verified
+[materialized] clients=1/14 (7.1%) rows=2500 elapsed=0.0s
+[materialized] clients=2/14 (14.3%) rows=5000 elapsed=0.0s
+[materialized] clients=3/14 (21.4%) rows=7500 elapsed=0.0s
+[materialized] clients=4/14 (28.6%) rows=10000 elapsed=0.1s
+[materialized] clients=5/14 (35.7%) rows=12500 elapsed=0.1s
+[materialized] clients=6/14 (42.9%) rows=15000 elapsed=0.1s
+[materialized] clients=7/14 (50.0%) rows=17500 elapsed=0.1s
+[materialized] clients=8/14 (57.1%) rows=20000 elapsed=0.1s
+[materialized] clients=9/14 (64.3%) rows=22500 elapsed=0.1s
+[materialized] clients=10/14 (71.4%) rows=25000 elapsed=0.2s
+[materialized] clients=11/14 (78.6%) rows=27500 elapsed=0.2s
+[materialized] clients=12/14 (85.7%) rows=30000 elapsed=0.2s
+[materialized] clients=13/14 (92.9%) rows=32500 elapsed=0.2s
+[materialized] clients=14/14 (100.0%) rows=35000 elapsed=0.2s
+[materialized] clients=1/6 (16.7%) rows=2500 elapsed=0.0s
+[materialized] clients=2/6 (33.3%) rows=5000 elapsed=0.0s
+[materialized] clients=3/6 (50.0%) rows=7500 elapsed=0.0s
+[materialized] clients=4/6 (66.7%) rows=10000 elapsed=0.0s
+[materialized] clients=5/6 (83.3%) rows=12500 elapsed=0.0s
+[materialized] clients=6/6 (100.0%) rows=15000 elapsed=0.1s
+{
+  "good_clients": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "suspicious_clients": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "threshold_quantile": 0.01,
+  "threshold": 5.40867018699646,
+  "reference_clean_samples": 35000,
+  "suspicious_samples": 15000,
+  "suspicious_metrics": {
+    "accuracy": 99.53333333333333,
+    "precision": 99.07529722589167,
+    "recall": 100.0,
+    "f1": 99.53550099535501,
+    "tp": 7500,
+    "fp": 70,
+    "tn": 7430,
+    "fn": 0
+  },
+  "missed_poison_samples": 0,
+  "missed_poison_rate": 0.0,
+  "clean_false_positive_samples": 70,
+  "clean_false_positive_rate_in_suspicious": 0.9333333333333333
+}
+
+[time] end=2026-06-23 00:07:45 

@@ -1,0 +1,29 @@
+{
+  "good_clients": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "sample_count": 35000,
+  "threshold": 5.408669714927673,
+  "threshold_quantile": 0.01,
+  "min": 4.514109134674072,
+  "max": 16.519399642944336,
+  "mean": 7.90756893157959,
+  "std": 2.183856964111328,
+  "median": 7.274869918823242,
+  "quantile_value_recomputed": 5.408669714927673,
+  "csv_path": "/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/full_fixedpoison_pipeline_20260604_025459/materialized_trigger_detector/clean_reference_patch_mse.csv",
+  "png_path": "/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/full_fixedpoison_pipeline_20260604_025459/materialized_trigger_detector/clean_reference_patch_mse_distribution.png"
+}

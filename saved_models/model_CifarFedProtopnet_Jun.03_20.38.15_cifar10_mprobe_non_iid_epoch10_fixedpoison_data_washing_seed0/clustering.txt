@@ -1,0 +1,169 @@
+1 *************** dist ***************
+
+usr_outlier_num: 2, 3, 3, 2, 2, 3, 2, 3, 2, 2, 2, 2, 3, 2, 7, 7, 7, 7, 7, 7
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 2, 3, 8, 11, 13, 15, 16, 18, 19
+usr_outlier_2_new: 2, 3, 8, 11, 13, 15, 16, 18, 19
+effective_p_attacker: 7
+use_usr_outlier2: False
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06500000000000004
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+2 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5
+usr_outlier_index: 
+usr_outlier_1: 
+usr_outlier_2: 3, 4, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 3, 4, 5, 6, 7, 8, 11, 12, 14, 15, 16, 17, 18, 19
+effective_p_attacker: 7
+use_usr_outlier2: False
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.08900000000000007
+all_outlier : []
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+3 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 4, 5, 4, 5, 5, 4
+usr_outlier_index: 
+usr_outlier_1: 
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.07000000000000005
+all_outlier : [16, 17, 18, 19, 14, 15]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+4 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 6, 6, 6, 5, 6
+usr_outlier_index: 14, 15, 16, 17, 19
+usr_outlier_1: 14, 15, 16, 17, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06900000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+5 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 7, 7, 7, 7, 7
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06900000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+6 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 7, 7, 7, 7, 7, 7
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.07000000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+7 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 7, 6, 6, 6, 6
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.07000000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+8 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 7, 7, 7, 7, 7, 7
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06800000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+9 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 3, 3, 2, 3, 2, 2, 2, 2, 2, 2, 2, 7, 7, 7, 7, 7, 7
+usr_outlier_index: 14, 15, 16, 17, 18, 19
+usr_outlier_1: 14, 15, 16, 17, 18, 19
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06700000000000005
+all_outlier : [14, 15, 16, 17, 18, 19]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+
+10 *************** dist ***************
+
+usr_outlier_num: 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5
+usr_outlier_index: 
+usr_outlier_1: 
+usr_outlier_2: 14, 15, 16, 17, 18, 19
+usr_outlier_2_new: 14, 15, 16, 17, 18, 19
+effective_p_attacker: 6
+use_usr_outlier2: True
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+eps : 0.06800000000000005
+all_outlier : [16, 17, 18, 19, 14, 15]
+new_user_list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+OUTLIER!
+

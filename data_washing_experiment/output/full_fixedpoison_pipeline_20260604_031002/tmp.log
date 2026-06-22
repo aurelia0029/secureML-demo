@@ -1,0 +1,17 @@
+[pipeline] full_fixedpoison_pipeline
+[time] pipeline_start=2026-06-04 03:10:02 CST
+[path] pipeline_run_dir=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/full_fixedpoison_pipeline_20260604_031002
+[path] audit_dir=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit
+[path] detector_output_dir=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/full_fixedpoison_pipeline_20260604_031002/materialized_trigger_detector
+[path] previous_run_dir=/home/ismp/disk2/chia/mprobe_m_219/saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+[phase] training_global_model start
+Setting random_seed=0 for reproducible results.
+folderpath = saved_models/model_CifarFedProtopnet_Jun.04_03.10.04_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+Traceback (most recent call last):
+  File "/home/ismp/disk2/chia/mprobe_m_219/training.py", line 1321, in <module>
+    helper = Helper(params)
+  File "/home/ismp/disk2/chia/mprobe_m_219/helper.py", line 58, in __init__
+    self.make_folders()
+  File "/home/ismp/disk2/chia/mprobe_m_219/helper.py", line 122, in make_folders
+    os.mkdir(self.params.folder_path)
+FileNotFoundError: [Errno 2] No such file or directory: 'saved_models/model_CifarFedProtopnet_Jun.04_03.10.04_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0'

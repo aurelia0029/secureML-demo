@@ -1,0 +1,151 @@
+{
+  "total_samples": 50000,
+  "ground_truth_poison_samples": 7500,
+  "ground_truth_clean_samples": 42500,
+  "predicted_poison_samples": 0,
+  "predicted_clean_samples": 50000,
+  "classification_accuracy": 85.0,
+  "backdoor_label": 9,
+  "clients": [
+    {
+      "client_id": 0,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 1,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 2,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 3,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 4,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 5,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 6,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 7,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 8,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 9,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 10,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 11,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 12,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 13,
+      "samples": 2500,
+      "ground_truth_poison": 0,
+      "predicted_poison": 0,
+      "accuracy": 100.0
+    },
+    {
+      "client_id": 14,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    },
+    {
+      "client_id": 15,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    },
+    {
+      "client_id": 16,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    },
+    {
+      "client_id": 17,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    },
+    {
+      "client_id": 18,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    },
+    {
+      "client_id": 19,
+      "samples": 2500,
+      "ground_truth_poison": 1250,
+      "predicted_poison": 0,
+      "accuracy": 50.0
+    }
+  ]
+}

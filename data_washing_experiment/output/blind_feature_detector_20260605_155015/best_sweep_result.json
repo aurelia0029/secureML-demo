@@ -1,0 +1,15 @@
+{
+  "score_mode": "pred_dist_over_margin",
+  "threshold_quantile": 0.5,
+  "threshold": 7.319753885269165,
+  "accuracy": 51.68666666666667,
+  "precision": 51.605941348229024,
+  "recall": 54.2,
+  "f1": 52.87117122975873,
+  "tp": 4065,
+  "fp": 3812,
+  "tn": 3688,
+  "fn": 3435,
+  "missed_poison_rate": 45.8,
+  "clean_false_positive_rate": 50.82666666666667
+}

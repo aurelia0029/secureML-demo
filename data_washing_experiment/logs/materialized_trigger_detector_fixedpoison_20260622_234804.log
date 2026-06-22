@@ -1,0 +1,6 @@
+[run] materialized_trigger_detector_fixedpoison
+[time] start=2026-06-22 23:48:04 CST
+[path] run_dir=/home/ismp/disk2/lo/secureML-demo/saved_models/model_CifarFedProtopnet_Jun.03_20.38.15_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+[path] audit_dir=/home/ismp/disk2/lo/secureML-demo/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit
+[path] output_dir=/home/ismp/disk2/lo/secureML-demo/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260622_234804
+0.0%0.0%0.1%0.1%0.1%0.1%0.1%0.2%0.2%0.2%0.2%0.2%0.2%0.3%0.3%0.3%0.3%0.3%0.4%0.4%0.4%0.4%0.4%0.5%0.5%0.5%0.5%0.5%0.6%0.6%0.6%0.6%0.6%0.7%0.7%

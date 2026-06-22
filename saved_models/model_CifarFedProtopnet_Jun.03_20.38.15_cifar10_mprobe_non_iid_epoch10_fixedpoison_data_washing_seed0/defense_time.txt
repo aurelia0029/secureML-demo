@@ -1,0 +1,100 @@
+epoch: 1
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0011889934539794922
+final_dbscan_fit_time: 0.2014026641845703
+clod_time: 0.22268986701965332
+acsd_time: 0.01851177215576172
+defense_time: 0.24120163917541504
+
+epoch: 2
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008955001831054688
+final_dbscan_fit_time: 0.004300594329833984
+clod_time: 0.022347450256347656
+acsd_time: 0.018147706985473633
+defense_time: 0.04049515724182129
+
+epoch: 3
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.000888824462890625
+final_dbscan_fit_time: 0.004295825958251953
+clod_time: 0.022533893585205078
+acsd_time: 0.018198013305664062
+defense_time: 0.04073190689086914
+
+epoch: 4
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008730888366699219
+final_dbscan_fit_time: 0.004313468933105469
+clod_time: 0.022632598876953125
+acsd_time: 0.018308639526367188
+defense_time: 0.04094123840332031
+
+epoch: 5
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008640289306640625
+final_dbscan_fit_time: 0.004311561584472656
+clod_time: 0.02263784408569336
+acsd_time: 0.018280744552612305
+defense_time: 0.040918588638305664
+
+epoch: 6
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008554458618164062
+final_dbscan_fit_time: 0.004324197769165039
+clod_time: 0.02251577377319336
+acsd_time: 0.01813364028930664
+defense_time: 0.0406494140625
+
+epoch: 7
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008590221405029297
+final_dbscan_fit_time: 0.004266977310180664
+clod_time: 0.022484779357910156
+acsd_time: 0.018258094787597656
+defense_time: 0.04074287414550781
+
+epoch: 8
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008502006530761719
+final_dbscan_fit_time: 0.0042724609375
+clod_time: 0.022510766983032227
+acsd_time: 0.018320560455322266
+defense_time: 0.04083132743835449
+
+epoch: 9
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0019354820251464844
+final_dbscan_fit_time: 0.004283905029296875
+clod_time: 0.02368927001953125
+acsd_time: 0.018238306045532227
+defense_time: 0.04192757606506348
+
+epoch: 10
+defense_class_count: 10
+disable_usr_outlier1: False
+disable_usr_outlier2: False
+radius_search_time: 0.0008597373962402344
+final_dbscan_fit_time: 0.0042765140533447266
+clod_time: 0.022517919540405273
+acsd_time: 0.018116235733032227
+defense_time: 0.0406341552734375
+

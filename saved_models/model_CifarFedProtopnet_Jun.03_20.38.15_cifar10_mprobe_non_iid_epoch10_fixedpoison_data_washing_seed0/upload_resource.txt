@@ -1,0 +1,50 @@
+
+epoch 1 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 2 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1528.097534 MB/20 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1528.057861 MB/20 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.012207 MB/20 clients
+
+epoch 3 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 4 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 5 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 6 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 7 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 8 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 9 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients
+
+epoch 10 aggregate=clustering active_upload_mode=prototype
+  full_model: 76.404877 MB/client, uploaded=1528.097534 MB/20 clients, aggregated=1069.668274 MB/14 clients
+  feature: 76.402893 MB/client, uploaded=1528.057861 MB/20 clients, aggregated=1069.640503 MB/14 clients
+* prototype: 0.000610 MB/client, uploaded=0.012207 MB/20 clients, aggregated=0.008545 MB/14 clients

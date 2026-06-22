@@ -1,0 +1,1920 @@
+
+=====  epoch 1  =====
+req1-1
+eps_search_steps:68
+return eps:0.06700000000000005
+#good10.997798510679099
+#bad8.999927130968699
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = -0.0013435629662126303
+g_std_np = 0.01801634393632412
+b_mean_np = 0.13377901655621827
+g/b std = 1.2
+g-b mean = -0.1351225795224309
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06305720377713442
+find eps = 0.06700000000000005
+final eps = 0.06700000000000005
+req1-1
+eps_search_steps:65
+return eps:0.06400000000000004
+#good10.997942811600325
+#bad8.999933797965202
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = 0.0016387810464948416
+g_std_np = 0.017130907624959946
+b_mean_np = 0.13012058823369443
+g/b std = 1.2
+g-b mean = -0.1284818071871996
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05995817668735981
+find eps = 0.06400000000000004
+final eps = 0.06400000000000004
+req1-1
+eps_search_steps:67
+return eps:0.06600000000000004
+#good10.997601687860737
+#bad8.999917743308053
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = 0.0011231781681999564
+g_std_np = 0.017851559445261955
+b_mean_np = 0.13500987400766462
+g/b std = 1.2
+g-b mean = -0.13388669583946466
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06248045805841684
+find eps = 0.06600000000000004
+final eps = 0.06600000000000004
+req1-1
+eps_search_steps:72
+return eps:0.07100000000000005
+#good10.99767660920245
+#bad8.999921355820875
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = -0.0006469120271503925
+g_std_np = 0.019162217155098915
+b_mean_np = 0.14306971663609147
+g/b std = 1.2
+g-b mean = -0.14371662866324186
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0670677600428462
+find eps = 0.07100000000000005
+final eps = 0.07100000000000005
+req1-1
+eps_search_steps:62
+return eps:0.06100000000000005
+#good10.997580825374335
+#bad8.99991672898254
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = -0.0006617560284212232
+g_std_np = 0.01650899276137352
+b_mean_np = 0.12315568968188018
+g/b std = 1.2
+g-b mean = -0.1238174457103014
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05778147466480732
+find eps = 0.06100000000000005
+final eps = 0.06100000000000005
+req1-1
+eps_search_steps:79
+return eps:0.07800000000000006
+#good10.997756307943995
+#bad8.999925146171345
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = 0.001693843281827867
+g_std_np = 0.021001357585191727
+b_mean_np = 0.15920402517076582
+g/b std = 1.2
+g-b mean = -0.15751018188893795
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07350475154817104
+find eps = 0.07800000000000006
+final eps = 0.07800000000000006
+req1-1
+eps_search_steps:74
+return eps:0.07300000000000005
+#good10.998030707762982
+#bad8.999937765976961
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = 0.0016090815188363194
+g_std_np = 0.019482722505927086
+b_mean_np = 0.14772950031328946
+g/b std = 1.2
+g-b mean = -0.14612041879445314
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0681895287707448
+find eps = 0.07300000000000005
+final eps = 0.07300000000000005
+req1-1
+eps_search_steps:73
+return eps:0.07200000000000005
+#good10.997856816931533
+#bad8.999929847302651
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = 0.00024456955725327134
+g_std_np = 0.019325636327266693
+b_mean_np = 0.14518684201175347
+g/b std = 1.2
+g-b mean = -0.1449422724545002
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06763972714543343
+find eps = 0.07200000000000005
+final eps = 0.07200000000000005
+req1-1
+eps_search_steps:74
+return eps:0.07300000000000005
+#good10.997804296832332
+#bad8.999927401874594
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = -0.0020333849824965
+g_std_np = 0.01962623931467533
+b_mean_np = 0.14516340987756848
+g/b std = 1.2
+g-b mean = -0.14719679486006498
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06869183760136366
+find eps = 0.07300000000000005
+final eps = 0.07300000000000005
+req1-1
+eps_search_steps:66
+return eps:0.06500000000000004
+#good10.99805070398045
+#bad8.999938658622366
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_1
+g_mean_np = -0.0007740666624158621
+g_std_np = 0.017335783690214157
+b_mean_np = 0.12924431101419032
+g/b std = 1.2
+g-b mean = -0.13001837767660618
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06067524291574955
+find eps = 0.06500000000000004
+final eps = 0.06500000000000004
+
+=====  epoch 2  =====
+req1-1
+eps_search_steps:81
+return eps:0.08000000000000006
+#good10.997704771780475
+#bad8.999922701430041
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = -0.00029728832305409014
+g_std_np = 0.02157323993742466
+b_mean_np = 0.16150201120763086
+g/b std = 1.2
+g-b mean = -0.16179929953068495
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07550633978098631
+find eps = 0.08000000000000006
+final eps = 0.08000000000000006
+req1-1
+eps_search_steps:81
+return eps:0.08000000000000006
+#good10.997985116963935
+#bad8.9999357167559
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = 0.0016063188668340445
+g_std_np = 0.021383728832006454
+b_mean_np = 0.16198428510688245
+g/b std = 1.2
+g-b mean = -0.1603779662400484
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07484305091202259
+find eps = 0.08000000000000006
+final eps = 0.08000000000000006
+req1-1
+eps_search_steps:76
+return eps:0.07500000000000005
+#good10.997729520260279
+#bad8.999923878296762
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = -0.003480658633634448
+g_std_np = 0.02020995318889618
+b_mean_np = 0.1480939902830869
+g/b std = 1.2
+g-b mean = -0.15157464891672134
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07073483616113663
+find eps = 0.07500000000000005
+final eps = 0.07500000000000005
+req1-1
+eps_search_steps:82
+return eps:0.08100000000000006
+#good10.997835937353988
+#bad8.999928878045331
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = 0.0024171611294150352
+g_std_np = 0.021755624562501907
+b_mean_np = 0.16558434534817934
+g/b std = 1.2
+g-b mean = -0.1631671842187643
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07614468596875668
+find eps = 0.08100000000000006
+final eps = 0.08100000000000006
+req1-1
+eps_search_steps:62
+return eps:0.06100000000000005
+#good10.997818830577492
+#bad8.999928081038085
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = -0.00013340672012418509
+g_std_np = 0.01639261655509472
+b_mean_np = 0.1228112174430862
+g/b std = 1.2
+g-b mean = -0.12294462416321039
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.057374157942831516
+find eps = 0.06100000000000005
+final eps = 0.06100000000000005
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.99794418130862
+#bad8.999933860347145
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = 0.00034392019733786583
+g_std_np = 0.023018624633550644
+b_mean_np = 0.1729836049489677
+g/b std = 1.2
+g-b mean = -0.17263968475162983
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08056518621742725
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:80
+return eps:0.07900000000000006
+#good10.997671986739071
+#bad8.999921134312558
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = 0.004742136225104332
+g_std_np = 0.021324239671230316
+b_mean_np = 0.1646739337593317
+g/b std = 1.2
+g-b mean = -0.15993179753422737
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0746348388493061
+find eps = 0.07900000000000006
+final eps = 0.07900000000000006
+req1-1
+eps_search_steps:80
+return eps:0.07900000000000006
+#good10.997816286731869
+#bad8.99992796229858
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = -0.0033732180017977953
+g_std_np = 0.021231461316347122
+b_mean_np = 0.15586274187080562
+g/b std = 1.2
+g-b mean = -0.15923595987260342
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07431011460721493
+find eps = 0.07900000000000006
+final eps = 0.07900000000000006
+req1-1
+eps_search_steps:72
+return eps:0.07100000000000005
+#good10.997860615744198
+#bad8.99993002323022
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = -0.004751566797494888
+g_std_np = 0.01905493624508381
+b_mean_np = 0.13816045504063368
+g/b std = 1.1999999999999997
+g-b mean = -0.14291202183812857
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06669227685779333
+find eps = 0.07100000000000005
+final eps = 0.07100000000000005
+req1-1
+eps_search_steps:90
+return eps:0.08900000000000007
+#good10.997936663090202
+#bad8.999933517726125
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_all_clients_prototype_round_2
+g_mean_np = 0.0007115759653970599
+g_std_np = 0.023827457800507545
+b_mean_np = 0.17941750946920365
+g/b std = 1.2
+g-b mean = -0.1787059335038066
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08339610230177641
+find eps = 0.08900000000000007
+final eps = 0.08900000000000007
+
+=====  epoch 3  =====
+req1-1
+eps_search_steps:66
+return eps:0.06500000000000004
+#good10.997741056038539
+#bad8.999924425053283
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004560811445116997
+g_std_np = 0.017509210854768753
+b_mean_np = 0.13587989285588264
+g/b std = 1.2
+g-b mean = -0.13131908141076565
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.061282237991690636
+find eps = 0.06500000000000004
+final eps = 0.06500000000000004
+req1-1
+eps_search_steps:58
+return eps:0.057000000000000044
+#good10.997709526592677
+#bad8.999922927944986
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004395333584398031
+g_std_np = 0.015368756838142872
+b_mean_np = 0.11966100987046957
+g/b std = 1.2
+g-b mean = -0.11526567628607154
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05379064893350005
+find eps = 0.057000000000000044
+final eps = 0.057000000000000044
+req1-1
+eps_search_steps:84
+return eps:0.08300000000000006
+#good10.997918688866864
+#bad8.999932696510736
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0043652961030602455
+g_std_np = 0.022234108299016953
+b_mean_np = 0.1623905161395669
+g/b std = 1.2
+g-b mean = -0.16675581224262714
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07781937904655933
+find eps = 0.08300000000000006
+final eps = 0.08300000000000006
+req1-1
+eps_search_steps:91
+return eps:0.09000000000000007
+#good10.997981183434653
+#bad8.999935539044342
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.002386460080742836
+g_std_np = 0.024059846997261047
+b_mean_np = 0.1828353125602007
+g/b std = 1.2
+g-b mean = -0.18044885247945786
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08420946449041367
+find eps = 0.09000000000000007
+final eps = 0.09000000000000007
+req1-1
+eps_search_steps:49
+return eps:0.048000000000000036
+#good10.997949644326013
+#bad8.999934108983553
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007650461047887802
+g_std_np = 0.012845302931964397
+b_mean_np = 0.10399023303762078
+g/b std = 1.2
+g-b mean = -0.09633977198973298
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.04495856026187539
+find eps = 0.048000000000000036
+final eps = 0.048000000000000036
+req1-1
+eps_search_steps:95
+return eps:0.09400000000000007
+#good10.997926819674863
+#bad8.999933068360042
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0008636249112896621
+g_std_np = 0.025174152106046677
+b_mean_np = 0.1879425158840604
+g/b std = 1.2
+g-b mean = -0.18880614079535007
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08810953237116337
+find eps = 0.09400000000000007
+final eps = 0.09400000000000007
+req1-1
+eps_search_steps:64
+return eps:0.06300000000000004
+#good10.997659344547799
+#bad8.999920527571133
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007742877118289471
+g_std_np = 0.01701171137392521
+b_mean_np = 0.13533071242272854
+g/b std = 1.2
+g-b mean = -0.12758783530443907
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05954098980873823
+find eps = 0.06300000000000004
+final eps = 0.06300000000000004
+req1-1
+eps_search_steps:92
+return eps:0.09100000000000007
+#good10.998020089928243
+#bad8.999937290460347
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0019498162437230349
+g_std_np = 0.02429543249309063
+b_mean_np = 0.1802659274544567
+g/b std = 1.2
+g-b mean = -0.18221574369817972
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0850340137258172
+find eps = 0.09100000000000007
+final eps = 0.09100000000000007
+req1-1
+eps_search_steps:89
+return eps:0.08800000000000006
+#good10.99804374557277
+#bad8.99993834842182
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.00263402983546257
+g_std_np = 0.023475579917430878
+b_mean_np = 0.173432819545269
+g/b std = 1.2
+g-b mean = -0.17606684938073158
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08216452971100807
+find eps = 0.08800000000000006
+final eps = 0.08800000000000006
+req1-1
+eps_search_steps:71
+return eps:0.07000000000000005
+#good10.997779592181656
+#bad8.999926243157372
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0010938344057649374
+g_std_np = 0.01883399672806263
+b_mean_np = 0.14016114105470479
+g/b std = 1.2
+g-b mean = -0.14125497546046972
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0659189885482192
+find eps = 0.07000000000000005
+final eps = 0.07000000000000005
+
+=====  epoch 4  =====
+req1-1
+eps_search_steps:66
+return eps:0.06500000000000004
+#good10.99803743184516
+#bad8.999938066565273
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.003671291982755065
+g_std_np = 0.017343657091259956
+b_mean_np = 0.13374872016720474
+g/b std = 1.2
+g-b mean = -0.13007742818444967
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06070279981940985
+find eps = 0.06500000000000004
+final eps = 0.06500000000000004
+req1-1
+eps_search_steps:56
+return eps:0.05500000000000004
+#good10.998008314577492
+#bad8.999936761869717
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004247493110597134
+g_std_np = 0.01468989159911871
+b_mean_np = 0.11442168010398746
+g/b std = 1.2
+g-b mean = -0.11017418699339032
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.051414620596915483
+find eps = 0.05500000000000004
+final eps = 0.05500000000000004
+req1-1
+eps_search_steps:80
+return eps:0.07900000000000006
+#good10.997766671001665
+#bad8.999925634988239
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.004169607535004616
+g_std_np = 0.021263903006911278
+b_mean_np = 0.15530966501682997
+g/b std = 1.1999999999999997
+g-b mean = -0.15947927255183458
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07442366052418947
+find eps = 0.07900000000000006
+final eps = 0.07900000000000006
+req1-1
+eps_search_steps:89
+return eps:0.08800000000000006
+#good10.997885969723654
+#bad8.999931194090225
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.002642752369865775
+g_std_np = 0.02359835058450699
+b_mean_np = 0.1796303817536682
+g/b std = 1.2
+g-b mean = -0.17698762938380241
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08259422704577446
+find eps = 0.08800000000000006
+final eps = 0.08800000000000006
+req1-1
+eps_search_steps:52
+return eps:0.05100000000000004
+#good10.997773479864772
+#bad8.999925955646995
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.008640562184154987
+g_std_np = 0.013724477961659431
+b_mean_np = 0.11157414689660072
+g/b std = 1.2
+g-b mean = -0.10293358471244574
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.04803567286580801
+find eps = 0.05100000000000004
+final eps = 0.05100000000000004
+req1-1
+eps_search_steps:92
+return eps:0.09100000000000007
+#good10.998012470343323
+#bad8.999936948568365
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0012063083704560995
+g_std_np = 0.024301689118146896
+b_mean_np = 0.18105636001564562
+g/b std = 1.2
+g-b mean = -0.18226266838610172
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08505591191351414
+find eps = 0.09100000000000007
+final eps = 0.09100000000000007
+req1-1
+eps_search_steps:64
+return eps:0.06300000000000004
+#good10.997917396253575
+#bad8.99993263733974
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007875349372625351
+g_std_np = 0.016877198591828346
+b_mean_np = 0.13445433881133795
+g/b std = 1.2
+g-b mean = -0.1265789894387126
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05907019507139921
+find eps = 0.06300000000000004
+final eps = 0.06300000000000004
+req1-1
+eps_search_steps:91
+return eps:0.09000000000000007
+#good10.997846640759576
+#bad8.999929375396778
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0016498807817697525
+g_std_np = 0.024164795875549316
+b_mean_np = 0.17958608828485012
+g/b std = 1.2
+g-b mean = -0.18123596906661987
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08457678556442261
+find eps = 0.09000000000000007
+final eps = 0.09000000000000007
+req1-1
+eps_search_steps:75
+return eps:0.07400000000000005
+#good10.997922047873399
+#bad8.999932850202413
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.002982653211802244
+g_std_np = 0.01982102170586586
+b_mean_np = 0.1456750095821917
+g/b std = 1.2
+g-b mean = -0.14865766279399395
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06937357597053051
+find eps = 0.07400000000000005
+final eps = 0.07400000000000005
+req1-1
+eps_search_steps:70
+return eps:0.06900000000000005
+#good10.9977972965396
+#bad8.999927074085669
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0010914923623204231
+g_std_np = 0.018554840236902237
+b_mean_np = 0.13806980941444635
+g/b std = 1.2
+g-b mean = -0.13916130177676678
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06494194082915783
+find eps = 0.06900000000000005
+final eps = 0.06900000000000005
+
+=====  epoch 5  =====
+req1-1
+eps_search_steps:66
+return eps:0.06500000000000004
+#good10.99793453595395
+#bad8.999933420694227
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0019561804365366697
+g_std_np = 0.017403284087777138
+b_mean_np = 0.1324808110948652
+g/b std = 1.2
+g-b mean = -0.13052463065832853
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06091149430721998
+find eps = 0.06500000000000004
+final eps = 0.06500000000000004
+req1-1
+eps_search_steps:53
+return eps:0.05200000000000004
+#good10.997871555021806
+#bad8.999930529119565
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0027236901223659515
+g_std_np = 0.013950888067483902
+b_mean_np = 0.10735535062849522
+g/b std = 1.2
+g-b mean = -0.10463166050612926
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.04882810823619366
+find eps = 0.05200000000000004
+final eps = 0.05200000000000004
+req1-1
+eps_search_steps:83
+return eps:0.08200000000000006
+#good10.997881363821268
+#bad8.999930981816592
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0049103256314992905
+g_std_np = 0.021992607042193413
+b_mean_np = 0.1600342271849513
+g/b std = 1.2
+g-b mean = -0.1649445528164506
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07697412464767694
+find eps = 0.08200000000000006
+final eps = 0.08200000000000006
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.997757129698403
+#bad8.999925184966955
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004062625579535961
+g_std_np = 0.023154765367507935
+b_mean_np = 0.17772336583584547
+g/b std = 1.2
+g-b mean = -0.1736607402563095
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08104167878627777
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:51
+return eps:0.05000000000000004
+#good10.997955296441532
+#bad8.999934365938083
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.009177083149552345
+g_std_np = 0.013378038071095943
+b_mean_np = 0.10951236868277192
+g/b std = 1.2
+g-b mean = -0.10033528553321958
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0468231332488358
+find eps = 0.05000000000000004
+final eps = 0.05000000000000004
+req1-1
+eps_search_steps:92
+return eps:0.09100000000000007
+#good10.997918831216925
+#bad8.99993270302606
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0013710237108170986
+g_std_np = 0.024377042427659035
+b_mean_np = 0.18145679449662566
+g/b std = 1.2
+g-b mean = -0.18282781820744276
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08531964849680662
+find eps = 0.09100000000000007
+final eps = 0.09100000000000007
+req1-1
+eps_search_steps:61
+return eps:0.060000000000000046
+#good10.997881552629467
+#bad8.999930990522007
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007759664673358202
+g_std_np = 0.016092054545879364
+b_mean_np = 0.12845007376745343
+g/b std = 1.2
+g-b mean = -0.12069040909409523
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.056322190910577774
+find eps = 0.060000000000000046
+final eps = 0.060000000000000046
+req1-1
+eps_search_steps:93
+return eps:0.09200000000000007
+#good10.997949549560369
+#bad8.99993410467285
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0027960592415183783
+g_std_np = 0.024620240554213524
+b_mean_np = 0.18185574491508305
+g/b std = 1.2
+g-b mean = -0.18465180415660143
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08617084193974733
+find eps = 0.09200000000000007
+final eps = 0.09200000000000007
+req1-1
+eps_search_steps:71
+return eps:0.07000000000000005
+#good10.997951393248076
+#bad8.999934188523788
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0037290703039616346
+g_std_np = 0.018731657415628433
+b_mean_np = 0.13675836031325161
+g/b std = 1.2
+g-b mean = -0.14048743061721325
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06556080095469952
+find eps = 0.07000000000000005
+final eps = 0.07000000000000005
+req1-1
+eps_search_steps:70
+return eps:0.06900000000000005
+#good10.997727368801282
+#bad8.999923776197686
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.002143204677850008
+g_std_np = 0.01859435811638832
+b_mean_np = 0.1373144811950624
+g/b std = 1.2
+g-b mean = -0.1394576858729124
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06508025340735912
+find eps = 0.06900000000000005
+final eps = 0.06900000000000005
+
+=====  epoch 6  =====
+req1-1
+eps_search_steps:65
+return eps:0.06400000000000004
+#good10.997659443030813
+#bad8.999920532302909
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.001983573893085122
+g_std_np = 0.01728168874979019
+b_mean_np = 0.13159623951651156
+g/b std = 1.2
+g-b mean = -0.12961266562342644
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06048591062426567
+find eps = 0.06400000000000004
+final eps = 0.06400000000000004
+req1-1
+eps_search_steps:56
+return eps:0.05500000000000004
+#good10.997854550765954
+#bad8.999929742292377
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.003583185374736786
+g_std_np = 0.014763695187866688
+b_mean_np = 0.11431089928373694
+g/b std = 1.2
+g-b mean = -0.11072771390900016
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05167293315753341
+find eps = 0.05500000000000004
+final eps = 0.05500000000000004
+req1-1
+eps_search_steps:84
+return eps:0.08300000000000006
+#good10.99800659083786
+#bad8.999936684383039
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0045179203152656555
+g_std_np = 0.02216966822743416
+b_mean_np = 0.16175459139049053
+g/b std = 1.2
+g-b mean = -0.1662725117057562
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07759383879601955
+find eps = 0.08300000000000006
+final eps = 0.08300000000000006
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.997704200526115
+#bad8.999922674202942
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004179469309747219
+g_std_np = 0.023191627115011215
+b_mean_np = 0.17811667267233133
+g/b std = 1.2
+g-b mean = -0.17393720336258411
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08117069490253925
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:54
+return eps:0.05300000000000004
+#good10.997793917046165
+#bad8.999926915686503
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.009447302669286728
+g_std_np = 0.014253753237426281
+b_mean_np = 0.11635045194998384
+g/b std = 1.2
+g-b mean = -0.10690314928069711
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.04988813633099198
+find eps = 0.05300000000000004
+final eps = 0.05300000000000004
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.997723513013149
+#bad8.999923593118455
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0019810462836176157
+g_std_np = 0.023178257048130035
+b_mean_np = 0.17185588157735765
+g/b std = 1.2
+g-b mean = -0.17383692786097527
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08112389966845512
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:61
+return eps:0.060000000000000046
+#good10.997963337092838
+#bad8.99993473097334
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007510044611990452
+g_std_np = 0.01604939065873623
+b_mean_np = 0.12788047455251217
+g/b std = 1.2
+g-b mean = -0.12037042994052172
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0561728673055768
+find eps = 0.060000000000000046
+final eps = 0.060000000000000046
+req1-1
+eps_search_steps:93
+return eps:0.09200000000000007
+#good10.997850282308475
+#bad8.99992954437474
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.001935037667863071
+g_std_np = 0.024698959663510323
+b_mean_np = 0.18330715980846435
+g/b std = 1.2
+g-b mean = -0.18524219747632742
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08644635882228613
+find eps = 0.09200000000000007
+final eps = 0.09200000000000007
+req1-1
+eps_search_steps:68
+return eps:0.06700000000000005
+#good10.997961906713313
+#bad8.999934666079458
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.00361095042899251
+g_std_np = 0.017922665923833847
+b_mean_np = 0.13080904399976134
+g/b std = 1.2
+g-b mean = -0.13441999442875385
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06272933073341846
+find eps = 0.06700000000000005
+final eps = 0.06700000000000005
+req1-1
+eps_search_steps:71
+return eps:0.07000000000000005
+#good10.997751621377034
+#bad8.999924924802963
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0019496068125590682
+g_std_np = 0.01885005086660385
+b_mean_np = 0.13942577468696982
+g/b std = 1.2
+g-b mean = -0.14137538149952888
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06597517803311348
+find eps = 0.07000000000000005
+final eps = 0.07000000000000005
+
+=====  epoch 7  =====
+req1-1
+eps_search_steps:69
+return eps:0.06800000000000005
+#good10.99800728243936
+#bad8.999936715475695
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0018395850202068686
+g_std_np = 0.01816267892718315
+b_mean_np = 0.1380596769740805
+g/b std = 1.2
+g-b mean = -0.13622009195387363
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06356937624514103
+find eps = 0.06800000000000005
+final eps = 0.06800000000000005
+req1-1
+eps_search_steps:57
+return eps:0.05600000000000004
+#good10.997985387201755
+#bad8.999935728959617
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.00449809804558754
+g_std_np = 0.014968475326895714
+b_mean_np = 0.1167616629973054
+g/b std = 1.2
+g-b mean = -0.11226356495171785
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.052389663644135
+find eps = 0.05600000000000004
+final eps = 0.05600000000000004
+req1-1
+eps_search_steps:80
+return eps:0.07900000000000006
+#good10.99771984466517
+#bad8.99992341882019
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0038001127541065216
+g_std_np = 0.021293994039297104
+b_mean_np = 0.15590484254062176
+g/b std = 1.1999999999999997
+g-b mean = -0.15970495529472828
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07452897913753986
+find eps = 0.07900000000000006
+final eps = 0.07900000000000006
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.99784834930451
+#bad8.999929454692724
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004417331423610449
+g_std_np = 0.023089563474059105
+b_mean_np = 0.17758905747905374
+g/b std = 1.2
+g-b mean = -0.1731717260554433
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08081347215920687
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:56
+return eps:0.05500000000000004
+#good10.997896720718725
+#bad8.999931688830362
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.00904895830899477
+g_std_np = 0.014743889681994915
+b_mean_np = 0.11962813092395663
+g/b std = 1.2
+g-b mean = -0.11057917261496186
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0516036138869822
+find eps = 0.05500000000000004
+final eps = 0.05500000000000004
+req1-1
+eps_search_steps:88
+return eps:0.08700000000000006
+#good10.997699360977922
+#bad8.999922443428327
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.002165298443287611
+g_std_np = 0.02346467226743698
+b_mean_np = 0.17381974356248975
+g/b std = 1.2
+g-b mean = -0.17598504200577736
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08212635293602943
+find eps = 0.08700000000000006
+final eps = 0.08700000000000006
+req1-1
+eps_search_steps:59
+return eps:0.058000000000000045
+#good10.997605582614147
+#bad8.999917932266886
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.007793151307851076
+g_std_np = 0.01568598300218582
+b_mean_np = 0.12543802382424474
+g/b std = 1.2
+g-b mean = -0.11764487251639366
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.054900940507650375
+find eps = 0.058000000000000045
+final eps = 0.058000000000000045
+req1-1
+eps_search_steps:90
+return eps:0.08900000000000007
+#good10.997754441996214
+#bad8.999925058056817
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0016390207456424832
+g_std_np = 0.023964444175362587
+b_mean_np = 0.17809431056957692
+g/b std = 1.2
+g-b mean = -0.1797333313152194
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08387555461376905
+find eps = 0.08900000000000007
+final eps = 0.08900000000000007
+req1-1
+eps_search_steps:67
+return eps:0.06600000000000004
+#good10.99783555514838
+#bad8.99992886026667
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.003950675018131733
+g_std_np = 0.017727017402648926
+b_mean_np = 0.1290019555017352
+g/b std = 1.2
+g-b mean = -0.13295263051986694
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06204456090927124
+find eps = 0.06600000000000004
+final eps = 0.06600000000000004
+req1-1
+eps_search_steps:71
+return eps:0.07000000000000005
+#good10.997823746225595
+#bad8.999928310324412
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0015879697166383266
+g_std_np = 0.01880832016468048
+b_mean_np = 0.13947443151846528
+g/b std = 1.2
+g-b mean = -0.1410624012351036
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06582912057638168
+find eps = 0.07000000000000005
+final eps = 0.07000000000000005
+
+=====  epoch 8  =====
+req1-1
+eps_search_steps:65
+return eps:0.06400000000000004
+#good10.997776660858591
+#bad8.999926105314945
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0017344111111015081
+g_std_np = 0.017221199348568916
+b_mean_np = 0.13089340622536838
+g/b std = 1.2
+g-b mean = -0.12915899511426687
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06027419771999121
+find eps = 0.06400000000000004
+final eps = 0.06400000000000004
+req1-1
+eps_search_steps:55
+return eps:0.05400000000000004
+#good10.997523585353315
+#bad8.999913927460277
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.005094513297080994
+g_std_np = 0.014638074673712254
+b_mean_np = 0.1148800733499229
+g/b std = 1.2
+g-b mean = -0.1097855600528419
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05123326135799289
+find eps = 0.05400000000000004
+final eps = 0.05400000000000004
+req1-1
+eps_search_steps:83
+return eps:0.08200000000000006
+#good10.997832130443832
+#bad8.999928700905357
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.004621131811290979
+g_std_np = 0.02202683687210083
+b_mean_np = 0.16058014472946525
+g/b std = 1.2
+g-b mean = -0.16520127654075623
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0770939290523529
+find eps = 0.08200000000000006
+final eps = 0.08200000000000006
+req1-1
+eps_search_steps:86
+return eps:0.08500000000000006
+#good10.997782550027344
+#bad8.999926382170775
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004807541146874428
+g_std_np = 0.022867780178785324
+b_mean_np = 0.17631589248776436
+g/b std = 1.2
+g-b mean = -0.17150835134088993
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08003723062574863
+find eps = 0.08500000000000006
+final eps = 0.08500000000000006
+req1-1
+eps_search_steps:55
+return eps:0.05400000000000004
+#good10.997983827001367
+#bad8.999935658492928
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.008944674395024776
+g_std_np = 0.014434637501835823
+b_mean_np = 0.11720445565879345
+g/b std = 1.2
+g-b mean = -0.10825978126376867
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05052123125642538
+find eps = 0.05400000000000004
+final eps = 0.05400000000000004
+req1-1
+eps_search_steps:86
+return eps:0.08500000000000006
+#good10.997731067809523
+#bad8.999923951712141
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0018962062895298004
+g_std_np = 0.022903548553586006
+b_mean_np = 0.16988040786236525
+g/b std = 1.2
+g-b mean = -0.17177661415189505
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08016241993755102
+find eps = 0.08500000000000006
+final eps = 0.08500000000000006
+req1-1
+eps_search_steps:61
+return eps:0.060000000000000046
+#good10.997963488200018
+#bad8.999934737827719
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0064558470621705055
+g_std_np = 0.016049310564994812
+b_mean_np = 0.1268256762996316
+g/b std = 1.2
+g-b mean = -0.12036982923746109
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05617258697748184
+find eps = 0.060000000000000046
+final eps = 0.060000000000000046
+req1-1
+eps_search_steps:91
+return eps:0.09000000000000007
+#good10.997899879396709
+#bad8.99993183398825
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0016037857858464122
+g_std_np = 0.024123916402459145
+b_mean_np = 0.17932558723259717
+g/b std = 1.2
+g-b mean = -0.18092937301844358
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.084433707408607
+find eps = 0.09000000000000007
+final eps = 0.09000000000000007
+req1-1
+eps_search_steps:68
+return eps:0.06700000000000005
+#good10.99796638984453
+#bad8.99993486940844
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.003862616838887334
+g_std_np = 0.017920011654496193
+b_mean_np = 0.1305374705698341
+g/b std = 1.2
+g-b mean = -0.13440008740872145
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06272004079073668
+find eps = 0.06700000000000005
+final eps = 0.06700000000000005
+req1-1
+eps_search_steps:69
+return eps:0.06800000000000005
+#good10.997821825646163
+#bad8.999928220766035
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.000853236997500062
+g_std_np = 0.01827203296124935
+b_mean_np = 0.13618701021187007
+g/b std = 1.2
+g-b mean = -0.13704024720937014
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06395211536437273
+find eps = 0.06800000000000005
+final eps = 0.06800000000000005
+
+=====  epoch 9  =====
+req1-1
+eps_search_steps:68
+return eps:0.06700000000000005
+#good10.997762025336398
+#bad8.999925415971706
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.00172766437754035
+g_std_np = 0.0180364940315485
+b_mean_np = 0.1370013696141541
+g/b std = 1.2
+g-b mean = -0.13527370523661375
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06312772911041975
+find eps = 0.06700000000000005
+final eps = 0.06700000000000005
+req1-1
+eps_search_steps:57
+return eps:0.05600000000000004
+#good10.99763862351183
+#bad8.99991953016891
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.005825687199831009
+g_std_np = 0.015130654908716679
+b_mean_np = 0.1193055990152061
+g/b std = 1.2
+g-b mean = -0.11347991181537509
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.052957292180508375
+find eps = 0.05600000000000004
+final eps = 0.05600000000000004
+req1-1
+eps_search_steps:80
+return eps:0.07900000000000006
+#good10.997750443490466
+#bad8.999924869135882
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.004184572957456112
+g_std_np = 0.0212743878364563
+b_mean_np = 0.15537333581596613
+g/b std = 1.2
+g-b mean = -0.15955790877342224
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07446035742759705
+find eps = 0.07900000000000006
+final eps = 0.07900000000000006
+req1-1
+eps_search_steps:87
+return eps:0.08600000000000006
+#good10.998014717095238
+#bad8.99993704943695
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004840276204049587
+g_std_np = 0.022964689880609512
+b_mean_np = 0.17707545030862093
+g/b std = 1.2
+g-b mean = -0.17223517410457134
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.0803764145821333
+find eps = 0.08600000000000006
+final eps = 0.08600000000000006
+req1-1
+eps_search_steps:55
+return eps:0.05400000000000004
+#good10.997489779994464
+#bad8.999912260264143
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0080213388428092
+g_std_np = 0.014651782810688019
+b_mean_np = 0.11790970992296934
+g/b std = 1.2
+g-b mean = -0.10988837108016014
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.051281239837408066
+find eps = 0.05400000000000004
+final eps = 0.05400000000000004
+req1-1
+eps_search_steps:88
+return eps:0.08700000000000006
+#good10.997872576956892
+#bad8.999930576324385
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.001856093993410468
+g_std_np = 0.023340150713920593
+b_mean_np = 0.17319503636099398
+g/b std = 1.2
+g-b mean = -0.17505113035440445
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08169052749872208
+find eps = 0.08700000000000006
+final eps = 0.08700000000000006
+req1-1
+eps_search_steps:58
+return eps:0.057000000000000044
+#good10.997647830156529
+#bad8.999919973776944
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.006104149855673313
+g_std_np = 0.015396722592413425
+b_mean_np = 0.121579569298774
+g/b std = 1.2
+g-b mean = -0.11547541944310069
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05388852907344699
+find eps = 0.057000000000000044
+final eps = 0.057000000000000044
+req1-1
+eps_search_steps:90
+return eps:0.08900000000000007
+#good10.9980118630527
+#bad8.999936921295772
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0015078096184879541
+g_std_np = 0.023768072947859764
+b_mean_np = 0.17675273749046028
+g/b std = 1.2
+g-b mean = -0.17826054710894823
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08318825531750917
+find eps = 0.08900000000000007
+final eps = 0.08900000000000007
+req1-1
+eps_search_steps:61
+return eps:0.060000000000000046
+#good10.99771585248517
+#bad8.999923229003617
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.004235440399497747
+g_std_np = 0.01617458462715149
+b_mean_np = 0.11707394430413842
+g/b std = 1.2
+g-b mean = -0.12130938470363617
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05661104619503021
+find eps = 0.060000000000000046
+final eps = 0.060000000000000046
+req1-1
+eps_search_steps:68
+return eps:0.06700000000000005
+#good10.997960442075316
+#bad8.999934599611803
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.001109676668420434
+g_std_np = 0.01792353205382824
+b_mean_np = 0.13331681373529136
+g/b std = 1.2
+g-b mean = -0.1344264904037118
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06273236218839884
+find eps = 0.06700000000000005
+final eps = 0.06700000000000005
+
+=====  epoch 10  =====
+req1-1
+eps_search_steps:67
+return eps:0.06600000000000004
+#good10.998032465122634
+#bad8.999937844577694
+
+=====  class 0  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.0011821535881608725
+g_std_np = 0.01761346310377121
+b_mean_np = 0.13328312686644495
+g/b std = 1.2
+g-b mean = -0.13210097327828407
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.061647120863199234
+find eps = 0.06600000000000004
+final eps = 0.06600000000000004
+req1-1
+eps_search_steps:53
+return eps:0.05200000000000004
+#good10.997652589039047
+#bad8.999920202795469
+
+=====  class 1  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.005551997572183609
+g_std_np = 0.014044184237718582
+b_mean_np = 0.11088337935507298
+g/b std = 1.2
+g-b mean = -0.10533138178288937
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.04915464483201504
+find eps = 0.05200000000000004
+final eps = 0.05200000000000004
+req1-1
+eps_search_steps:79
+return eps:0.07800000000000006
+#good10.997686605437401
+#bad8.999921834217442
+
+=====  class 2  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.004478513263165951
+g_std_np = 0.021045243367552757
+b_mean_np = 0.15336081199347973
+g/b std = 1.2
+g-b mean = -0.15783932525664568
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07365835178643465
+find eps = 0.07800000000000006
+final eps = 0.07800000000000006
+req1-1
+eps_search_steps:86
+return eps:0.08500000000000006
+#good10.997902108792495
+#bad8.9999319363864
+
+=====  class 3  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.004720369353890419
+g_std_np = 0.022782064974308014
+b_mean_np = 0.17558585666120052
+g/b std = 1.2
+g-b mean = -0.1708654873073101
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07973722741007805
+find eps = 0.08500000000000006
+final eps = 0.08500000000000006
+req1-1
+eps_search_steps:57
+return eps:0.05600000000000004
+#good10.997663392007826
+#bad8.999920721970131
+
+=====  class 4  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.008519873023033142
+g_std_np = 0.015119729563593864
+b_mean_np = 0.12191784474998713
+g/b std = 1.2
+g-b mean = -0.11339797172695398
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.052919053472578526
+find eps = 0.05600000000000004
+final eps = 0.05600000000000004
+req1-1
+eps_search_steps:85
+return eps:0.08400000000000006
+#good10.997907744327417
+#bad8.999932195030912
+
+=====  class 5  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0019867760129272938
+g_std_np = 0.022509953007102013
+b_mean_np = 0.1668378715403378
+g/b std = 1.2
+g-b mean = -0.1688246475532651
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.07878483552485704
+find eps = 0.08400000000000006
+final eps = 0.08400000000000006
+req1-1
+eps_search_steps:65
+return eps:0.06400000000000004
+#good10.997943240012338
+#bad8.99993381747863
+
+=====  class 6  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.005711427424103022
+g_std_np = 0.017130667343735695
+b_mean_np = 0.13419143250212073
+g/b std = 1.2
+g-b mean = -0.1284800050780177
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.05995733570307493
+find eps = 0.06400000000000004
+final eps = 0.06400000000000004
+req1-1
+eps_search_steps:89
+return eps:0.08800000000000006
+#good10.99805045129577
+#bad8.999938647365878
+
+=====  class 7  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.0006515125278383493
+g_std_np = 0.023470187559723854
+b_mean_np = 0.17537489417009056
+g/b std = 1.2
+g-b mean = -0.1760264066979289
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.08214565645903349
+find eps = 0.08800000000000006
+final eps = 0.08800000000000006
+req1-1
+eps_search_steps:70
+return eps:0.06900000000000005
+#good10.998002263796486
+#bad8.999936489748912
+
+=====  class 8  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = -0.003889193758368492
+g_std_np = 0.01843288727104664
+b_mean_np = 0.1343574607744813
+g/b std = 1.2
+g-b mean = -0.1382466545328498
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06451510544866323
+find eps = 0.06900000000000005
+final eps = 0.06900000000000005
+req1-1
+eps_search_steps:69
+return eps:0.06800000000000005
+#good10.997926674443177
+#bad8.999933061723386
+
+=====  class 9  =====
+current_attacker_id = 14, 15, 16, 17, 18, 19
+current_honest_id = 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+stats_source = warmup_prototype_cache_2rounds
+g_mean_np = 0.00023533334024250507
+g_std_np = 0.01821117475628853
+b_mean_np = 0.13681914401240647
+g/b std = 1.2
+g-b mean = -0.13658381067216396
+-*-*-*-*-*-*-*-*-*-*
+3.5eps = 0.06373911164700985
+find eps = 0.06800000000000005
+final eps = 0.06800000000000005

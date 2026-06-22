@@ -1,0 +1,1623 @@
+[pipeline] full_fixedpoison_pipeline
+[time] pipeline_start=2026-06-04 02:54:59 CST
+[path] audit_dir=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit
+[path] detector_output_dir=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260604_025459
+[path] previous_run_dir=/home/ismp/disk2/chia/mprobe_m_219/saved_models/model_CifarFedProtopnet_Jun.03_20.38.15_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+[phase] training_global_model start
+Setting random_seed=0 for reproducible results.
+2026-06-04 02:55:00 - WARNING  - Logging to: saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+2026-06-04 02:55:00 - ERROR    - LINK: <a href="https://github.com/ebagdasa/backdoors/tree/none">https://github.com/ebagdasa/backdoors/tree/none</a>
+current path: saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+2026-06-04 02:55:00 - INFO     - current path: saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+2026-06-04 02:55:00 - DEBUG    - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2026-06-04 02:55:01 - INFO     - Note: NumExpr detected 24 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2026-06-04 02:55:01 - INFO     - NumExpr defaulting to 8 threads.
+Attacking over multiple epochs with following users compromised: [14, 15, 16, 17, 18, 19].
+2026-06-04 02:55:14 - WARNING  - Attacking over multiple epochs with following users compromised: [14, 15, 16, 17, 18, 19].
+| name | value | 
+ |-----|-----|
+| task | CifarFedProtopnet |
+| synthesizer | Pattern |
+| batch_size | 250 |
+| test_batch_size | 100 |
+| lr | 0.0001 |
+| momentum | 0.9 |
+| decay | 0 |
+| epochs | 10 |
+| scheduler_milestones | [30, 50, 100] |
+| log_interval | 100 |
+| pretrained | True |
+| base_architecture | vgg19 |
+| img_size | 32 |
+| prototype_shape | [20, 8, 1, 1] |
+| num_classes | 10 |
+| prototype_activation_function | log |
+| add_on_layers_type | regular |
+| class_specific | True |
+| scheduler | False |
+| poisoning_proportion | 0.5 |
+| fixed_poison_dataset | True |
+| fixed_poison_seed | 0 |
+| backdoor_label | 9 |
+| loss_balance | MGDA |
+| mgda_normalize | none |
+| save_model | False |
+| log | True |
+| tb | True |
+| report_train_loss | True |
+| transform_train | True |
+| fl | True |
+| fl_no_models | 20 |
+| fl_local_epochs | 1 |
+| fl_total_participants | 20 |
+| fl_eta | 1 |
+| FGnoniid | 0 |
+| fl_sample_dirichlet | True |
+| fl_dirichlet_alpha | 6 |
+| fl_diff_privacy | False |
+| fl_dp_clip | None |
+| fl_dp_noise | None |
+| fl_number_of_adversaries | 14 |
+| fl_weight_scale | 1 |
+| eps | 0.2 |
+| aggregate | clustering |
+| defense | True |
+| outlier_detection | DBSCAN |
+| distance_calculation | euclidean |
+| block_time | 0 |
+| nogood_exit | False |
+| poison_lr | 0.0001 |
+| baseline | False |
+| retrain_poison | 1 |
+| poison_step_lr | False |
+| p_attacker | 6 |
+| gb_dist | None |
+| gb_distG | 5 |
+| gb_distB | 3 |
+| g_bStd | 1.2 |
+| gamma | 10 |
+| rearrange_client_data | True |
+| fdr_opt | False |
+| loss_tasks | ['protopnet'] |
+| defense_warmup_rounds | 2 |
+| attack_start_round | 3 |
+| first_round_relax_defense | False |
+| p_outlier | 5 |
+| usr_outlier2_threshold | 0.0 |
+| clustering_min_keep_ratio | 0.5 |
+| clustering_min_keep_clients | 10 |
+| min_defense_keep_rounds | 1 |
+| min_defense_keep_count | 10 |
+| data_washing_audit | True |
+| data_washing_output_dir | /home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit |
+| data_washing_batch_size | 128 |
+| current_time | Jun.04_02.55.00 |
+| commit | none |
+| name | cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0 |
+| random_seed | 0 |
+2026-06-04 02:55:14 - WARNING  - | name | value | 
+ |-----|-----|
+| task | CifarFedProtopnet |
+| synthesizer | Pattern |
+| batch_size | 250 |
+| test_batch_size | 100 |
+| lr | 0.0001 |
+| momentum | 0.9 |
+| decay | 0 |
+| epochs | 10 |
+| scheduler_milestones | [30, 50, 100] |
+| log_interval | 100 |
+| pretrained | True |
+| base_architecture | vgg19 |
+| img_size | 32 |
+| prototype_shape | [20, 8, 1, 1] |
+| num_classes | 10 |
+| prototype_activation_function | log |
+| add_on_layers_type | regular |
+| class_specific | True |
+| scheduler | False |
+| poisoning_proportion | 0.5 |
+| fixed_poison_dataset | True |
+| fixed_poison_seed | 0 |
+| backdoor_label | 9 |
+| loss_balance | MGDA |
+| mgda_normalize | none |
+| save_model | False |
+| log | True |
+| tb | True |
+| report_train_loss | True |
+| transform_train | True |
+| fl | True |
+| fl_no_models | 20 |
+| fl_local_epochs | 1 |
+| fl_total_participants | 20 |
+| fl_eta | 1 |
+| FGnoniid | 0 |
+| fl_sample_dirichlet | True |
+| fl_dirichlet_alpha | 6 |
+| fl_diff_privacy | False |
+| fl_dp_clip | None |
+| fl_dp_noise | None |
+| fl_number_of_adversaries | 14 |
+| fl_weight_scale | 1 |
+| eps | 0.2 |
+| aggregate | clustering |
+| defense | True |
+| outlier_detection | DBSCAN |
+| distance_calculation | euclidean |
+| block_time | 0 |
+| nogood_exit | False |
+| poison_lr | 0.0001 |
+| baseline | False |
+| retrain_poison | 1 |
+| poison_step_lr | False |
+| p_attacker | 6 |
+| gb_dist | None |
+| gb_distG | 5 |
+| gb_distB | 3 |
+| g_bStd | 1.2 |
+| gamma | 10 |
+| rearrange_client_data | True |
+| fdr_opt | False |
+| loss_tasks | ['protopnet'] |
+| defense_warmup_rounds | 2 |
+| attack_start_round | 3 |
+| first_round_relax_defense | False |
+| p_outlier | 5 |
+| usr_outlier2_threshold | 0.0 |
+| clustering_min_keep_ratio | 0.5 |
+| clustering_min_keep_clients | 10 |
+| min_defense_keep_rounds | 1 |
+| min_defense_keep_count | 10 |
+| data_washing_audit | True |
+| data_washing_output_dir | /home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit |
+| data_washing_batch_size | 128 |
+| current_time | Jun.04_02.55.00 |
+| commit | none |
+| name | cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0 |
+| random_seed | 0 |
+id: 0, compromised: False
+2026-06-04 02:55:16 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:55:17 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:55:17 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:55:18 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:55:18 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:55:18 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:55:19 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:55:19 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:55:19 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:55:20 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:55:20 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:55:20 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:55:21 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:55:21 - INFO     - id: 13, compromised: False
+id: 14, compromised: False
+2026-06-04 02:55:21 - INFO     - id: 14, compromised: False
+id: 15, compromised: False
+2026-06-04 02:55:22 - INFO     - id: 15, compromised: False
+id: 16, compromised: False
+2026-06-04 02:55:22 - INFO     - id: 16, compromised: False
+id: 17, compromised: False
+2026-06-04 02:55:22 - INFO     - id: 17, compromised: False
+id: 18, compromised: False
+2026-06-04 02:55:23 - INFO     - id: 18, compromised: False
+id: 19, compromised: False
+2026-06-04 02:55:23 - INFO     - id: 19, compromised: False
+#001# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:23 - WARNING  - #001# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#001# attacker ids: 
+2026-06-04 02:55:23 - WARNING  - #001# attacker ids: 
+#001# attacker index: 
+2026-06-04 02:55:23 - WARNING  - #001# attacker index: 
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:24 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:24 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+attacker_list: 
+2026-06-04 02:55:24 - INFO     - attacker_list: 
+Backdoor False. Epoch:     1. Accuracy: Top-1: 8.23 | Loss: value: 2.41
+2026-06-04 02:55:25 - WARNING  - Backdoor False. Epoch:     1. Accuracy: Top-1: 8.23 | Loss: value: 2.41
+Backdoor True . Epoch:     1. Accuracy: Top-1: 0.03 | Loss: value: 2.77
+2026-06-04 02:55:25 - WARNING  - Backdoor True . Epoch:     1. Accuracy: Top-1: 0.03 | Loss: value: 2.77
+Strict ASR. Epoch:     1. Success: 0.03% (3/10000)
+2026-06-04 02:55:25 - WARNING  - Strict ASR. Epoch:     1. Success: 0.03% (3/10000)
+Backdoor Eval Params. Epoch:     1. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:25 - WARNING  - Backdoor Eval Params. Epoch:     1. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     1. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=2 (0.02%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:25 - WARNING  - Backdoor Eval Diag. Epoch:     1. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=2 (0.02%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:55:26 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:55:27 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:55:27 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:55:27 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:55:28 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:55:28 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:55:28 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:55:29 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:55:29 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:55:29 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:55:30 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:55:30 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:55:31 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:55:31 - INFO     - id: 13, compromised: False
+id: 14, compromised: False
+2026-06-04 02:55:31 - INFO     - id: 14, compromised: False
+id: 15, compromised: False
+2026-06-04 02:55:32 - INFO     - id: 15, compromised: False
+id: 16, compromised: False
+2026-06-04 02:55:32 - INFO     - id: 16, compromised: False
+id: 17, compromised: False
+2026-06-04 02:55:32 - INFO     - id: 17, compromised: False
+id: 18, compromised: False
+2026-06-04 02:55:33 - INFO     - id: 18, compromised: False
+id: 19, compromised: False
+2026-06-04 02:55:33 - INFO     - id: 19, compromised: False
+#002# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33 - WARNING  - #002# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#002# attacker ids: 
+2026-06-04 02:55:33 - WARNING  - #002# attacker ids: 
+#002# attacker index: 
+2026-06-04 02:55:33 - WARNING  - #002# attacker index: 
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+attacker_list: 
+2026-06-04 02:55:33 - INFO     - attacker_list: 
+Backdoor False. Epoch:     2. Accuracy: Top-1: 10.07 | Loss: value: 2.38
+2026-06-04 02:55:34 - WARNING  - Backdoor False. Epoch:     2. Accuracy: Top-1: 10.07 | Loss: value: 2.38
+Backdoor True . Epoch:     2. Accuracy: Top-1: 0.00 | Loss: value: 2.71
+2026-06-04 02:55:35 - WARNING  - Backdoor True . Epoch:     2. Accuracy: Top-1: 0.00 | Loss: value: 2.71
+Strict ASR. Epoch:     2. Success: 0.00% (0/10000)
+2026-06-04 02:55:35 - WARNING  - Strict ASR. Epoch:     2. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     2. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:35 - WARNING  - Backdoor Eval Params. Epoch:     2. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     2. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:35 - WARNING  - Backdoor Eval Diag. Epoch:     2. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:55:36 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:55:36 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:55:37 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:55:37 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:55:37 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:55:38 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:55:38 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:55:38 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:55:39 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:55:39 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:55:40 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:55:40 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:55:40 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:55:41 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:55:41 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     3. Success: 99.94% (9994/10000)
+2026-06-04 02:55:43 - WARNING  - Strict ASR. Epoch:     3. Success: 99.94% (9994/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:43 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:55:43 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=996/1000 (99.60%)
+	14 - main acc of attacker: 18.39
+2026-06-04 02:55:43 - INFO     - 	14 - main acc of attacker: 18.39
+	14 - back acc of attacker: 99.94
+2026-06-04 02:55:43 - INFO     - 	14 - back acc of attacker: 99.94
+id: 15, compromised: True
+2026-06-04 02:55:43 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:46 - WARNING  - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:46 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:46 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+	15 - main acc of attacker: 16.23
+2026-06-04 02:55:46 - INFO     - 	15 - main acc of attacker: 16.23
+	15 - back acc of attacker: 0.0
+2026-06-04 02:55:46 - INFO     - 	15 - back acc of attacker: 0.0
+id: 16, compromised: True
+2026-06-04 02:55:46 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:48 - WARNING  - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:48 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:48 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+	16 - main acc of attacker: 16.91
+2026-06-04 02:55:48 - INFO     - 	16 - main acc of attacker: 16.91
+	16 - back acc of attacker: 0.0
+2026-06-04 02:55:48 - INFO     - 	16 - back acc of attacker: 0.0
+id: 17, compromised: True
+2026-06-04 02:55:48 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     3. Success: 94.35% (9435/10000)
+2026-06-04 02:55:51 - WARNING  - Strict ASR. Epoch:     3. Success: 94.35% (9435/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:51 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8437 (93.74%), pred_target_on_clean1=928/1000 (92.80%)
+2026-06-04 02:55:51 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8437 (93.74%), pred_target_on_clean1=928/1000 (92.80%)
+	17 - main acc of attacker: 21.19
+2026-06-04 02:55:51 - INFO     - 	17 - main acc of attacker: 21.19
+	17 - back acc of attacker: 94.35
+2026-06-04 02:55:51 - INFO     - 	17 - back acc of attacker: 94.35
+id: 18, compromised: True
+2026-06-04 02:55:51 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     3. Success: 94.51% (9451/10000)
+2026-06-04 02:55:53 - WARNING  - Strict ASR. Epoch:     3. Success: 94.51% (9451/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:53 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8572 (95.24%), pred_target_on_clean1=835/1000 (83.50%)
+2026-06-04 02:55:53 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8572 (95.24%), pred_target_on_clean1=835/1000 (83.50%)
+	18 - main acc of attacker: 17.87
+2026-06-04 02:55:53 - INFO     - 	18 - main acc of attacker: 17.87
+	18 - back acc of attacker: 94.51
+2026-06-04 02:55:53 - INFO     - 	18 - back acc of attacker: 94.51
+id: 19, compromised: True
+2026-06-04 02:55:53 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     3. Success: 99.28% (9928/10000)
+2026-06-04 02:55:56 - WARNING  - Strict ASR. Epoch:     3. Success: 99.28% (9928/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:56 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=967/1000 (96.70%)
+2026-06-04 02:55:56 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=967/1000 (96.70%)
+	19 - main acc of attacker: 14.88
+2026-06-04 02:55:56 - INFO     - 	19 - main acc of attacker: 14.88
+	19 - back acc of attacker: 99.28
+2026-06-04 02:55:56 - INFO     - 	19 - back acc of attacker: 99.28
+#003# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56 - WARNING  - #003# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#003# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56 - WARNING  - #003# attacker ids: 14, 15, 16, 17, 18, 19
+#003# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56 - WARNING  - #003# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:55:56 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:55:56 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     3. Accuracy: Top-1: 9.01 | Loss: value: 2.33
+2026-06-04 02:55:57 - WARNING  - Backdoor False. Epoch:     3. Accuracy: Top-1: 9.01 | Loss: value: 2.33
+Backdoor True . Epoch:     3. Accuracy: Top-1: 0.00 | Loss: value: 2.69
+2026-06-04 02:55:57 - WARNING  - Backdoor True . Epoch:     3. Accuracy: Top-1: 0.00 | Loss: value: 2.69
+Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:57 - WARNING  - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:57 - WARNING  - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:57 - WARNING  - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:55:58 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:55:59 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:55:59 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:55:59 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:56:00 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:56:00 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:56:01 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:56:01 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:56:01 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:56:02 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:56:02 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:56:02 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:56:03 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:56:03 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:56:03 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     4. Success: 98.67% (9867/10000)
+2026-06-04 02:56:06 - WARNING  - Strict ASR. Epoch:     4. Success: 98.67% (9867/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:06 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8878 (98.64%), pred_target_on_clean1=925/1000 (92.50%)
+2026-06-04 02:56:06 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8878 (98.64%), pred_target_on_clean1=925/1000 (92.50%)
+	14 - main acc of attacker: 21.86
+2026-06-04 02:56:06 - INFO     - 	14 - main acc of attacker: 21.86
+	14 - back acc of attacker: 98.67
+2026-06-04 02:56:06 - INFO     - 	14 - back acc of attacker: 98.67
+id: 15, compromised: True
+2026-06-04 02:56:06 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     4. Success: 99.51% (9951/10000)
+2026-06-04 02:56:08 - WARNING  - Strict ASR. Epoch:     4. Success: 99.51% (9951/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:08 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8951 (99.46%), pred_target_on_clean1=986/1000 (98.60%)
+2026-06-04 02:56:08 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8951 (99.46%), pred_target_on_clean1=986/1000 (98.60%)
+	15 - main acc of attacker: 23.69
+2026-06-04 02:56:08 - INFO     - 	15 - main acc of attacker: 23.69
+	15 - back acc of attacker: 99.51
+2026-06-04 02:56:08 - INFO     - 	15 - back acc of attacker: 99.51
+id: 16, compromised: True
+2026-06-04 02:56:08 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     4. Success: 99.89% (9989/10000)
+2026-06-04 02:56:11 - WARNING  - Strict ASR. Epoch:     4. Success: 99.89% (9989/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:11 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:56:11 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=996/1000 (99.60%)
+	16 - main acc of attacker: 19.22
+2026-06-04 02:56:11 - INFO     - 	16 - main acc of attacker: 19.22
+	16 - back acc of attacker: 99.89
+2026-06-04 02:56:11 - INFO     - 	16 - back acc of attacker: 99.89
+id: 17, compromised: True
+2026-06-04 02:56:11 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     4. Success: 99.98% (9998/10000)
+2026-06-04 02:56:13 - WARNING  - Strict ASR. Epoch:     4. Success: 99.98% (9998/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:13 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8998 (99.98%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:13 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8998 (99.98%), pred_target_on_clean1=1000/1000 (100.00%)
+	17 - main acc of attacker: 22.88
+2026-06-04 02:56:13 - INFO     - 	17 - main acc of attacker: 22.88
+	17 - back acc of attacker: 99.98
+2026-06-04 02:56:13 - INFO     - 	17 - back acc of attacker: 99.98
+id: 18, compromised: True
+2026-06-04 02:56:13 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     4. Success: 96.02% (9602/10000)
+2026-06-04 02:56:16 - WARNING  - Strict ASR. Epoch:     4. Success: 96.02% (9602/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:16 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8611 (95.68%), pred_target_on_clean1=868/1000 (86.80%)
+2026-06-04 02:56:16 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8611 (95.68%), pred_target_on_clean1=868/1000 (86.80%)
+	18 - main acc of attacker: 21.5
+2026-06-04 02:56:16 - INFO     - 	18 - main acc of attacker: 21.5
+	18 - back acc of attacker: 96.02
+2026-06-04 02:56:16 - INFO     - 	18 - back acc of attacker: 96.02
+id: 19, compromised: True
+2026-06-04 02:56:16 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     4. Success: 99.38% (9938/10000)
+2026-06-04 02:56:18 - WARNING  - Strict ASR. Epoch:     4. Success: 99.38% (9938/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:18 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8940 (99.33%), pred_target_on_clean1=969/1000 (96.90%)
+2026-06-04 02:56:18 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8940 (99.33%), pred_target_on_clean1=969/1000 (96.90%)
+	19 - main acc of attacker: 25.75
+2026-06-04 02:56:18 - INFO     - 	19 - main acc of attacker: 25.75
+	19 - back acc of attacker: 99.38
+2026-06-04 02:56:18 - INFO     - 	19 - back acc of attacker: 99.38
+#004# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18 - WARNING  - #004# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#004# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18 - WARNING  - #004# attacker ids: 14, 15, 16, 17, 18, 19
+#004# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18 - WARNING  - #004# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:56:18 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:56:18 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     4. Accuracy: Top-1: 17.46 | Loss: value: 2.26
+2026-06-04 02:56:19 - WARNING  - Backdoor False. Epoch:     4. Accuracy: Top-1: 17.46 | Loss: value: 2.26
+Backdoor True . Epoch:     4. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+2026-06-04 02:56:20 - WARNING  - Backdoor True . Epoch:     4. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+Strict ASR. Epoch:     4. Success: 0.00% (0/10000)
+2026-06-04 02:56:20 - WARNING  - Strict ASR. Epoch:     4. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:20 - WARNING  - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:56:20 - WARNING  - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:56:21 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:56:21 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:56:21 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:56:22 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:56:22 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:56:23 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:56:23 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:56:23 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:56:24 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:56:24 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:56:24 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:56:25 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:56:25 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:56:25 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:56:26 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     5. Success: 99.92% (9992/10000)
+2026-06-04 02:56:28 - WARNING  - Strict ASR. Epoch:     5. Success: 99.92% (9992/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:28 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8992 (99.91%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:56:28 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8992 (99.91%), pred_target_on_clean1=999/1000 (99.90%)
+	14 - main acc of attacker: 24.01
+2026-06-04 02:56:28 - INFO     - 	14 - main acc of attacker: 24.01
+	14 - back acc of attacker: 99.92
+2026-06-04 02:56:28 - INFO     - 	14 - back acc of attacker: 99.92
+id: 15, compromised: True
+2026-06-04 02:56:28 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     5. Success: 99.60% (9960/10000)
+2026-06-04 02:56:31 - WARNING  - Strict ASR. Epoch:     5. Success: 99.60% (9960/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:31 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8960 (99.56%), pred_target_on_clean1=993/1000 (99.30%)
+2026-06-04 02:56:31 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8960 (99.56%), pred_target_on_clean1=993/1000 (99.30%)
+	15 - main acc of attacker: 25.73
+2026-06-04 02:56:31 - INFO     - 	15 - main acc of attacker: 25.73
+	15 - back acc of attacker: 99.6
+2026-06-04 02:56:31 - INFO     - 	15 - back acc of attacker: 99.6
+id: 16, compromised: True
+2026-06-04 02:56:31 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     5. Success: 96.38% (9638/10000)
+2026-06-04 02:56:33 - WARNING  - Strict ASR. Epoch:     5. Success: 96.38% (9638/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:33 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8638 (95.98%), pred_target_on_clean1=928/1000 (92.80%)
+2026-06-04 02:56:33 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8638 (95.98%), pred_target_on_clean1=928/1000 (92.80%)
+	16 - main acc of attacker: 23.76
+2026-06-04 02:56:33 - INFO     - 	16 - main acc of attacker: 23.76
+	16 - back acc of attacker: 96.38
+2026-06-04 02:56:33 - INFO     - 	16 - back acc of attacker: 96.38
+id: 17, compromised: True
+2026-06-04 02:56:33 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     5. Success: 85.19% (8519/10000)
+2026-06-04 02:56:36 - WARNING  - Strict ASR. Epoch:     5. Success: 85.19% (8519/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:36 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7521 (83.57%), pred_target_on_clean1=933/1000 (93.30%)
+2026-06-04 02:56:36 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7521 (83.57%), pred_target_on_clean1=933/1000 (93.30%)
+	17 - main acc of attacker: 24.65
+2026-06-04 02:56:36 - INFO     - 	17 - main acc of attacker: 24.65
+	17 - back acc of attacker: 85.19
+2026-06-04 02:56:36 - INFO     - 	17 - back acc of attacker: 85.19
+id: 18, compromised: True
+2026-06-04 02:56:36 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     5. Success: 99.28% (9928/10000)
+2026-06-04 02:56:38 - WARNING  - Strict ASR. Epoch:     5. Success: 99.28% (9928/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:38 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=981/1000 (98.10%)
+2026-06-04 02:56:38 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=981/1000 (98.10%)
+	18 - main acc of attacker: 22.81
+2026-06-04 02:56:38 - INFO     - 	18 - main acc of attacker: 22.81
+	18 - back acc of attacker: 99.28
+2026-06-04 02:56:38 - INFO     - 	18 - back acc of attacker: 99.28
+id: 19, compromised: True
+2026-06-04 02:56:38 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     5. Success: 99.99% (9999/10000)
+2026-06-04 02:56:41 - WARNING  - Strict ASR. Epoch:     5. Success: 99.99% (9999/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:41 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:41 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+	19 - main acc of attacker: 24.88
+2026-06-04 02:56:41 - INFO     - 	19 - main acc of attacker: 24.88
+	19 - back acc of attacker: 99.99
+2026-06-04 02:56:41 - INFO     - 	19 - back acc of attacker: 99.99
+#005# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41 - WARNING  - #005# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#005# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41 - WARNING  - #005# attacker ids: 14, 15, 16, 17, 18, 19
+#005# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41 - WARNING  - #005# attacker index: 14, 15, 16, 17, 18, 19
+folderpath = saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+tasks.fl.cifarfedprotopnet_task
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Client 0 assigned classes: {8, 5}
+Client 1 assigned classes: {0, 5}
+Client 2 assigned classes: {9, 3}
+Client 3 assigned classes: {3, 5}
+Client 4 assigned classes: {8, 3}
+Client 5 assigned classes: {2, 3}
+Client 6 assigned classes: {2, 7}
+Client 7 assigned classes: {0, 9}
+Client 8 assigned classes: {6, 7}
+Client 9 assigned classes: {4, 6}
+Client 10 assigned classes: {8, 7}
+Client 11 assigned classes: {2, 5}
+Client 12 assigned classes: {1, 5}
+Client 13 assigned classes: {8, 7}
+Client 0: 2000 images
+Client 1: 2000 images
+Client 2: 2000 images
+Client 3: 2000 images
+Client 4: 2000 images
+Client 5: 2000 images
+Client 6: 2000 images
+Client 7: 2000 images
+Client 8: 2000 images
+Client 9: 2000 images
+Client 10: 2000 images
+Client 11: 2000 images
+Client 12: 2000 images
+Client 13: 2000 images
+Client 0: 2500 images
+Client 1: 2500 images
+Client 2: 2500 images
+Client 3: 2500 images
+Client 4: 2500 images
+Client 5: 2500 images
+Client 6: 2500 images
+Client 7: 2500 images
+Client 8: 2500 images
+Client 9: 2500 images
+Client 10: 2500 images
+Client 11: 2500 images
+Client 12: 2500 images
+Client 13: 2500 images
+Client 14: 2500 images
+Client 15: 2500 images
+Client 16: 2500 images
+Client 17: 2500 images
+Client 18: 2500 images
+Client 19: 2500 images
+[EPS] phase=prototype epoch=1 class=0 steps=68 eps=0.06700000000000005 elapsed=0.000082
+[D] epoch 1 class 0 DBSCAN 花費 0.1758 秒
+[EPS] phase=prototype epoch=1 class=1 steps=65 eps=0.06400000000000004 elapsed=0.000321
+[D] epoch 1 class 1 DBSCAN 花費 0.0184 秒
+[EPS] phase=prototype epoch=1 class=2 steps=68 eps=0.06700000000000005 elapsed=0.000108
+[D] epoch 1 class 2 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=1 class=3 steps=73 eps=0.07200000000000005 elapsed=0.000110
+[D] epoch 1 class 3 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=1 class=4 steps=63 eps=0.06200000000000005 elapsed=0.000100
+[D] epoch 1 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=1 class=5 steps=80 eps=0.07900000000000006 elapsed=0.000118
+[D] epoch 1 class 5 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=1 class=6 steps=73 eps=0.07200000000000005 elapsed=0.000110
+[D] epoch 1 class 6 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=1 class=7 steps=73 eps=0.07200000000000005 elapsed=0.000107
+[D] epoch 1 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=1 class=8 steps=74 eps=0.07300000000000005 elapsed=0.000111
+[D] epoch 1 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=1 class=9 steps=66 eps=0.06500000000000004 elapsed=0.000101
+[D] epoch 1 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+runtime 0.2919440269470215
+[EPS] phase=prototype epoch=2 class=0 steps=80 eps=0.07900000000000006 elapsed=0.000083
+[D] epoch 2 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=2 class=1 steps=79 eps=0.07800000000000006 elapsed=0.000090
+[D] epoch 2 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=2 class=2 steps=79 eps=0.07800000000000006 elapsed=0.000088
+[D] epoch 2 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=3 steps=81 eps=0.08000000000000006 elapsed=0.000091
+[D] epoch 2 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=4 steps=65 eps=0.06400000000000004 elapsed=0.000082
+[D] epoch 2 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=5 steps=86 eps=0.08500000000000006 elapsed=0.000097
+[D] epoch 2 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=6 steps=75 eps=0.07400000000000005 elapsed=0.000086
+[D] epoch 2 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=7 steps=80 eps=0.07900000000000006 elapsed=0.000090
+[D] epoch 2 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=8 steps=69 eps=0.06800000000000005 elapsed=0.000081
+[D] epoch 2 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=2 class=9 steps=91 eps=0.09000000000000007 elapsed=0.000099
+[D] epoch 2 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+runtime 0.08623552322387695
+[EPS] phase=prototype epoch=3 class=0 steps=65 eps=0.06400000000000004 elapsed=0.000095
+[D] epoch 3 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=3 class=1 steps=55 eps=0.05400000000000004 elapsed=0.000072
+[D] epoch 3 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=3 class=2 steps=80 eps=0.07900000000000006 elapsed=0.000089
+[D] epoch 3 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=3 steps=91 eps=0.09000000000000007 elapsed=0.000099
+[D] epoch 3 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=4 steps=49 eps=0.048000000000000036 elapsed=0.000068
+[D] epoch 3 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=5 steps=95 eps=0.09400000000000007 elapsed=0.000105
+[D] epoch 3 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=6 steps=63 eps=0.06200000000000005 elapsed=0.000078
+[D] epoch 3 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=7 steps=90 eps=0.08900000000000007 elapsed=0.000098
+[D] epoch 3 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=8 steps=88 eps=0.08700000000000006 elapsed=0.000098
+[D] epoch 3 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=3 class=9 steps=62 eps=0.06100000000000005 elapsed=0.000075
+[D] epoch 3 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06803107261657715
+[EPS] phase=prototype epoch=4 class=0 steps=66 eps=0.06500000000000004 elapsed=0.000081
+[D] epoch 4 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=4 class=1 steps=57 eps=0.05600000000000004 elapsed=0.000073
+[D] epoch 4 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=4 class=2 steps=79 eps=0.07800000000000006 elapsed=0.000089
+[D] epoch 4 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=3 steps=88 eps=0.08700000000000006 elapsed=0.000098
+[D] epoch 4 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=4 steps=51 eps=0.05000000000000004 elapsed=0.000068
+[D] epoch 4 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=5 steps=94 eps=0.09300000000000007 elapsed=0.000101
+[D] epoch 4 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=6 steps=60 eps=0.059000000000000045 elapsed=0.000075
+[D] epoch 4 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=7 steps=87 eps=0.08600000000000006 elapsed=0.000099
+[D] epoch 4 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=8 steps=73 eps=0.07200000000000005 elapsed=0.000086
+[D] epoch 4 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=4 class=9 steps=67 eps=0.06600000000000004 elapsed=0.000081
+[D] epoch 4 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06774210929870605
+[EPS] phase=prototype epoch=5 class=0 steps=66 eps=0.06500000000000004 elapsed=0.000081
+[D] epoch 5 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=5 class=1 steps=54 eps=0.05300000000000004 elapsed=0.000081
+[D] epoch 5 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=5 class=2 steps=81 eps=0.08000000000000006 elapsed=0.000107
+[D] epoch 5 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=3 steps=89 eps=0.08800000000000006 elapsed=0.000105
+[D] epoch 5 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=4 steps=51 eps=0.05000000000000004 elapsed=0.000075
+[D] epoch 5 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=5 steps=93 eps=0.09200000000000007 elapsed=0.000105
+[D] epoch 5 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=6 steps=57 eps=0.05600000000000004 elapsed=0.000079
+[D] epoch 5 class 6 DBSCAN 花費 0.0004 秒
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:56:41 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:56:41 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     5. Accuracy: Top-1: 14.78 | Loss: value: 2.27
+2026-06-04 02:56:41 - WARNING  - Backdoor False. Epoch:     5. Accuracy: Top-1: 14.78 | Loss: value: 2.27
+Backdoor True . Epoch:     5. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+2026-06-04 02:56:42 - WARNING  - Backdoor True . Epoch:     5. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+Strict ASR. Epoch:     5. Success: 0.00% (0/10000)
+2026-06-04 02:56:42 - WARNING  - Strict ASR. Epoch:     5. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:42 - WARNING  - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:56:42 - WARNING  - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:56:43 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:56:44 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:56:44 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:56:44 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:56:45 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:56:45 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:56:45 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:56:46 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:56:46 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:56:46 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:56:47 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:56:47 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:56:47 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:56:48 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:56:48 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+2026-06-04 02:56:50 - WARNING  - Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:50 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:50 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+	14 - main acc of attacker: 24.74
+2026-06-04 02:56:50 - INFO     - 	14 - main acc of attacker: 24.74
+	14 - back acc of attacker: 99.94
+2026-06-04 02:56:50 - INFO     - 	14 - back acc of attacker: 99.94
+id: 15, compromised: True
+2026-06-04 02:56:50 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     6. Success: 99.78% (9978/10000)
+2026-06-04 02:56:53 - WARNING  - Strict ASR. Epoch:     6. Success: 99.78% (9978/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:53 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8978 (99.76%), pred_target_on_clean1=998/1000 (99.80%)
+2026-06-04 02:56:53 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8978 (99.76%), pred_target_on_clean1=998/1000 (99.80%)
+	15 - main acc of attacker: 24.32
+2026-06-04 02:56:53 - INFO     - 	15 - main acc of attacker: 24.32
+	15 - back acc of attacker: 99.78
+2026-06-04 02:56:53 - INFO     - 	15 - back acc of attacker: 99.78
+id: 16, compromised: True
+2026-06-04 02:56:53 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     6. Success: 97.02% (9702/10000)
+2026-06-04 02:56:55 - WARNING  - Strict ASR. Epoch:     6. Success: 97.02% (9702/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:55 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8703 (96.70%), pred_target_on_clean1=964/1000 (96.40%)
+2026-06-04 02:56:55 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8703 (96.70%), pred_target_on_clean1=964/1000 (96.40%)
+	16 - main acc of attacker: 24.67
+2026-06-04 02:56:55 - INFO     - 	16 - main acc of attacker: 24.67
+	16 - back acc of attacker: 97.02
+2026-06-04 02:56:55 - INFO     - 	16 - back acc of attacker: 97.02
+id: 17, compromised: True
+2026-06-04 02:56:55 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+2026-06-04 02:56:58 - WARNING  - Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:58 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:58 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+	17 - main acc of attacker: 24.45
+2026-06-04 02:56:58 - INFO     - 	17 - main acc of attacker: 24.45
+	17 - back acc of attacker: 99.94
+2026-06-04 02:56:58 - INFO     - 	17 - back acc of attacker: 99.94
+id: 18, compromised: True
+2026-06-04 02:56:58 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     6. Success: 99.90% (9990/10000)
+2026-06-04 02:57:00 - WARNING  - Strict ASR. Epoch:     6. Success: 99.90% (9990/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:00 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:57:00 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=999/1000 (99.90%)
+	18 - main acc of attacker: 25.38
+2026-06-04 02:57:00 - INFO     - 	18 - main acc of attacker: 25.38
+	18 - back acc of attacker: 99.9
+2026-06-04 02:57:00 - INFO     - 	18 - back acc of attacker: 99.9
+id: 19, compromised: True
+2026-06-04 02:57:00 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     6. Success: 99.80% (9980/10000)
+2026-06-04 02:57:02 - WARNING  - Strict ASR. Epoch:     6. Success: 99.80% (9980/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:02 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:57:02 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=996/1000 (99.60%)
+	19 - main acc of attacker: 25.18
+2026-06-04 02:57:02 - INFO     - 	19 - main acc of attacker: 25.18
+	19 - back acc of attacker: 99.8
+2026-06-04 02:57:02 - INFO     - 	19 - back acc of attacker: 99.8
+#006# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:02 - WARNING  - #006# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#006# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:02 - WARNING  - #006# attacker ids: 14, 15, 16, 17, 18, 19
+#006# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:02 - WARNING  - #006# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:03 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:03 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:57:03 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:03 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     6. Accuracy: Top-1: 22.52 | Loss: value: 2.18
+2026-06-04 02:57:03 - WARNING  - Backdoor False. Epoch:     6. Accuracy: Top-1: 22.52 | Loss: value: 2.18
+Backdoor True . Epoch:     6. Accuracy: Top-1: 0.00 | Loss: value: 2.60
+2026-06-04 02:57:04 - WARNING  - Backdoor True . Epoch:     6. Accuracy: Top-1: 0.00 | Loss: value: 2.60
+Strict ASR. Epoch:     6. Success: 0.00% (0/10000)
+2026-06-04 02:57:04 - WARNING  - Strict ASR. Epoch:     6. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:04 - WARNING  - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:04 - WARNING  - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:57:05 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:57:05 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:57:06 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:57:06 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:57:06 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:57:07 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:57:07 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:57:08 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:57:08 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:57:08 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:57:09 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:57:09 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:57:09 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:57:10 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:57:10 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     7. Success: 97.37% (9737/10000)
+2026-06-04 02:57:12 - WARNING  - Strict ASR. Epoch:     7. Success: 97.37% (9737/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:12 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8740 (97.11%), pred_target_on_clean1=964/1000 (96.40%)
+2026-06-04 02:57:12 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8740 (97.11%), pred_target_on_clean1=964/1000 (96.40%)
+	14 - main acc of attacker: 26.34
+2026-06-04 02:57:12 - INFO     - 	14 - main acc of attacker: 26.34
+	14 - back acc of attacker: 97.37
+2026-06-04 02:57:12 - INFO     - 	14 - back acc of attacker: 97.37
+id: 15, compromised: True
+2026-06-04 02:57:12 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     7. Success: 99.68% (9968/10000)
+2026-06-04 02:57:15 - WARNING  - Strict ASR. Epoch:     7. Success: 99.68% (9968/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:15 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8968 (99.64%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:57:15 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8968 (99.64%), pred_target_on_clean1=999/1000 (99.90%)
+	15 - main acc of attacker: 25.13
+2026-06-04 02:57:15 - INFO     - 	15 - main acc of attacker: 25.13
+	15 - back acc of attacker: 99.68
+2026-06-04 02:57:15 - INFO     - 	15 - back acc of attacker: 99.68
+id: 16, compromised: True
+2026-06-04 02:57:15 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     7. Success: 98.07% (9807/10000)
+2026-06-04 02:57:17 - WARNING  - Strict ASR. Epoch:     7. Success: 98.07% (9807/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:17 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8807 (97.86%), pred_target_on_clean1=950/1000 (95.00%)
+2026-06-04 02:57:17 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8807 (97.86%), pred_target_on_clean1=950/1000 (95.00%)
+	16 - main acc of attacker: 25.35
+2026-06-04 02:57:17 - INFO     - 	16 - main acc of attacker: 25.35
+	16 - back acc of attacker: 98.07
+2026-06-04 02:57:17 - INFO     - 	16 - back acc of attacker: 98.07
+id: 17, compromised: True
+2026-06-04 02:57:17 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     7. Success: 99.79% (9979/10000)
+2026-06-04 02:57:20 - WARNING  - Strict ASR. Epoch:     7. Success: 99.79% (9979/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:20 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8979 (99.77%), pred_target_on_clean1=992/1000 (99.20%)
+2026-06-04 02:57:20 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8979 (99.77%), pred_target_on_clean1=992/1000 (99.20%)
+	17 - main acc of attacker: 25.45
+2026-06-04 02:57:20 - INFO     - 	17 - main acc of attacker: 25.45
+	17 - back acc of attacker: 99.79
+2026-06-04 02:57:20 - INFO     - 	17 - back acc of attacker: 99.79
+id: 18, compromised: True
+2026-06-04 02:57:20 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     7. Success: 99.99% (9999/10000)
+2026-06-04 02:57:22 - WARNING  - Strict ASR. Epoch:     7. Success: 99.99% (9999/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:22 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:22 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+	18 - main acc of attacker: 23.8
+2026-06-04 02:57:22 - INFO     - 	18 - main acc of attacker: 23.8
+	18 - back acc of attacker: 99.99
+2026-06-04 02:57:22 - INFO     - 	18 - back acc of attacker: 99.99
+id: 19, compromised: True
+2026-06-04 02:57:22 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     7. Success: 99.73% (9973/10000)
+2026-06-04 02:57:25 - WARNING  - Strict ASR. Epoch:     7. Success: 99.73% (9973/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:25 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8973 (99.70%), pred_target_on_clean1=990/1000 (99.00%)
+2026-06-04 02:57:25 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8973 (99.70%), pred_target_on_clean1=990/1000 (99.00%)
+	19 - main acc of attacker: 25.31
+2026-06-04 02:57:25 - INFO     - 	19 - main acc of attacker: 25.31
+	19 - back acc of attacker: 99.73
+2026-06-04 02:57:25 - INFO     - 	19 - back acc of attacker: 99.73
+#007# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25 - WARNING  - #007# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#007# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25 - WARNING  - #007# attacker ids: 14, 15, 16, 17, 18, 19
+#007# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25 - WARNING  - #007# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:25 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:57:25 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     7. Accuracy: Top-1: 24.91 | Loss: value: 2.16
+2026-06-04 02:57:26 - WARNING  - Backdoor False. Epoch:     7. Accuracy: Top-1: 24.91 | Loss: value: 2.16
+Backdoor True . Epoch:     7. Accuracy: Top-1: 0.00 | Loss: value: 2.67
+2026-06-04 02:57:27 - WARNING  - Backdoor True . Epoch:     7. Accuracy: Top-1: 0.00 | Loss: value: 2.67
+Strict ASR. Epoch:     7. Success: 0.00% (0/10000)
+2026-06-04 02:57:27 - WARNING  - Strict ASR. Epoch:     7. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:27 - WARNING  - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:27 - WARNING  - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:57:27 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:57:28 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:57:28 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:57:28 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:57:29 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:57:29 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:57:29 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:57:30 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:57:30 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:57:30 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:57:31 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:57:31 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:57:31 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:57:32 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:57:32 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     8. Success: 99.97% (9997/10000)
+2026-06-04 02:57:35 - WARNING  - Strict ASR. Epoch:     8. Success: 99.97% (9997/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:35 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:35 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+	14 - main acc of attacker: 26.24
+2026-06-04 02:57:35 - INFO     - 	14 - main acc of attacker: 26.24
+	14 - back acc of attacker: 99.97
+2026-06-04 02:57:35 - INFO     - 	14 - back acc of attacker: 99.97
+id: 15, compromised: True
+2026-06-04 02:57:35 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     8. Success: 98.90% (9890/10000)
+2026-06-04 02:57:37 - WARNING  - Strict ASR. Epoch:     8. Success: 98.90% (9890/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:37 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8890 (98.78%), pred_target_on_clean1=997/1000 (99.70%)
+2026-06-04 02:57:37 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8890 (98.78%), pred_target_on_clean1=997/1000 (99.70%)
+	15 - main acc of attacker: 24.88
+2026-06-04 02:57:37 - INFO     - 	15 - main acc of attacker: 24.88
+	15 - back acc of attacker: 98.9
+2026-06-04 02:57:37 - INFO     - 	15 - back acc of attacker: 98.9
+id: 16, compromised: True
+2026-06-04 02:57:37 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     8. Success: 99.06% (9906/10000)
+2026-06-04 02:57:40 - WARNING  - Strict ASR. Epoch:     8. Success: 99.06% (9906/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:40 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8906 (98.96%), pred_target_on_clean1=988/1000 (98.80%)
+2026-06-04 02:57:40 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8906 (98.96%), pred_target_on_clean1=988/1000 (98.80%)
+	16 - main acc of attacker: 24.59
+2026-06-04 02:57:40 - INFO     - 	16 - main acc of attacker: 24.59
+	16 - back acc of attacker: 99.06
+2026-06-04 02:57:40 - INFO     - 	16 - back acc of attacker: 99.06
+id: 17, compromised: True
+2026-06-04 02:57:40 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     8. Success: 99.96% (9996/10000)
+2026-06-04 02:57:42 - WARNING  - Strict ASR. Epoch:     8. Success: 99.96% (9996/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:42 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:42 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+	17 - main acc of attacker: 24.25
+2026-06-04 02:57:42 - INFO     - 	17 - main acc of attacker: 24.25
+	17 - back acc of attacker: 99.96
+2026-06-04 02:57:42 - INFO     - 	17 - back acc of attacker: 99.96
+id: 18, compromised: True
+2026-06-04 02:57:42 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     8. Success: 99.69% (9969/10000)
+2026-06-04 02:57:44 - WARNING  - Strict ASR. Epoch:     8. Success: 99.69% (9969/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:44 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8969 (99.66%), pred_target_on_clean1=988/1000 (98.80%)
+2026-06-04 02:57:44 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8969 (99.66%), pred_target_on_clean1=988/1000 (98.80%)
+	18 - main acc of attacker: 21.4
+2026-06-04 02:57:44 - INFO     - 	18 - main acc of attacker: 21.4
+	18 - back acc of attacker: 99.69
+2026-06-04 02:57:44 - INFO     - 	18 - back acc of attacker: 99.69
+id: 19, compromised: True
+2026-06-04 02:57:44 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     8. Success: 98.66% (9866/10000)
+2026-06-04 02:57:47 - WARNING  - Strict ASR. Epoch:     8. Success: 98.66% (9866/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:47 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8866 (98.51%), pred_target_on_clean1=995/1000 (99.50%)
+2026-06-04 02:57:47 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8866 (98.51%), pred_target_on_clean1=995/1000 (99.50%)
+	19 - main acc of attacker: 25.48
+2026-06-04 02:57:47 - INFO     - 	19 - main acc of attacker: 25.48
+	19 - back acc of attacker: 98.66
+2026-06-04 02:57:47 - INFO     - 	19 - back acc of attacker: 98.66
+#008# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47 - WARNING  - #008# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#008# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47 - WARNING  - #008# attacker ids: 14, 15, 16, 17, 18, 19
+#008# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47 - WARNING  - #008# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:47 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:57:47 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     8. Accuracy: Top-1: 28.72 | Loss: value: 2.12
+2026-06-04 02:57:48 - WARNING  - Backdoor False. Epoch:     8. Accuracy: Top-1: 28.72 | Loss: value: 2.12
+Backdoor True . Epoch:     8. Accuracy: Top-1: 0.00 | Loss: value: 2.57
+2026-06-04 02:57:49 - WARNING  - Backdoor True . Epoch:     8. Accuracy: Top-1: 0.00 | Loss: value: 2.57
+Strict ASR. Epoch:     8. Success: 0.00% (0/10000)
+2026-06-04 02:57:49 - WARNING  - Strict ASR. Epoch:     8. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:49 - WARNING  - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:49 - WARNING  - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:57:50 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:57:50 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:57:50 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:57:50 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:57:51 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:57:51 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:57:51 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:57:52 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:57:52 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:57:52 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:57:53 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:57:53 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:57:53 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:57:54 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:57:54 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:     9. Success: 98.32% (9832/10000)
+2026-06-04 02:57:56 - WARNING  - Strict ASR. Epoch:     9. Success: 98.32% (9832/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:56 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8833 (98.14%), pred_target_on_clean1=997/1000 (99.70%)
+2026-06-04 02:57:56 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8833 (98.14%), pred_target_on_clean1=997/1000 (99.70%)
+	14 - main acc of attacker: 30.03
+2026-06-04 02:57:56 - INFO     - 	14 - main acc of attacker: 30.03
+	14 - back acc of attacker: 98.32
+2026-06-04 02:57:56 - INFO     - 	14 - back acc of attacker: 98.32
+id: 15, compromised: True
+2026-06-04 02:57:56 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:     9. Success: 79.53% (7953/10000)
+2026-06-04 02:57:59 - WARNING  - Strict ASR. Epoch:     9. Success: 79.53% (7953/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:59 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7000 (77.78%), pred_target_on_clean1=842/1000 (84.20%)
+2026-06-04 02:57:59 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7000 (77.78%), pred_target_on_clean1=842/1000 (84.20%)
+	15 - main acc of attacker: 18.45
+2026-06-04 02:57:59 - INFO     - 	15 - main acc of attacker: 18.45
+	15 - back acc of attacker: 79.53
+2026-06-04 02:57:59 - INFO     - 	15 - back acc of attacker: 79.53
+id: 16, compromised: True
+2026-06-04 02:57:59 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:     9. Success: 99.93% (9993/10000)
+2026-06-04 02:58:01 - WARNING  - Strict ASR. Epoch:     9. Success: 99.93% (9993/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:01 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8993 (99.92%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:01 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8993 (99.92%), pred_target_on_clean1=1000/1000 (100.00%)
+	16 - main acc of attacker: 27.78
+2026-06-04 02:58:01 - INFO     - 	16 - main acc of attacker: 27.78
+	16 - back acc of attacker: 99.93
+2026-06-04 02:58:01 - INFO     - 	16 - back acc of attacker: 99.93
+id: 17, compromised: True
+2026-06-04 02:58:01 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:     9. Success: 98.03% (9803/10000)
+2026-06-04 02:58:04 - WARNING  - Strict ASR. Epoch:     9. Success: 98.03% (9803/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:04 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8811 (97.90%), pred_target_on_clean1=913/1000 (91.30%)
+2026-06-04 02:58:04 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8811 (97.90%), pred_target_on_clean1=913/1000 (91.30%)
+	17 - main acc of attacker: 15.0
+2026-06-04 02:58:04 - INFO     - 	17 - main acc of attacker: 15.0
+	17 - back acc of attacker: 98.03
+2026-06-04 02:58:04 - INFO     - 	17 - back acc of attacker: 98.03
+id: 18, compromised: True
+2026-06-04 02:58:04 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:     9. Success: 99.44% (9944/10000)
+2026-06-04 02:58:06 - WARNING  - Strict ASR. Epoch:     9. Success: 99.44% (9944/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:06 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8944 (99.38%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:06 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8944 (99.38%), pred_target_on_clean1=1000/1000 (100.00%)
+	18 - main acc of attacker: 24.93
+2026-06-04 02:58:06 - INFO     - 	18 - main acc of attacker: 24.93
+	18 - back acc of attacker: 99.44
+2026-06-04 02:58:06 - INFO     - 	18 - back acc of attacker: 99.44
+id: 19, compromised: True
+2026-06-04 02:58:06 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:     9. Success: 99.97% (9997/10000)
+2026-06-04 02:58:09 - WARNING  - Strict ASR. Epoch:     9. Success: 99.97% (9997/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:09 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:09 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+	19 - main acc of attacker: 26.44
+2026-06-04 02:58:09 - INFO     - 	19 - main acc of attacker: 26.44
+	19 - back acc of attacker: 99.97
+2026-06-04 02:58:09 - INFO     - 	19 - back acc of attacker: 99.97
+#009# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09 - WARNING  - #009# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#009# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09 - WARNING  - #009# attacker ids: 14, 15, 16, 17, 18, 19
+#009# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09 - WARNING  - #009# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:58:09 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:58:09 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:     9. Accuracy: Top-1: 28.94 | Loss: value: 2.13
+2026-06-04 02:58:10 - WARNING  - Backdoor False. Epoch:     9. Accuracy: Top-1: 28.94 | Loss: value: 2.13
+Backdoor True . Epoch:     9. Accuracy: Top-1: 0.00 | Loss: value: 2.62
+2026-06-04 02:58:10 - WARNING  - Backdoor True . Epoch:     9. Accuracy: Top-1: 0.00 | Loss: value: 2.62
+Strict ASR. Epoch:     9. Success: 0.00% (0/10000)
+2026-06-04 02:58:10 - WARNING  - Strict ASR. Epoch:     9. Success: 0.00% (0/10000)
+Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:10 - WARNING  - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:58:10 - WARNING  - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+id: 0, compromised: False
+2026-06-04 02:58:11 - INFO     - id: 0, compromised: False
+id: 1, compromised: False
+2026-06-04 02:58:12 - INFO     - id: 1, compromised: False
+id: 2, compromised: False
+2026-06-04 02:58:12 - INFO     - id: 2, compromised: False
+id: 3, compromised: False
+2026-06-04 02:58:12 - INFO     - id: 3, compromised: False
+id: 4, compromised: False
+2026-06-04 02:58:13 - INFO     - id: 4, compromised: False
+id: 5, compromised: False
+2026-06-04 02:58:13 - INFO     - id: 5, compromised: False
+id: 6, compromised: False
+2026-06-04 02:58:13 - INFO     - id: 6, compromised: False
+id: 7, compromised: False
+2026-06-04 02:58:14 - INFO     - id: 7, compromised: False
+id: 8, compromised: False
+2026-06-04 02:58:14 - INFO     - id: 8, compromised: False
+id: 9, compromised: False
+2026-06-04 02:58:14 - INFO     - id: 9, compromised: False
+id: 10, compromised: False
+2026-06-04 02:58:15 - INFO     - id: 10, compromised: False
+id: 11, compromised: False
+2026-06-04 02:58:15 - INFO     - id: 11, compromised: False
+id: 12, compromised: False
+2026-06-04 02:58:15 - INFO     - id: 12, compromised: False
+id: 13, compromised: False
+2026-06-04 02:58:16 - INFO     - id: 13, compromised: False
+id: 14, compromised: True
+2026-06-04 02:58:16 - INFO     - id: 14, compromised: True
+Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+2026-06-04 02:58:19 - WARNING  - Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:19 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=998/1000 (99.80%)
+2026-06-04 02:58:19 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=998/1000 (99.80%)
+	14 - main acc of attacker: 25.81
+2026-06-04 02:58:19 - INFO     - 	14 - main acc of attacker: 25.81
+	14 - back acc of attacker: 99.96
+2026-06-04 02:58:19 - INFO     - 	14 - back acc of attacker: 99.96
+id: 15, compromised: True
+2026-06-04 02:58:19 - INFO     - id: 15, compromised: True
+Strict ASR. Epoch:    10. Success: 99.99% (9999/10000)
+2026-06-04 02:58:21 - WARNING  - Strict ASR. Epoch:    10. Success: 99.99% (9999/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:21 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:21 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+	15 - main acc of attacker: 25.99
+2026-06-04 02:58:21 - INFO     - 	15 - main acc of attacker: 25.99
+	15 - back acc of attacker: 99.99
+2026-06-04 02:58:21 - INFO     - 	15 - back acc of attacker: 99.99
+id: 16, compromised: True
+2026-06-04 02:58:21 - INFO     - id: 16, compromised: True
+Strict ASR. Epoch:    10. Success: 99.80% (9980/10000)
+2026-06-04 02:58:23 - WARNING  - Strict ASR. Epoch:    10. Success: 99.80% (9980/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:23 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=992/1000 (99.20%)
+2026-06-04 02:58:23 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=992/1000 (99.20%)
+	16 - main acc of attacker: 24.7
+2026-06-04 02:58:23 - INFO     - 	16 - main acc of attacker: 24.7
+	16 - back acc of attacker: 99.8
+2026-06-04 02:58:23 - INFO     - 	16 - back acc of attacker: 99.8
+id: 17, compromised: True
+2026-06-04 02:58:23 - INFO     - id: 17, compromised: True
+Strict ASR. Epoch:    10. Success: 100.00% (10000/10000)
+2026-06-04 02:58:26 - WARNING  - Strict ASR. Epoch:    10. Success: 100.00% (10000/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:26 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=9000 (100.00%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:26 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=9000 (100.00%), pred_target_on_clean1=1000/1000 (100.00%)
+	17 - main acc of attacker: 26.3
+2026-06-04 02:58:26 - INFO     - 	17 - main acc of attacker: 26.3
+	17 - back acc of attacker: 100.0
+2026-06-04 02:58:26 - INFO     - 	17 - back acc of attacker: 100.0
+id: 18, compromised: True
+2026-06-04 02:58:26 - INFO     - id: 18, compromised: True
+Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+2026-06-04 02:58:28 - WARNING  - Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:28 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:28 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+	18 - main acc of attacker: 26.85
+2026-06-04 02:58:28 - INFO     - 	18 - main acc of attacker: 26.85
+	18 - back acc of attacker: 99.96
+2026-06-04 02:58:28 - INFO     - 	18 - back acc of attacker: 99.96
+id: 19, compromised: True
+2026-06-04 02:58:28 - INFO     - id: 19, compromised: True
+Strict ASR. Epoch:    10. Success: 98.92% (9892/10000)
+2026-06-04 02:58:31 - WARNING  - Strict ASR. Epoch:    10. Success: 98.92% (9892/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:31 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8892 (98.80%), pred_target_on_clean1=977/1000 (97.70%)
+2026-06-04 02:58:31 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8892 (98.80%), pred_target_on_clean1=977/1000 (97.70%)
+	19 - main acc of attacker: 25.82
+2026-06-04 02:58:31 - INFO     - 	19 - main acc of attacker: 25.82
+	19 - back acc of attacker: 98.92
+2026-06-04 02:58:31 - INFO     - 	19 - back acc of attacker: 98.92
+#010# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31 - WARNING  - #010# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+#010# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31 - WARNING  - #010# attacker ids: 14, 15, 16, 17, 18, 19
+#010# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31 - WARNING  - #010# attacker index: 14, 15, 16, 17, 18, 19
+ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31 - INFO     - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:58:31 - INFO     - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+outlier!!!!!!
+2026-06-04 02:58:31 - INFO     - outlier!!!!!!
+attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31 - INFO     - attacker_list: 14, 15, 16, 17, 18, 19
+Backdoor False. Epoch:    10. Accuracy: Top-1: 33.39 | Loss: value: 2.03
+2026-06-04 02:58:32 - WARNING  - Backdoor False. Epoch:    10. Accuracy: Top-1: 33.39 | Loss: value: 2.03
+Backdoor True . Epoch:    10. Accuracy: Top-1: 6.41 | Loss: value: 2.39
+2026-06-04 02:58:32 - WARNING  - Backdoor True . Epoch:    10. Accuracy: Top-1: 6.41 | Loss: value: 2.39
+Strict ASR. Epoch:    10. Success: 6.41% (641/10000)
+2026-06-04 02:58:32 - WARNING  - Strict ASR. Epoch:    10. Success: 6.41% (641/10000)
+Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:32 - WARNING  - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=125 (1.39%), pred_target_on_clean1=85/1000 (8.50%)
+2026-06-04 02:58:32 - WARNING  - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=125 (1.39%), pred_target_on_clean1=85/1000 (8.50%)
+Data washing audit complete. accuracy=83.88%, clean=42500, poison=7500
+2026-06-04 02:58:39 - WARNING  - Data washing audit complete. accuracy=83.88%, clean=42500, poison=7500
+[EPS] phase=prototype epoch=5 class=7 steps=89 eps=0.08800000000000006 elapsed=0.000102
+[D] epoch 5 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=8 steps=68 eps=0.06700000000000005 elapsed=0.000083
+[D] epoch 5 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=5 class=9 steps=63 eps=0.06200000000000005 elapsed=0.000078
+[D] epoch 5 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06873607635498047
+[EPS] phase=prototype epoch=6 class=0 steps=67 eps=0.06600000000000004 elapsed=0.000079
+[D] epoch 6 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=6 class=1 steps=56 eps=0.05500000000000004 elapsed=0.000076
+[D] epoch 6 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=6 class=2 steps=80 eps=0.07900000000000006 elapsed=0.000093
+[D] epoch 6 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=3 steps=88 eps=0.08700000000000006 elapsed=0.000099
+[D] epoch 6 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=4 steps=53 eps=0.05200000000000004 elapsed=0.000067
+[D] epoch 6 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=5 steps=93 eps=0.09200000000000007 elapsed=0.000102
+[D] epoch 6 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=6 steps=58 eps=0.057000000000000044 elapsed=0.000074
+[D] epoch 6 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=7 steps=89 eps=0.08800000000000006 elapsed=0.000097
+[D] epoch 6 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=8 steps=66 eps=0.06500000000000004 elapsed=0.000080
+[D] epoch 6 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=6 class=9 steps=60 eps=0.059000000000000045 elapsed=0.000074
+[D] epoch 6 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.0676121711730957
+[EPS] phase=prototype epoch=7 class=0 steps=66 eps=0.06500000000000004 elapsed=0.000081
+[D] epoch 7 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=7 class=1 steps=54 eps=0.05300000000000004 elapsed=0.000072
+[D] epoch 7 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=7 class=2 steps=79 eps=0.07800000000000006 elapsed=0.000089
+[D] epoch 7 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=3 steps=90 eps=0.08900000000000007 elapsed=0.000097
+[D] epoch 7 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=4 steps=53 eps=0.05200000000000004 elapsed=0.000068
+[D] epoch 7 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=5 steps=92 eps=0.09100000000000007 elapsed=0.000100
+[D] epoch 7 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=6 steps=56 eps=0.05500000000000004 elapsed=0.000073
+[D] epoch 7 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=7 steps=89 eps=0.08800000000000006 elapsed=0.000098
+[D] epoch 7 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=8 steps=68 eps=0.06700000000000005 elapsed=0.000080
+[D] epoch 7 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=7 class=9 steps=60 eps=0.059000000000000045 elapsed=0.000072
+[D] epoch 7 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06749916076660156
+[EPS] phase=prototype epoch=8 class=0 steps=68 eps=0.06700000000000005 elapsed=0.000080
+[D] epoch 8 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=8 class=1 steps=60 eps=0.059000000000000045 elapsed=0.000085
+[D] epoch 8 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=8 class=2 steps=77 eps=0.07600000000000005 elapsed=0.000098
+[D] epoch 8 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=3 steps=87 eps=0.08600000000000006 elapsed=0.000105
+[D] epoch 8 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=4 steps=53 eps=0.05200000000000004 elapsed=0.000076
+[D] epoch 8 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=5 steps=90 eps=0.08900000000000007 elapsed=0.000103
+[D] epoch 8 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=6 steps=58 eps=0.057000000000000044 elapsed=0.000082
+[D] epoch 8 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=7 steps=87 eps=0.08600000000000006 elapsed=0.000101
+[D] epoch 8 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=8 steps=66 eps=0.06500000000000004 elapsed=0.000089
+[D] epoch 8 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=8 class=9 steps=58 eps=0.057000000000000044 elapsed=0.000081
+[D] epoch 8 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06839919090270996
+[EPS] phase=prototype epoch=9 class=0 steps=65 eps=0.06400000000000004 elapsed=0.000077
+[D] epoch 9 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=9 class=1 steps=56 eps=0.05500000000000004 elapsed=0.000073
+[D] epoch 9 class 1 DBSCAN 花費 0.0005 秒
+[EPS] phase=prototype epoch=9 class=2 steps=78 eps=0.07700000000000005 elapsed=0.000090
+[D] epoch 9 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=3 steps=87 eps=0.08600000000000006 elapsed=0.000099
+[D] epoch 9 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=4 steps=52 eps=0.05100000000000004 elapsed=0.000070
+[D] epoch 9 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=5 steps=92 eps=0.09100000000000007 elapsed=0.000100
+[D] epoch 9 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=6 steps=57 eps=0.05600000000000004 elapsed=0.000070
+[D] epoch 9 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=7 steps=89 eps=0.08800000000000006 elapsed=0.000098
+[D] epoch 9 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=8 steps=69 eps=0.06800000000000005 elapsed=0.000082
+[D] epoch 9 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=9 class=9 steps=56 eps=0.05500000000000004 elapsed=0.000071
+[D] epoch 9 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06816315650939941
+[EPS] phase=prototype epoch=10 class=0 steps=68 eps=0.06700000000000005 elapsed=0.000098
+[D] epoch 10 class 0 DBSCAN 花費 0.0007 秒
+[EPS] phase=prototype epoch=10 class=1 steps=55 eps=0.05400000000000004 elapsed=0.000073
+[D] epoch 10 class 1 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=2 steps=67 eps=0.06600000000000004 elapsed=0.000081
+[D] epoch 10 class 2 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=3 steps=83 eps=0.08200000000000006 elapsed=0.000092
+[D] epoch 10 class 3 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=4 steps=51 eps=0.05000000000000004 elapsed=0.000069
+[D] epoch 10 class 4 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=5 steps=91 eps=0.09000000000000007 elapsed=0.000100
+[D] epoch 10 class 5 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=6 steps=60 eps=0.059000000000000045 elapsed=0.000077
+[D] epoch 10 class 6 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=7 steps=87 eps=0.08600000000000006 elapsed=0.000093
+[D] epoch 10 class 7 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=8 steps=65 eps=0.06400000000000004 elapsed=0.000078
+[D] epoch 10 class 8 DBSCAN 花費 0.0004 秒
+[EPS] phase=prototype epoch=10 class=9 steps=57 eps=0.05600000000000004 elapsed=0.000072
+[D] epoch 10 class 9 DBSCAN 花費 0.0004 秒
+eeeeeeeeee [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+runtime 0.06778717041015625
+[phase] training_global_model end
+[time] training_elapsed_seconds=221
+[path] run_dir=/home/ismp/disk2/chia/mprobe_m_219/saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+[phase] materialized_trigger_detector start
+Files already downloaded and verified
+{
+  "good_clients": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "suspicious_clients": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "threshold_quantile": 0.01,
+  "threshold": 5.408669714927673,
+  "reference_clean_samples": 35000,
+  "suspicious_samples": 15000,
+  "suspicious_metrics": {
+    "accuracy": 99.53333333333333,
+    "precision": 99.07529722589167,
+    "recall": 100.0,
+    "f1": 99.53550099535501,
+    "tp": 7500,
+    "fp": 70,
+    "tn": 7430,
+    "fn": 0
+  },
+  "missed_poison_samples": 0,
+  "missed_poison_rate": 0.0,
+  "clean_false_positive_samples": 70,
+  "clean_false_positive_rate_in_suspicious": 0.9333333333333333
+}
+[phase] materialized_trigger_detector end
+[time] detector_elapsed_seconds=4
+[time] pipeline_end=2026-06-04 02:58:44 CST
+[time] pipeline_elapsed_seconds=225
+[path] detector_summary=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260604_025459/summary.json

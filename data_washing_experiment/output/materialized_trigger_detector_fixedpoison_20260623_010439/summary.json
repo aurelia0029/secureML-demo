@@ -1,0 +1,44 @@
+{
+  "good_clients": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "suspicious_clients": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "threshold_quantile": 0.01,
+  "threshold": 5.40867018699646,
+  "reference_clean_samples": 35000,
+  "suspicious_samples": 15000,
+  "suspicious_metrics": {
+    "accuracy": 99.53333333333333,
+    "precision": 99.07529722589167,
+    "recall": 100.0,
+    "f1": 99.53550099535501,
+    "tp": 7500,
+    "fp": 70,
+    "tn": 7430,
+    "fn": 0
+  },
+  "missed_poison_samples": 0,
+  "missed_poison_rate": 0.0,
+  "clean_false_positive_samples": 70,
+  "clean_false_positive_rate_in_suspicious": 0.9333333333333333
+}

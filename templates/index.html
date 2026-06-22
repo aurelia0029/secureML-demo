@@ -1471,6 +1471,14 @@
             </div>
 
             <div class="feature-grid">
+                <div class="feature-card" onclick="navigateTo('data-washing')">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="feature-title">Data Washing Experiment</h3>
+                    <p class="feature-description">Review detector metrics, inspect historical runs, and relaunch the fixed-poison materialized trigger experiment</p>
+                </div>
+
                 <div class="feature-card" onclick="navigateTo('upload')">
                     <div class="feature-icon">
                         <i class="fas fa-cloud-upload-alt"></i>
@@ -1538,6 +1546,109 @@
                     </div>
 
                     <button class="btn-primary" disabled style="width: 100%;">Upload Dataset (Demo)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DATA WASHING EXPERIMENT PAGE ===== -->
+    <div id="dataWashingPage" class="page">
+        <div style="max-width: 1400px; margin: 2rem auto; padding: 0 2rem; position: relative; z-index: 1;">
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <div class="card-header">
+                    <h2 class="card-title">Data Washing Experiment</h2>
+                </div>
+                <div class="card-body">
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                        Deploy the fixed-poison materialized trigger detector directly from the website. This panel reads the existing experiment artifacts under <code>data_washing_experiment/</code> and can launch a fresh run with the current default paths.
+                    </p>
+                    <div class="form-section" style="margin-bottom: 1.25rem;">
+                        <h3 class="form-section-title">Dataset Selection</h3>
+                        <div class="form-group">
+                            <label class="form-label">Dataset Type</label>
+                            <select class="form-select" id="dwDatasetSelect">
+                                <option value="cifar10">CIFAR-10</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
+                        <button class="btn-primary" id="dwRunBtn" onclick="startDataWashingRun()">Execute Experiment</button>
+                        <button class="model-btn" onclick="loadDataWashingOverview()">Refresh Environment</button>
+                    </div>
+                    <div id="dwStatusBanner" style="padding: 0.9rem 1rem; border-radius: 10px; background: var(--bg-hover); color: var(--text-secondary); margin-bottom: 1rem;">
+                        Select a dataset and execute the experiment.
+                    </div>
+                </div>
+            </div>
+
+            <div id="dwResultsPanel" style="display: none;">
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="form-section-title">Experiment Results</h3>
+                    </div>
+                    <div class="card-body">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+                            <div class="info-item">
+                                <div class="info-label">Latest Accuracy</div>
+                                <div class="info-value" id="dwLatestAccuracy">-</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Latest F1</div>
+                                <div class="info-value" id="dwLatestF1">-</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Latest Recall</div>
+                                <div class="info-value" id="dwLatestRecall">-</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Missed Poison</div>
+                                <div class="info-value" id="dwLatestMissed">-</div>
+                            </div>
+                        </div>
+                        <div id="dwResultMeta" style="color: var(--text-secondary);"></div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-header">
+                        <h3 class="form-section-title">Normal vs Triggered Sample</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="dwSampleComparison" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div style="color: var(--text-secondary);">Samples will appear after the experiment finishes.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 1.5rem;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="form-section-title">Runtime Log</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="log-container" id="dwLogContainer" style="min-height: 340px; max-height: 500px; white-space: pre-wrap;">Waiting for experiment output...</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; gap: 1.5rem;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="form-section-title">Paths</h3>
+                        </div>
+                        <div class="card-body" id="dwPathMeta" style="display: grid; gap: 0.75rem; color: var(--text-secondary);">
+                            <div>Loading paths...</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="form-section-title">Recent Runs</h3>
+                        </div>
+                        <div class="card-body" id="dwRunHistory" style="display: grid; gap: 0.75rem;">
+                            <div style="color: var(--text-secondary);">Loading historical runs...</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2186,6 +2297,7 @@
         let triggerType = 'red_square'; // 'red_square' or 'logo'
         let logoImage = null; // Will store the loaded NCKU logo
         let inputSource = 'upload'; // 'upload', 'camera', 'direct', 'hls'
+        let dwStatusTimer = null;
         let hlsInstance = null; // HLS.js instance
 
         // Stream URLs
@@ -3051,18 +3163,28 @@
                 case 'upload':
                     targetPage = document.getElementById('uploadPage');
                     modeGroup.style.display = 'none';
+                    stopDataWashingPolling();
+                    break;
+                case 'data-washing':
+                    targetPage = document.getElementById('dataWashingPage');
+                    modeGroup.style.display = 'none';
+                    loadDataWashingOverview();
+                    startDataWashingPolling();
                     break;
                 case 'train':
                     targetPage = document.getElementById('trainPage');
                     modeGroup.style.display = 'none';
+                    stopDataWashingPolling();
                     break;
                 case 'inference':
                     targetPage = document.getElementById('inferencePage');
                     modeGroup.style.display = 'none';
+                    stopDataWashingPolling();
                     break;
                 case 'interactive-inference':
                     targetPage = document.getElementById('interactiveInferencePage');
                     modeGroup.style.display = 'inline-flex';
+                    stopDataWashingPolling();
 
                     // Update breadcrumb project name based on selection
                     const projectSelect = document.getElementById('projectSelect');
@@ -3074,20 +3196,202 @@
                 case 'parking-monitor':
                     targetPage = document.getElementById('parkingMonitorPage');
                     modeGroup.style.display = 'none';
+                    stopDataWashingPolling();
                     parkingLoadConfig();
                     break;
                 case 'parking-attack':
                     targetPage = document.getElementById('parkingAttackPage');
                     modeGroup.style.display = 'none';
+                    stopDataWashingPolling();
                     parkingAttackLoadConfig();
                     break;
                 default:
                     targetPage = document.getElementById('welcomePage');
+                    stopDataWashingPolling();
             }
 
             if (targetPage) {
                 targetPage.classList.add('active');
                 window.scrollTo(0, 0);
+            }
+        }
+
+        function formatMetric(value) {
+            if (value === null || value === undefined || Number.isNaN(Number(value))) return '-';
+            return `${Number(value).toFixed(2)}%`;
+        }
+
+        function renderDataWashingHistory(runs) {
+            const el = document.getElementById('dwRunHistory');
+            if (!runs || runs.length === 0) {
+                el.innerHTML = '<div style="color: var(--text-secondary);">No completed runs found yet.</div>';
+                return;
+            }
+            el.innerHTML = runs.map((run) => {
+                const m = (run.summary && run.summary.suspicious_metrics) ? run.summary.suspicious_metrics : {};
+                return `
+                    <div class="info-item" style="text-align: left;">
+                        <div class="info-label">${run.run_id}</div>
+                        <div style="font-size: 0.95rem; font-weight: 600; margin: 0.35rem 0;">F1 ${formatMetric(m.f1)} · Acc ${formatMetric(m.accuracy)}</div>
+                        <div style="font-size: 0.82rem; color: var(--text-secondary);">
+                            Recall ${formatMetric(m.recall)} · Precision ${formatMetric(m.precision)} · Elapsed ${run.elapsed_seconds !== null && run.elapsed_seconds !== undefined ? run.elapsed_seconds : '-'}s
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderDataWashingDatasetOptions(options, defaultDataset) {
+            const select = document.getElementById('dwDatasetSelect');
+            if (!select || !options) return;
+            select.innerHTML = options.map((opt) => `
+                <option value="${opt.value}">${opt.label}</option>
+            `).join('');
+            if (defaultDataset) {
+                select.value = defaultDataset;
+            }
+        }
+
+        function renderDataWashingPaths(data) {
+            const el = document.getElementById('dwPathMeta');
+            el.innerHTML = `
+                <div><strong>Script</strong><br><code>${data.script_path}</code></div>
+                <div><strong>Run Dir</strong><br><code>${data.run_dir}</code></div>
+                <div><strong>Audit Dir</strong><br><code>${data.audit_dir}</code></div>
+                <div><strong>Data Cache</strong><br><code>${data.data_path}</code></div>
+            `;
+        }
+
+        function updateDataWashingSummary(summary) {
+            const metrics = (summary && summary.suspicious_metrics) ? summary.suspicious_metrics : {};
+            document.getElementById('dwLatestAccuracy').textContent = formatMetric(metrics.accuracy);
+            document.getElementById('dwLatestF1').textContent = formatMetric(metrics.f1);
+            document.getElementById('dwLatestRecall').textContent = formatMetric(metrics.recall);
+            document.getElementById('dwLatestMissed').textContent = summary ? String(summary.missed_poison_samples !== null && summary.missed_poison_samples !== undefined ? summary.missed_poison_samples : '-') : '-';
+        }
+
+        function renderDataWashingComparison(cleanSample, poisonSample) {
+            const el = document.getElementById('dwSampleComparison');
+            if (!cleanSample || !poisonSample) {
+                el.innerHTML = '<div style="color: var(--text-secondary);">Need both one clean sample and one triggered sample to render the comparison.</div>';
+                return;
+            }
+            const card = (title, sample, imgUrl) => `
+                <div class="info-item" style="text-align: left;">
+                    <div class="info-label" style="margin-bottom: 0.5rem;">${title}</div>
+                    <img src="${imgUrl}" alt="${title}-${sample.dataset_index}" style="width: 100%; border-radius: 10px; border: 1px solid var(--border); image-rendering: pixelated; margin-bottom: 0.75rem;">
+                    <div style="font-size: 0.9rem; font-weight: 600;">Index ${sample.dataset_index} · Label ${sample.label}</div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                        patch_mse ${Number(sample.patch_mse).toFixed(4)} · predicted ${sample.predicted_poison ? 'poison' : 'clean'}
+                    </div>
+                </div>`;
+            el.innerHTML = `
+                ${card('Normal Sample', cleanSample, cleanSample.image_url)}
+                ${card('Triggered Sample', poisonSample, poisonSample.analysis_image_url)}
+            `;
+        }
+
+        async function loadDataWashingResult(runId = null) {
+            try {
+                const url = runId ? `/api/data-washing/result?run_id=${encodeURIComponent(runId)}` : '/api/data-washing/result';
+                const r = await fetch(url);
+                const data = await r.json();
+                if (!r.ok) throw new Error(data.detail || 'Failed to load result');
+                updateDataWashingSummary(data.summary);
+                document.getElementById('dwResultMeta').textContent = `Run ${data.run_id} · elapsed ${data.elapsed_seconds !== null && data.elapsed_seconds !== undefined ? data.elapsed_seconds : '-'}s`;
+                renderDataWashingComparison(
+                    (data.clean_samples || [])[0] || null,
+                    (data.poison_samples || [])[0] || null
+                );
+                document.getElementById('dwResultsPanel').style.display = 'block';
+            } catch (err) {
+                document.getElementById('dwStatusBanner').textContent = `Failed to load result view: ${err.message}`;
+            }
+        }
+
+        async function loadDataWashingOverview() {
+            try {
+                const r = await fetch('/api/data-washing/overview');
+                const data = await r.json();
+                renderDataWashingDatasetOptions(data.available_datasets || [], data.default_dataset);
+                renderDataWashingPaths(data);
+                renderDataWashingHistory(data.recent_runs || []);
+
+                const pathIssues = [];
+                if (!data.run_dir_exists) pathIssues.push('run dir missing');
+                if (!data.audit_dir_exists) pathIssues.push('audit dir missing');
+                if (!data.data_path_exists) pathIssues.push('dataset cache missing');
+                document.getElementById('dwStatusBanner').textContent = pathIssues.length
+                    ? `Environment check: ${pathIssues.join(', ')}`
+                    : `Ready. Dataset ${data.default_dataset || 'cifar10'} is available.`;
+            } catch (err) {
+                document.getElementById('dwStatusBanner').textContent = `Failed to load experiment overview: ${err.message}`;
+            }
+            await refreshDataWashingStatus();
+        }
+
+        async function refreshDataWashingStatus() {
+            try {
+                const r = await fetch('/api/data-washing/status');
+                const data = await r.json();
+                const banner = document.getElementById('dwStatusBanner');
+                const runBtn = document.getElementById('dwRunBtn');
+                if (data.running) {
+                    banner.textContent = `Run ${data.run_id} (${data.dataset || 'cifar10'}) is running...`;
+                    runBtn.disabled = true;
+                    runBtn.textContent = 'Running...';
+                } else if (data.run_id) {
+                    banner.textContent = data.returncode === 0
+                        ? `Run ${data.run_id} completed successfully.`
+                        : `Last run ${data.run_id} finished with code ${data.returncode !== null && data.returncode !== undefined ? data.returncode : 'unknown'}.`;
+                    runBtn.disabled = false;
+                    runBtn.textContent = 'Execute Experiment';
+                    if (data.summary && data.returncode === 0) {
+                        await loadDataWashingResult(data.run_id);
+                    }
+                } else {
+                    runBtn.disabled = false;
+                    runBtn.textContent = 'Execute Experiment';
+                }
+                document.getElementById('dwLogContainer').textContent = (data.log_tail || []).join('\n') || 'Waiting for experiment output...';
+            } catch (err) {
+                document.getElementById('dwStatusBanner').textContent = `Failed to fetch runtime status: ${err.message}`;
+            }
+        }
+
+        async function startDataWashingRun() {
+            const runBtn = document.getElementById('dwRunBtn');
+            const dataset = document.getElementById('dwDatasetSelect').value;
+            runBtn.disabled = true;
+            runBtn.textContent = 'Starting...';
+            document.getElementById('dwResultsPanel').style.display = 'none';
+            try {
+                const r = await fetch('/api/data-washing/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ dataset }),
+                });
+                const data = await r.json();
+                if (!r.ok) throw new Error(data.detail || 'Failed to start experiment');
+                document.getElementById('dwStatusBanner').textContent = `Started ${data.run_id} on ${data.dataset}. Waiting for results...`;
+                document.getElementById('dwLogContainer').textContent = `Started ${data.run_id}\nlog: ${data.log_path}`;
+                await refreshDataWashingStatus();
+            } catch (err) {
+                document.getElementById('dwStatusBanner').textContent = err.message;
+                runBtn.disabled = false;
+                runBtn.textContent = 'Execute Experiment';
+            }
+        }
+
+        function startDataWashingPolling() {
+            stopDataWashingPolling();
+            dwStatusTimer = setInterval(refreshDataWashingStatus, 3000);
+        }
+
+        function stopDataWashingPolling() {
+            if (dwStatusTimer) {
+                clearInterval(dwStatusTimer);
+                dwStatusTimer = null;
             }
         }
 

@@ -1,0 +1,662 @@
+2026-06-04 02:55:00,718 - utils.utils - WARNING - Logging to: saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+2026-06-04 02:55:00,718 - utils.utils - ERROR - LINK: <a href="https://github.com/ebagdasa/backdoors/tree/none">https://github.com/ebagdasa/backdoors/tree/none</a>
+2026-06-04 02:55:00,718 - logger - INFO - current path: saved_models/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0
+2026-06-04 02:55:14,994 - logger - WARNING - Attacking over multiple epochs with following users compromised: [14, 15, 16, 17, 18, 19].
+2026-06-04 02:55:14,996 - logger - WARNING - | name | value | 
+ |-----|-----|
+| task | CifarFedProtopnet |
+| synthesizer | Pattern |
+| batch_size | 250 |
+| test_batch_size | 100 |
+| lr | 0.0001 |
+| momentum | 0.9 |
+| decay | 0 |
+| epochs | 10 |
+| scheduler_milestones | [30, 50, 100] |
+| log_interval | 100 |
+| pretrained | True |
+| base_architecture | vgg19 |
+| img_size | 32 |
+| prototype_shape | [20, 8, 1, 1] |
+| num_classes | 10 |
+| prototype_activation_function | log |
+| add_on_layers_type | regular |
+| class_specific | True |
+| scheduler | False |
+| poisoning_proportion | 0.5 |
+| fixed_poison_dataset | True |
+| fixed_poison_seed | 0 |
+| backdoor_label | 9 |
+| loss_balance | MGDA |
+| mgda_normalize | none |
+| save_model | False |
+| log | True |
+| tb | True |
+| report_train_loss | True |
+| transform_train | True |
+| fl | True |
+| fl_no_models | 20 |
+| fl_local_epochs | 1 |
+| fl_total_participants | 20 |
+| fl_eta | 1 |
+| FGnoniid | 0 |
+| fl_sample_dirichlet | True |
+| fl_dirichlet_alpha | 6 |
+| fl_diff_privacy | False |
+| fl_dp_clip | None |
+| fl_dp_noise | None |
+| fl_number_of_adversaries | 14 |
+| fl_weight_scale | 1 |
+| eps | 0.2 |
+| aggregate | clustering |
+| defense | True |
+| outlier_detection | DBSCAN |
+| distance_calculation | euclidean |
+| block_time | 0 |
+| nogood_exit | False |
+| poison_lr | 0.0001 |
+| baseline | False |
+| retrain_poison | 1 |
+| poison_step_lr | False |
+| p_attacker | 6 |
+| gb_dist | None |
+| gb_distG | 5 |
+| gb_distB | 3 |
+| g_bStd | 1.2 |
+| gamma | 10 |
+| rearrange_client_data | True |
+| fdr_opt | False |
+| loss_tasks | ['protopnet'] |
+| defense_warmup_rounds | 2 |
+| attack_start_round | 3 |
+| first_round_relax_defense | False |
+| p_outlier | 5 |
+| usr_outlier2_threshold | 0.0 |
+| clustering_min_keep_ratio | 0.5 |
+| clustering_min_keep_clients | 10 |
+| min_defense_keep_rounds | 1 |
+| min_defense_keep_count | 10 |
+| data_washing_audit | True |
+| data_washing_output_dir | /home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/cifar10_non_iid_mprobe_epoch10_fixedpoison_audit |
+| data_washing_batch_size | 128 |
+| current_time | Jun.04_02.55.00 |
+| commit | none |
+| name | cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0 |
+| random_seed | 0 |
+2026-06-04 02:55:16,603 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:55:17,437 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:55:17,809 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:55:18,130 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:55:18,452 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:55:18,774 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:55:19,100 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:55:19,452 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:55:19,789 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:55:20,109 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:55:20,432 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:55:20,754 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:55:21,075 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:55:21,396 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:55:21,755 - logger - INFO - id: 14, compromised: False
+2026-06-04 02:55:22,114 - logger - INFO - id: 15, compromised: False
+2026-06-04 02:55:22,452 - logger - INFO - id: 16, compromised: False
+2026-06-04 02:55:22,800 - logger - INFO - id: 17, compromised: False
+2026-06-04 02:55:23,187 - logger - INFO - id: 18, compromised: False
+2026-06-04 02:55:23,551 - logger - INFO - id: 19, compromised: False
+2026-06-04 02:55:23,909 - logger - WARNING - #001# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:23,909 - logger - WARNING - #001# attacker ids: 
+2026-06-04 02:55:23,909 - logger - WARNING - #001# attacker index: 
+2026-06-04 02:55:24,168 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:24,168 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:24,168 - logger - INFO - attacker_list: 
+2026-06-04 02:55:25,068 - logger - WARNING - Backdoor False. Epoch:     1. Accuracy: Top-1: 8.23 | Loss: value: 2.41
+2026-06-04 02:55:25,967 - logger - WARNING - Backdoor True . Epoch:     1. Accuracy: Top-1: 0.03 | Loss: value: 2.77
+2026-06-04 02:55:25,967 - logger - WARNING - Strict ASR. Epoch:     1. Success: 0.03% (3/10000)
+2026-06-04 02:55:25,967 - logger - WARNING - Backdoor Eval Params. Epoch:     1. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:25,967 - logger - WARNING - Backdoor Eval Diag. Epoch:     1. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=2 (0.02%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:26,829 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:55:27,189 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:55:27,530 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:55:27,867 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:55:28,206 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:55:28,554 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:55:28,883 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:55:29,243 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:55:29,603 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:55:29,977 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:55:30,337 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:55:30,682 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:55:31,042 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:55:31,372 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:55:31,715 - logger - INFO - id: 14, compromised: False
+2026-06-04 02:55:32,049 - logger - INFO - id: 15, compromised: False
+2026-06-04 02:55:32,369 - logger - INFO - id: 16, compromised: False
+2026-06-04 02:55:32,689 - logger - INFO - id: 17, compromised: False
+2026-06-04 02:55:33,010 - logger - INFO - id: 18, compromised: False
+2026-06-04 02:55:33,330 - logger - INFO - id: 19, compromised: False
+2026-06-04 02:55:33,651 - logger - WARNING - #002# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33,651 - logger - WARNING - #002# attacker ids: 
+2026-06-04 02:55:33,651 - logger - WARNING - #002# attacker index: 
+2026-06-04 02:55:33,705 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33,705 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:33,705 - logger - INFO - attacker_list: 
+2026-06-04 02:55:34,604 - logger - WARNING - Backdoor False. Epoch:     2. Accuracy: Top-1: 10.07 | Loss: value: 2.38
+2026-06-04 02:55:35,513 - logger - WARNING - Backdoor True . Epoch:     2. Accuracy: Top-1: 0.00 | Loss: value: 2.71
+2026-06-04 02:55:35,513 - logger - WARNING - Strict ASR. Epoch:     2. Success: 0.00% (0/10000)
+2026-06-04 02:55:35,513 - logger - WARNING - Backdoor Eval Params. Epoch:     2. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:35,513 - logger - WARNING - Backdoor Eval Diag. Epoch:     2. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:36,376 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:55:36,719 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:55:37,114 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:55:37,470 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:55:37,847 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:55:38,200 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:55:38,535 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:55:38,891 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:55:39,301 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:55:39,663 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:55:40,007 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:55:40,351 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:55:40,715 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:55:41,079 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:55:41,431 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:55:43,883 - logger - WARNING - Strict ASR. Epoch:     3. Success: 99.94% (9994/10000)
+2026-06-04 02:55:43,883 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:43,883 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:55:43,884 - logger - INFO - 	14 - main acc of attacker: 18.39
+2026-06-04 02:55:43,885 - logger - INFO - 	14 - back acc of attacker: 99.94
+2026-06-04 02:55:43,889 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:55:46,354 - logger - WARNING - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:46,354 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:46,354 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:46,355 - logger - INFO - 	15 - main acc of attacker: 16.23
+2026-06-04 02:55:46,355 - logger - INFO - 	15 - back acc of attacker: 0.0
+2026-06-04 02:55:46,360 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:55:48,806 - logger - WARNING - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:48,806 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:48,806 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:48,807 - logger - INFO - 	16 - main acc of attacker: 16.91
+2026-06-04 02:55:48,807 - logger - INFO - 	16 - back acc of attacker: 0.0
+2026-06-04 02:55:48,812 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:55:51,237 - logger - WARNING - Strict ASR. Epoch:     3. Success: 94.35% (9435/10000)
+2026-06-04 02:55:51,237 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:51,237 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8437 (93.74%), pred_target_on_clean1=928/1000 (92.80%)
+2026-06-04 02:55:51,238 - logger - INFO - 	17 - main acc of attacker: 21.19
+2026-06-04 02:55:51,238 - logger - INFO - 	17 - back acc of attacker: 94.35
+2026-06-04 02:55:51,243 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:55:53,665 - logger - WARNING - Strict ASR. Epoch:     3. Success: 94.51% (9451/10000)
+2026-06-04 02:55:53,665 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:53,665 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8572 (95.24%), pred_target_on_clean1=835/1000 (83.50%)
+2026-06-04 02:55:53,666 - logger - INFO - 	18 - main acc of attacker: 17.87
+2026-06-04 02:55:53,667 - logger - INFO - 	18 - back acc of attacker: 94.51
+2026-06-04 02:55:53,671 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:55:56,149 - logger - WARNING - Strict ASR. Epoch:     3. Success: 99.28% (9928/10000)
+2026-06-04 02:55:56,149 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:56,149 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=967/1000 (96.70%)
+2026-06-04 02:55:56,151 - logger - INFO - 	19 - main acc of attacker: 14.88
+2026-06-04 02:55:56,151 - logger - INFO - 	19 - back acc of attacker: 99.28
+2026-06-04 02:55:56,155 - logger - WARNING - #003# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56,155 - logger - WARNING - #003# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56,156 - logger - WARNING - #003# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56,199 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:56,199 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:55:56,199 - logger - INFO - outlier!!!!!!
+2026-06-04 02:55:56,199 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:55:57,091 - logger - WARNING - Backdoor False. Epoch:     3. Accuracy: Top-1: 9.01 | Loss: value: 2.33
+2026-06-04 02:55:57,994 - logger - WARNING - Backdoor True . Epoch:     3. Accuracy: Top-1: 0.00 | Loss: value: 2.69
+2026-06-04 02:55:57,995 - logger - WARNING - Strict ASR. Epoch:     3. Success: 0.00% (0/10000)
+2026-06-04 02:55:57,995 - logger - WARNING - Backdoor Eval Params. Epoch:     3. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:55:57,995 - logger - WARNING - Backdoor Eval Diag. Epoch:     3. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:55:58,861 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:55:59,211 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:55:59,582 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:55:59,951 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:56:00,323 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:56:00,670 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:56:01,038 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:56:01,369 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:56:01,709 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:56:02,050 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:56:02,374 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:56:02,698 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:56:03,061 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:56:03,410 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:56:03,742 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:56:06,190 - logger - WARNING - Strict ASR. Epoch:     4. Success: 98.67% (9867/10000)
+2026-06-04 02:56:06,191 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:06,191 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8878 (98.64%), pred_target_on_clean1=925/1000 (92.50%)
+2026-06-04 02:56:06,192 - logger - INFO - 	14 - main acc of attacker: 21.86
+2026-06-04 02:56:06,192 - logger - INFO - 	14 - back acc of attacker: 98.67
+2026-06-04 02:56:06,197 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:56:08,644 - logger - WARNING - Strict ASR. Epoch:     4. Success: 99.51% (9951/10000)
+2026-06-04 02:56:08,644 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:08,644 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8951 (99.46%), pred_target_on_clean1=986/1000 (98.60%)
+2026-06-04 02:56:08,645 - logger - INFO - 	15 - main acc of attacker: 23.69
+2026-06-04 02:56:08,645 - logger - INFO - 	15 - back acc of attacker: 99.51
+2026-06-04 02:56:08,650 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:56:11,090 - logger - WARNING - Strict ASR. Epoch:     4. Success: 99.89% (9989/10000)
+2026-06-04 02:56:11,090 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:11,090 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:56:11,091 - logger - INFO - 	16 - main acc of attacker: 19.22
+2026-06-04 02:56:11,091 - logger - INFO - 	16 - back acc of attacker: 99.89
+2026-06-04 02:56:11,096 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:56:13,563 - logger - WARNING - Strict ASR. Epoch:     4. Success: 99.98% (9998/10000)
+2026-06-04 02:56:13,563 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:13,563 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8998 (99.98%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:13,564 - logger - INFO - 	17 - main acc of attacker: 22.88
+2026-06-04 02:56:13,564 - logger - INFO - 	17 - back acc of attacker: 99.98
+2026-06-04 02:56:13,569 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:56:16,026 - logger - WARNING - Strict ASR. Epoch:     4. Success: 96.02% (9602/10000)
+2026-06-04 02:56:16,026 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:16,026 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8611 (95.68%), pred_target_on_clean1=868/1000 (86.80%)
+2026-06-04 02:56:16,028 - logger - INFO - 	18 - main acc of attacker: 21.5
+2026-06-04 02:56:16,028 - logger - INFO - 	18 - back acc of attacker: 96.02
+2026-06-04 02:56:16,033 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:56:18,469 - logger - WARNING - Strict ASR. Epoch:     4. Success: 99.38% (9938/10000)
+2026-06-04 02:56:18,469 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:18,469 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8940 (99.33%), pred_target_on_clean1=969/1000 (96.90%)
+2026-06-04 02:56:18,470 - logger - INFO - 	19 - main acc of attacker: 25.75
+2026-06-04 02:56:18,470 - logger - INFO - 	19 - back acc of attacker: 99.38
+2026-06-04 02:56:18,475 - logger - WARNING - #004# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18,475 - logger - WARNING - #004# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18,475 - logger - WARNING - #004# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18,519 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:18,519 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:56:18,519 - logger - INFO - outlier!!!!!!
+2026-06-04 02:56:18,519 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:19,410 - logger - WARNING - Backdoor False. Epoch:     4. Accuracy: Top-1: 17.46 | Loss: value: 2.26
+2026-06-04 02:56:20,316 - logger - WARNING - Backdoor True . Epoch:     4. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+2026-06-04 02:56:20,316 - logger - WARNING - Strict ASR. Epoch:     4. Success: 0.00% (0/10000)
+2026-06-04 02:56:20,316 - logger - WARNING - Backdoor Eval Params. Epoch:     4. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:20,316 - logger - WARNING - Backdoor Eval Diag. Epoch:     4. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:56:21,180 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:56:21,537 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:56:21,891 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:56:22,263 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:56:22,643 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:56:23,004 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:56:23,354 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:56:23,720 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:56:24,070 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:56:24,428 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:56:24,773 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:56:25,125 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:56:25,500 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:56:25,857 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:56:26,198 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:56:28,651 - logger - WARNING - Strict ASR. Epoch:     5. Success: 99.92% (9992/10000)
+2026-06-04 02:56:28,651 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:28,651 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8992 (99.91%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:56:28,652 - logger - INFO - 	14 - main acc of attacker: 24.01
+2026-06-04 02:56:28,652 - logger - INFO - 	14 - back acc of attacker: 99.92
+2026-06-04 02:56:28,657 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:56:31,119 - logger - WARNING - Strict ASR. Epoch:     5. Success: 99.60% (9960/10000)
+2026-06-04 02:56:31,119 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:31,119 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8960 (99.56%), pred_target_on_clean1=993/1000 (99.30%)
+2026-06-04 02:56:31,121 - logger - INFO - 	15 - main acc of attacker: 25.73
+2026-06-04 02:56:31,121 - logger - INFO - 	15 - back acc of attacker: 99.6
+2026-06-04 02:56:31,126 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:56:33,570 - logger - WARNING - Strict ASR. Epoch:     5. Success: 96.38% (9638/10000)
+2026-06-04 02:56:33,570 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:33,570 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8638 (95.98%), pred_target_on_clean1=928/1000 (92.80%)
+2026-06-04 02:56:33,572 - logger - INFO - 	16 - main acc of attacker: 23.76
+2026-06-04 02:56:33,572 - logger - INFO - 	16 - back acc of attacker: 96.38
+2026-06-04 02:56:33,577 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:56:36,043 - logger - WARNING - Strict ASR. Epoch:     5. Success: 85.19% (8519/10000)
+2026-06-04 02:56:36,043 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:36,044 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7521 (83.57%), pred_target_on_clean1=933/1000 (93.30%)
+2026-06-04 02:56:36,045 - logger - INFO - 	17 - main acc of attacker: 24.65
+2026-06-04 02:56:36,045 - logger - INFO - 	17 - back acc of attacker: 85.19
+2026-06-04 02:56:36,050 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:56:38,548 - logger - WARNING - Strict ASR. Epoch:     5. Success: 99.28% (9928/10000)
+2026-06-04 02:56:38,548 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:38,548 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8928 (99.20%), pred_target_on_clean1=981/1000 (98.10%)
+2026-06-04 02:56:38,550 - logger - INFO - 	18 - main acc of attacker: 22.81
+2026-06-04 02:56:38,550 - logger - INFO - 	18 - back acc of attacker: 99.28
+2026-06-04 02:56:38,554 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:56:41,007 - logger - WARNING - Strict ASR. Epoch:     5. Success: 99.99% (9999/10000)
+2026-06-04 02:56:41,007 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:41,007 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:41,008 - logger - INFO - 	19 - main acc of attacker: 24.88
+2026-06-04 02:56:41,008 - logger - INFO - 	19 - back acc of attacker: 99.99
+2026-06-04 02:56:41,013 - logger - WARNING - #005# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41,013 - logger - WARNING - #005# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41,013 - logger - WARNING - #005# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41,057 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41,057 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:56:41,057 - logger - INFO - outlier!!!!!!
+2026-06-04 02:56:41,057 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:56:41,952 - logger - WARNING - Backdoor False. Epoch:     5. Accuracy: Top-1: 14.78 | Loss: value: 2.27
+2026-06-04 02:56:42,859 - logger - WARNING - Backdoor True . Epoch:     5. Accuracy: Top-1: 0.00 | Loss: value: 2.68
+2026-06-04 02:56:42,859 - logger - WARNING - Strict ASR. Epoch:     5. Success: 0.00% (0/10000)
+2026-06-04 02:56:42,859 - logger - WARNING - Backdoor Eval Params. Epoch:     5. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:42,859 - logger - WARNING - Backdoor Eval Diag. Epoch:     5. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:56:43,728 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:56:44,071 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:56:44,412 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:56:44,746 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:56:45,069 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:56:45,391 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:56:45,713 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:56:46,036 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:56:46,357 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:56:46,687 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:56:47,009 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:56:47,330 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:56:47,674 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:56:48,022 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:56:48,382 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:56:50,825 - logger - WARNING - Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+2026-06-04 02:56:50,826 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:50,826 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:50,827 - logger - INFO - 	14 - main acc of attacker: 24.74
+2026-06-04 02:56:50,827 - logger - INFO - 	14 - back acc of attacker: 99.94
+2026-06-04 02:56:50,832 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:56:53,248 - logger - WARNING - Strict ASR. Epoch:     6. Success: 99.78% (9978/10000)
+2026-06-04 02:56:53,248 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:53,248 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8978 (99.76%), pred_target_on_clean1=998/1000 (99.80%)
+2026-06-04 02:56:53,249 - logger - INFO - 	15 - main acc of attacker: 24.32
+2026-06-04 02:56:53,249 - logger - INFO - 	15 - back acc of attacker: 99.78
+2026-06-04 02:56:53,254 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:56:55,694 - logger - WARNING - Strict ASR. Epoch:     6. Success: 97.02% (9702/10000)
+2026-06-04 02:56:55,694 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:55,694 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8703 (96.70%), pred_target_on_clean1=964/1000 (96.40%)
+2026-06-04 02:56:55,696 - logger - INFO - 	16 - main acc of attacker: 24.67
+2026-06-04 02:56:55,696 - logger - INFO - 	16 - back acc of attacker: 97.02
+2026-06-04 02:56:55,700 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:56:58,110 - logger - WARNING - Strict ASR. Epoch:     6. Success: 99.94% (9994/10000)
+2026-06-04 02:56:58,110 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:56:58,110 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8994 (99.93%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:56:58,111 - logger - INFO - 	17 - main acc of attacker: 24.45
+2026-06-04 02:56:58,111 - logger - INFO - 	17 - back acc of attacker: 99.94
+2026-06-04 02:56:58,116 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:57:00,527 - logger - WARNING - Strict ASR. Epoch:     6. Success: 99.90% (9990/10000)
+2026-06-04 02:57:00,527 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:00,527 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8990 (99.89%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:57:00,529 - logger - INFO - 	18 - main acc of attacker: 25.38
+2026-06-04 02:57:00,529 - logger - INFO - 	18 - back acc of attacker: 99.9
+2026-06-04 02:57:00,533 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:57:02,950 - logger - WARNING - Strict ASR. Epoch:     6. Success: 99.80% (9980/10000)
+2026-06-04 02:57:02,950 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:02,950 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=996/1000 (99.60%)
+2026-06-04 02:57:02,951 - logger - INFO - 	19 - main acc of attacker: 25.18
+2026-06-04 02:57:02,951 - logger - INFO - 	19 - back acc of attacker: 99.8
+2026-06-04 02:57:02,956 - logger - WARNING - #006# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:02,956 - logger - WARNING - #006# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:02,956 - logger - WARNING - #006# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:03,000 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:03,000 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:03,000 - logger - INFO - outlier!!!!!!
+2026-06-04 02:57:03,000 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:03,893 - logger - WARNING - Backdoor False. Epoch:     6. Accuracy: Top-1: 22.52 | Loss: value: 2.18
+2026-06-04 02:57:04,794 - logger - WARNING - Backdoor True . Epoch:     6. Accuracy: Top-1: 0.00 | Loss: value: 2.60
+2026-06-04 02:57:04,794 - logger - WARNING - Strict ASR. Epoch:     6. Success: 0.00% (0/10000)
+2026-06-04 02:57:04,794 - logger - WARNING - Backdoor Eval Params. Epoch:     6. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:04,794 - logger - WARNING - Backdoor Eval Diag. Epoch:     6. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:05,664 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:57:05,993 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:57:06,315 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:57:06,637 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:57:06,980 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:57:07,335 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:57:07,707 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:57:08,059 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:57:08,419 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:57:08,755 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:57:09,114 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:57:09,470 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:57:09,800 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:57:10,158 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:57:10,496 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:57:12,978 - logger - WARNING - Strict ASR. Epoch:     7. Success: 97.37% (9737/10000)
+2026-06-04 02:57:12,978 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:12,978 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8740 (97.11%), pred_target_on_clean1=964/1000 (96.40%)
+2026-06-04 02:57:12,979 - logger - INFO - 	14 - main acc of attacker: 26.34
+2026-06-04 02:57:12,979 - logger - INFO - 	14 - back acc of attacker: 97.37
+2026-06-04 02:57:12,984 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:57:15,409 - logger - WARNING - Strict ASR. Epoch:     7. Success: 99.68% (9968/10000)
+2026-06-04 02:57:15,409 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:15,409 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8968 (99.64%), pred_target_on_clean1=999/1000 (99.90%)
+2026-06-04 02:57:15,410 - logger - INFO - 	15 - main acc of attacker: 25.13
+2026-06-04 02:57:15,410 - logger - INFO - 	15 - back acc of attacker: 99.68
+2026-06-04 02:57:15,415 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:57:17,866 - logger - WARNING - Strict ASR. Epoch:     7. Success: 98.07% (9807/10000)
+2026-06-04 02:57:17,866 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:17,866 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8807 (97.86%), pred_target_on_clean1=950/1000 (95.00%)
+2026-06-04 02:57:17,868 - logger - INFO - 	16 - main acc of attacker: 25.35
+2026-06-04 02:57:17,868 - logger - INFO - 	16 - back acc of attacker: 98.07
+2026-06-04 02:57:17,873 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:57:20,317 - logger - WARNING - Strict ASR. Epoch:     7. Success: 99.79% (9979/10000)
+2026-06-04 02:57:20,317 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:20,317 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8979 (99.77%), pred_target_on_clean1=992/1000 (99.20%)
+2026-06-04 02:57:20,318 - logger - INFO - 	17 - main acc of attacker: 25.45
+2026-06-04 02:57:20,318 - logger - INFO - 	17 - back acc of attacker: 99.79
+2026-06-04 02:57:20,323 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:57:22,743 - logger - WARNING - Strict ASR. Epoch:     7. Success: 99.99% (9999/10000)
+2026-06-04 02:57:22,743 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:22,743 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:22,745 - logger - INFO - 	18 - main acc of attacker: 23.8
+2026-06-04 02:57:22,745 - logger - INFO - 	18 - back acc of attacker: 99.99
+2026-06-04 02:57:22,750 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:57:25,186 - logger - WARNING - Strict ASR. Epoch:     7. Success: 99.73% (9973/10000)
+2026-06-04 02:57:25,186 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:25,186 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8973 (99.70%), pred_target_on_clean1=990/1000 (99.00%)
+2026-06-04 02:57:25,188 - logger - INFO - 	19 - main acc of attacker: 25.31
+2026-06-04 02:57:25,188 - logger - INFO - 	19 - back acc of attacker: 99.73
+2026-06-04 02:57:25,192 - logger - WARNING - #007# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25,192 - logger - WARNING - #007# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25,193 - logger - WARNING - #007# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25,236 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:25,236 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:25,236 - logger - INFO - outlier!!!!!!
+2026-06-04 02:57:25,236 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:26,125 - logger - WARNING - Backdoor False. Epoch:     7. Accuracy: Top-1: 24.91 | Loss: value: 2.16
+2026-06-04 02:57:27,027 - logger - WARNING - Backdoor True . Epoch:     7. Accuracy: Top-1: 0.00 | Loss: value: 2.67
+2026-06-04 02:57:27,027 - logger - WARNING - Strict ASR. Epoch:     7. Success: 0.00% (0/10000)
+2026-06-04 02:57:27,027 - logger - WARNING - Backdoor Eval Params. Epoch:     7. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:27,027 - logger - WARNING - Backdoor Eval Diag. Epoch:     7. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:27,897 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:57:28,222 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:57:28,546 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:57:28,870 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:57:29,225 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:57:29,555 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:57:29,914 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:57:30,251 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:57:30,615 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:57:30,966 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:57:31,290 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:57:31,636 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:57:31,995 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:57:32,346 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:57:32,676 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:57:35,143 - logger - WARNING - Strict ASR. Epoch:     8. Success: 99.97% (9997/10000)
+2026-06-04 02:57:35,144 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:35,144 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:35,145 - logger - INFO - 	14 - main acc of attacker: 26.24
+2026-06-04 02:57:35,145 - logger - INFO - 	14 - back acc of attacker: 99.97
+2026-06-04 02:57:35,150 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:57:37,595 - logger - WARNING - Strict ASR. Epoch:     8. Success: 98.90% (9890/10000)
+2026-06-04 02:57:37,595 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:37,595 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8890 (98.78%), pred_target_on_clean1=997/1000 (99.70%)
+2026-06-04 02:57:37,596 - logger - INFO - 	15 - main acc of attacker: 24.88
+2026-06-04 02:57:37,596 - logger - INFO - 	15 - back acc of attacker: 98.9
+2026-06-04 02:57:37,601 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:57:40,041 - logger - WARNING - Strict ASR. Epoch:     8. Success: 99.06% (9906/10000)
+2026-06-04 02:57:40,041 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:40,041 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8906 (98.96%), pred_target_on_clean1=988/1000 (98.80%)
+2026-06-04 02:57:40,042 - logger - INFO - 	16 - main acc of attacker: 24.59
+2026-06-04 02:57:40,042 - logger - INFO - 	16 - back acc of attacker: 99.06
+2026-06-04 02:57:40,047 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:57:42,449 - logger - WARNING - Strict ASR. Epoch:     8. Success: 99.96% (9996/10000)
+2026-06-04 02:57:42,449 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:42,449 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:57:42,450 - logger - INFO - 	17 - main acc of attacker: 24.25
+2026-06-04 02:57:42,450 - logger - INFO - 	17 - back acc of attacker: 99.96
+2026-06-04 02:57:42,455 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:57:44,861 - logger - WARNING - Strict ASR. Epoch:     8. Success: 99.69% (9969/10000)
+2026-06-04 02:57:44,861 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:44,861 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8969 (99.66%), pred_target_on_clean1=988/1000 (98.80%)
+2026-06-04 02:57:44,863 - logger - INFO - 	18 - main acc of attacker: 21.4
+2026-06-04 02:57:44,863 - logger - INFO - 	18 - back acc of attacker: 99.69
+2026-06-04 02:57:44,868 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:57:47,278 - logger - WARNING - Strict ASR. Epoch:     8. Success: 98.66% (9866/10000)
+2026-06-04 02:57:47,278 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:47,278 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8866 (98.51%), pred_target_on_clean1=995/1000 (99.50%)
+2026-06-04 02:57:47,279 - logger - INFO - 	19 - main acc of attacker: 25.48
+2026-06-04 02:57:47,279 - logger - INFO - 	19 - back acc of attacker: 98.66
+2026-06-04 02:57:47,284 - logger - WARNING - #008# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47,284 - logger - WARNING - #008# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47,284 - logger - WARNING - #008# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47,329 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:47,329 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:57:47,329 - logger - INFO - outlier!!!!!!
+2026-06-04 02:57:47,329 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:57:48,224 - logger - WARNING - Backdoor False. Epoch:     8. Accuracy: Top-1: 28.72 | Loss: value: 2.12
+2026-06-04 02:57:49,129 - logger - WARNING - Backdoor True . Epoch:     8. Accuracy: Top-1: 0.00 | Loss: value: 2.57
+2026-06-04 02:57:49,129 - logger - WARNING - Strict ASR. Epoch:     8. Success: 0.00% (0/10000)
+2026-06-04 02:57:49,130 - logger - WARNING - Backdoor Eval Params. Epoch:     8. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:49,130 - logger - WARNING - Backdoor Eval Diag. Epoch:     8. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:57:50,002 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:57:50,324 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:57:50,646 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:57:50,967 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:57:51,290 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:57:51,612 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:57:51,934 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:57:52,256 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:57:52,578 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:57:52,900 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:57:53,222 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:57:53,544 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:57:53,867 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:57:54,195 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:57:54,517 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:57:56,933 - logger - WARNING - Strict ASR. Epoch:     9. Success: 98.32% (9832/10000)
+2026-06-04 02:57:56,933 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:56,934 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8833 (98.14%), pred_target_on_clean1=997/1000 (99.70%)
+2026-06-04 02:57:56,935 - logger - INFO - 	14 - main acc of attacker: 30.03
+2026-06-04 02:57:56,935 - logger - INFO - 	14 - back acc of attacker: 98.32
+2026-06-04 02:57:56,940 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:57:59,352 - logger - WARNING - Strict ASR. Epoch:     9. Success: 79.53% (7953/10000)
+2026-06-04 02:57:59,352 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:57:59,354 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=7000 (77.78%), pred_target_on_clean1=842/1000 (84.20%)
+2026-06-04 02:57:59,355 - logger - INFO - 	15 - main acc of attacker: 18.45
+2026-06-04 02:57:59,355 - logger - INFO - 	15 - back acc of attacker: 79.53
+2026-06-04 02:57:59,360 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:58:01,771 - logger - WARNING - Strict ASR. Epoch:     9. Success: 99.93% (9993/10000)
+2026-06-04 02:58:01,771 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:01,771 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8993 (99.92%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:01,772 - logger - INFO - 	16 - main acc of attacker: 27.78
+2026-06-04 02:58:01,772 - logger - INFO - 	16 - back acc of attacker: 99.93
+2026-06-04 02:58:01,777 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:58:04,184 - logger - WARNING - Strict ASR. Epoch:     9. Success: 98.03% (9803/10000)
+2026-06-04 02:58:04,184 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:04,184 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8811 (97.90%), pred_target_on_clean1=913/1000 (91.30%)
+2026-06-04 02:58:04,186 - logger - INFO - 	17 - main acc of attacker: 15.0
+2026-06-04 02:58:04,186 - logger - INFO - 	17 - back acc of attacker: 98.03
+2026-06-04 02:58:04,190 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:58:06,621 - logger - WARNING - Strict ASR. Epoch:     9. Success: 99.44% (9944/10000)
+2026-06-04 02:58:06,621 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:06,621 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8944 (99.38%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:06,623 - logger - INFO - 	18 - main acc of attacker: 24.93
+2026-06-04 02:58:06,623 - logger - INFO - 	18 - back acc of attacker: 99.44
+2026-06-04 02:58:06,627 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:58:09,093 - logger - WARNING - Strict ASR. Epoch:     9. Success: 99.97% (9997/10000)
+2026-06-04 02:58:09,093 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:09,093 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8997 (99.97%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:09,095 - logger - INFO - 	19 - main acc of attacker: 26.44
+2026-06-04 02:58:09,095 - logger - INFO - 	19 - back acc of attacker: 99.97
+2026-06-04 02:58:09,099 - logger - WARNING - #009# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09,099 - logger - WARNING - #009# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09,099 - logger - WARNING - #009# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09,143 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:09,143 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:58:09,143 - logger - INFO - outlier!!!!!!
+2026-06-04 02:58:09,143 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:10,037 - logger - WARNING - Backdoor False. Epoch:     9. Accuracy: Top-1: 28.94 | Loss: value: 2.13
+2026-06-04 02:58:10,943 - logger - WARNING - Backdoor True . Epoch:     9. Accuracy: Top-1: 0.00 | Loss: value: 2.62
+2026-06-04 02:58:10,943 - logger - WARNING - Strict ASR. Epoch:     9. Success: 0.00% (0/10000)
+2026-06-04 02:58:10,943 - logger - WARNING - Backdoor Eval Params. Epoch:     9. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:10,943 - logger - WARNING - Backdoor Eval Diag. Epoch:     9. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=0 (0.00%), pred_target_on_clean1=0/1000 (0.00%)
+2026-06-04 02:58:11,812 - logger - INFO - id: 0, compromised: False
+2026-06-04 02:58:12,183 - logger - INFO - id: 1, compromised: False
+2026-06-04 02:58:12,539 - logger - INFO - id: 2, compromised: False
+2026-06-04 02:58:12,935 - logger - INFO - id: 3, compromised: False
+2026-06-04 02:58:13,285 - logger - INFO - id: 4, compromised: False
+2026-06-04 02:58:13,640 - logger - INFO - id: 5, compromised: False
+2026-06-04 02:58:13,963 - logger - INFO - id: 6, compromised: False
+2026-06-04 02:58:14,286 - logger - INFO - id: 7, compromised: False
+2026-06-04 02:58:14,616 - logger - INFO - id: 8, compromised: False
+2026-06-04 02:58:14,978 - logger - INFO - id: 9, compromised: False
+2026-06-04 02:58:15,311 - logger - INFO - id: 10, compromised: False
+2026-06-04 02:58:15,632 - logger - INFO - id: 11, compromised: False
+2026-06-04 02:58:15,957 - logger - INFO - id: 12, compromised: False
+2026-06-04 02:58:16,279 - logger - INFO - id: 13, compromised: False
+2026-06-04 02:58:16,605 - logger - INFO - id: 14, compromised: True
+2026-06-04 02:58:19,020 - logger - WARNING - Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+2026-06-04 02:58:19,020 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:19,020 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=998/1000 (99.80%)
+2026-06-04 02:58:19,022 - logger - INFO - 	14 - main acc of attacker: 25.81
+2026-06-04 02:58:19,022 - logger - INFO - 	14 - back acc of attacker: 99.96
+2026-06-04 02:58:19,026 - logger - INFO - id: 15, compromised: True
+2026-06-04 02:58:21,446 - logger - WARNING - Strict ASR. Epoch:    10. Success: 99.99% (9999/10000)
+2026-06-04 02:58:21,447 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:21,447 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8999 (99.99%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:21,448 - logger - INFO - 	15 - main acc of attacker: 25.99
+2026-06-04 02:58:21,448 - logger - INFO - 	15 - back acc of attacker: 99.99
+2026-06-04 02:58:21,453 - logger - INFO - id: 16, compromised: True
+2026-06-04 02:58:23,867 - logger - WARNING - Strict ASR. Epoch:    10. Success: 99.80% (9980/10000)
+2026-06-04 02:58:23,867 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:23,867 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8980 (99.78%), pred_target_on_clean1=992/1000 (99.20%)
+2026-06-04 02:58:23,868 - logger - INFO - 	16 - main acc of attacker: 24.7
+2026-06-04 02:58:23,868 - logger - INFO - 	16 - back acc of attacker: 99.8
+2026-06-04 02:58:23,873 - logger - INFO - id: 17, compromised: True
+2026-06-04 02:58:26,287 - logger - WARNING - Strict ASR. Epoch:    10. Success: 100.00% (10000/10000)
+2026-06-04 02:58:26,287 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:26,287 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=9000 (100.00%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:26,288 - logger - INFO - 	17 - main acc of attacker: 26.3
+2026-06-04 02:58:26,288 - logger - INFO - 	17 - back acc of attacker: 100.0
+2026-06-04 02:58:26,293 - logger - INFO - id: 18, compromised: True
+2026-06-04 02:58:28,706 - logger - WARNING - Strict ASR. Epoch:    10. Success: 99.96% (9996/10000)
+2026-06-04 02:58:28,706 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:28,706 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8996 (99.96%), pred_target_on_clean1=1000/1000 (100.00%)
+2026-06-04 02:58:28,707 - logger - INFO - 	18 - main acc of attacker: 26.85
+2026-06-04 02:58:28,707 - logger - INFO - 	18 - back acc of attacker: 99.96
+2026-06-04 02:58:28,712 - logger - INFO - id: 19, compromised: True
+2026-06-04 02:58:31,130 - logger - WARNING - Strict ASR. Epoch:    10. Success: 98.92% (9892/10000)
+2026-06-04 02:58:31,130 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:31,130 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=8892 (98.80%), pred_target_on_clean1=977/1000 (97.70%)
+2026-06-04 02:58:31,132 - logger - INFO - 	19 - main acc of attacker: 25.82
+2026-06-04 02:58:31,132 - logger - INFO - 	19 - back acc of attacker: 98.92
+2026-06-04 02:58:31,136 - logger - WARNING - #010# user ids: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31,136 - logger - WARNING - #010# attacker ids: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31,136 - logger - WARNING - #010# attacker index: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31,180 - logger - INFO - ori_user_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:31,180 - logger - INFO - new_usr_list: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+2026-06-04 02:58:31,180 - logger - INFO - outlier!!!!!!
+2026-06-04 02:58:31,180 - logger - INFO - attacker_list: 14, 15, 16, 17, 18, 19
+2026-06-04 02:58:32,070 - logger - WARNING - Backdoor False. Epoch:    10. Accuracy: Top-1: 33.39 | Loss: value: 2.03
+2026-06-04 02:58:32,975 - logger - WARNING - Backdoor True . Epoch:    10. Accuracy: Top-1: 6.41 | Loss: value: 2.39
+2026-06-04 02:58:32,975 - logger - WARNING - Strict ASR. Epoch:    10. Success: 6.41% (641/10000)
+2026-06-04 02:58:32,975 - logger - WARNING - Backdoor Eval Params. Epoch:    10. backdoor_label=9, poisoned_samples_total=10000
+2026-06-04 02:58:32,975 - logger - WARNING - Backdoor Eval Diag. Epoch:    10. total=10000, clean0=1000, clean1=1000, changed=9000, changed_1_to_bd=1000, changed_0_to_bd=1000, pred_target_on_changed=125 (1.39%), pred_target_on_clean1=85/1000 (8.50%)
+2026-06-04 02:58:39,622 - logger - WARNING - Data washing audit complete. accuracy=83.88%, clean=42500, poison=7500
+
+[pipeline] full_fixedpoison_pipeline
+[time] pipeline_start=2026-06-04 02:54:59 CST
+[time] training_elapsed_seconds=221
+[time] detector_elapsed_seconds=4
+[time] pipeline_end=2026-06-04 02:58:44 CST
+[time] pipeline_elapsed_seconds=225
+[path] detector_summary=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260604_025459/summary.json
+[path] pipeline_log=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/logs/full_fixedpoison_pipeline_20260604_025459.log
+
+[pipeline] full_fixedpoison_pipeline
+[time] pipeline_start=2026-06-04 02:54:59 CST
+[time] training_elapsed_seconds=221
+[time] detector_elapsed_seconds=4
+[time] pipeline_end=2026-06-04 02:58:44 CST
+[time] pipeline_elapsed_seconds=225
+[path] detector_summary=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/output/materialized_trigger_detector_fixedpoison_20260604_025459/summary.json
+[path] pipeline_log=/home/ismp/disk2/chia/mprobe_m_219/data_washing_experiment/logs/model_CifarFedProtopnet_Jun.04_02.55.00_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0.log

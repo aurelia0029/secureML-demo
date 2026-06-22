@@ -7,6 +7,8 @@ import sys
 import hashlib
 import hmac
 import os
+import json
+import subprocess
 import threading
 from datetime import datetime, timezone
 import asyncio
@@ -16,7 +18,7 @@ import torch
 from PIL import Image
 import torchvision.transforms as T
 from fastapi import FastAPI, File, UploadFile, HTTPException, Form
-from fastapi.responses import JSONResponse, HTMLResponse, StreamingResponse
+from fastapi.responses import JSONResponse, HTMLResponse, StreamingResponse, Response
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
@@ -440,6 +442,369 @@ async def api_status():
         "models_loaded": list(models.keys()),
         "device": str(device) if device else None
     }
+
+
+# ============================================================
+# DATA WASHING EXPERIMENT
+# ============================================================
+_DW_ROOT = PROJECT_ROOT / "data_washing_experiment"
+_DW_OUTPUT_ROOT = _DW_ROOT / "output"
+_DW_LOG_ROOT = _DW_ROOT / "logs"
+_DW_DATA_ROOT = PROJECT_ROOT / ".data"
+_DW_DEFAULT_RUN_DIR = PROJECT_ROOT / "saved_models" / "model_CifarFedProtopnet_Jun.03_20.38.15_cifar10_mprobe_non_iid_epoch10_fixedpoison_data_washing_seed0"
+_DW_DEFAULT_AUDIT_DIR = _DW_OUTPUT_ROOT / "cifar10_non_iid_mprobe_epoch10_fixedpoison_audit"
+_DW_SCRIPT = _DW_ROOT / "materialized_trigger_detector.py"
+_DW_DATASETS = {
+    "cifar10": {
+        "label": "CIFAR-10",
+        "data_path": _DW_DATA_ROOT,
+        "run_dir": _DW_DEFAULT_RUN_DIR,
+        "audit_dir": _DW_DEFAULT_AUDIT_DIR,
+    }
+}
+_dw_dataset_cache: dict = {}
+_dw_job: dict = {
+    "process": None,
+    "run_id": None,
+    "started_at": None,
+    "log_path": None,
+    "output_dir": None,
+    "log_file": None,
+    "dataset": None,
+}
+
+
+def _dw_read_json(path: Path) -> Optional[dict]:
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def _dw_tail_log(path: Optional[Path], max_lines: int = 40) -> list[str]:
+    if path is None or not path.exists():
+        return []
+    try:
+        return path.read_text(encoding="utf-8", errors="replace").splitlines()[-max_lines:]
+    except Exception:
+        return []
+
+
+def _dw_parse_elapsed_seconds(log_path: Path) -> Optional[int]:
+    if not log_path.exists():
+        return None
+    for line in reversed(_dw_tail_log(log_path, max_lines=20)):
+        if line.startswith("[time] elapsed_seconds="):
+            try:
+                return int(line.split("=", 1)[1].strip())
+            except Exception:
+                return None
+    return None
+
+
+def _dw_collect_runs(limit: int = 10) -> list[dict]:
+    if not _DW_OUTPUT_ROOT.exists():
+        return []
+    runs = []
+    candidates = [p for p in _DW_OUTPUT_ROOT.glob("materialized_trigger_detector_fixedpoison_*") if p.is_dir()]
+    for run_dir in sorted(candidates, key=lambda p: p.stat().st_mtime, reverse=True):
+        if not run_dir.is_dir():
+            continue
+        summary = _dw_read_json(run_dir / "summary.json")
+        if not summary:
+            continue
+        log_candidates = sorted(_DW_LOG_ROOT.glob(f"{run_dir.name}.log"), reverse=True)
+        elapsed = _dw_parse_elapsed_seconds(log_candidates[0]) if log_candidates else None
+        runs.append({
+            "run_id": run_dir.name,
+            "output_dir": str(run_dir),
+            "summary": summary,
+            "elapsed_seconds": elapsed,
+        })
+        if len(runs) >= limit:
+            break
+    return runs
+
+
+def _dw_collect_overview() -> dict:
+    runs = _dw_collect_runs(limit=8)
+    latest = runs[0] if runs else None
+    best = None
+    if runs:
+        best = max(
+            runs,
+            key=lambda item: (
+                float(item["summary"].get("suspicious_metrics", {}).get("f1", -1)),
+                float(item["summary"].get("suspicious_metrics", {}).get("accuracy", -1)),
+            ),
+        )
+    return {
+        "available_datasets": [
+            {"value": key, "label": cfg["label"]}
+            for key, cfg in _DW_DATASETS.items()
+        ],
+        "default_dataset": "cifar10",
+        "script_path": str(_DW_SCRIPT),
+        "run_dir": str(_DW_DEFAULT_RUN_DIR),
+        "audit_dir": str(_DW_DEFAULT_AUDIT_DIR),
+        "data_path": str(_DW_DATA_ROOT),
+        "run_dir_exists": _DW_DEFAULT_RUN_DIR.exists(),
+        "audit_dir_exists": _DW_DEFAULT_AUDIT_DIR.exists(),
+        "data_path_exists": _DW_DATA_ROOT.exists(),
+        "latest_run": latest,
+        "best_run": best,
+        "recent_runs": runs,
+    }
+
+
+def _dw_get_dataset_config(dataset_name: str) -> dict:
+    cfg = _DW_DATASETS.get(dataset_name)
+    if not cfg:
+        raise HTTPException(status_code=400, detail=f"Unsupported dataset: {dataset_name}")
+    return cfg
+
+
+def _dw_get_cifar10_dataset():
+    cache_key = "cifar10"
+    if cache_key not in _dw_dataset_cache:
+        from torchvision import datasets as _datasets
+        _dw_dataset_cache[cache_key] = _datasets.CIFAR10(
+            root=str(_DW_DATASETS["cifar10"]["data_path"]),
+            train=True,
+            download=False,
+        )
+    return _dw_dataset_cache[cache_key]
+
+
+def _dw_apply_visual_trigger(image_array: np.ndarray) -> np.ndarray:
+    from data_washing_experiment.clean_reference_detector import (
+        BACKDOOR_PATTERN,
+        BACKDOOR_X_TOP,
+        BACKDOOR_Y_TOP,
+        MASK_VALUE,
+    )
+
+    out = image_array.copy()
+    patch = BACKDOOR_PATTERN.numpy()
+    h, w = patch.shape
+    for i in range(h):
+        for j in range(w):
+            value = float(patch[i, j])
+            if value == MASK_VALUE:
+                continue
+            pixel = 255 if value > 0.5 else 0
+            out[BACKDOOR_X_TOP + i, BACKDOOR_Y_TOP + j, :] = pixel
+    return out
+
+
+def _dw_select_result_run(run_id: Optional[str]) -> Optional[dict]:
+    runs = _dw_collect_runs(limit=20)
+    if not runs:
+        return None
+    if run_id:
+        for run in runs:
+            if run["run_id"] == run_id:
+                return run
+        return None
+    return runs[0]
+
+
+def _dw_load_samples_for_run(run_dir: Path, limit: int = 6) -> dict:
+    csv_path = run_dir / "suspicious_patch_scores.csv"
+    if not csv_path.exists():
+        return {"poison_samples": [], "clean_samples": []}
+
+    rows = []
+    try:
+        import csv as _csv
+        with csv_path.open(newline="", encoding="utf-8") as f:
+            reader = _csv.DictReader(f)
+            for row in reader:
+                rows.append({
+                    "client_id": int(row["client_id"]),
+                    "dataset_index": int(row["dataset_index"]),
+                    "label": int(row["label"]),
+                    "ground_truth_poison": int(row["ground_truth_poison"]),
+                    "patch_mse": float(row["patch_mse"]),
+                    "predicted_poison": int(row["predicted_poison"]),
+                })
+    except Exception:
+        return {"poison_samples": [], "clean_samples": []}
+
+    poison_rows = sorted(
+        [r for r in rows if r["predicted_poison"] == 1],
+        key=lambda r: (r["patch_mse"], r["dataset_index"]),
+    )[:limit]
+    clean_rows = sorted(
+        [r for r in rows if r["predicted_poison"] == 0],
+        key=lambda r: (-r["patch_mse"], r["dataset_index"]),
+    )[:limit]
+
+    def serialize(row: dict) -> dict:
+        idx = row["dataset_index"]
+        return {
+            **row,
+            "image_url": f"/api/data-washing/sample-image/cifar10/{idx}?variant=clean",
+            "analysis_image_url": f"/api/data-washing/sample-image/cifar10/{idx}?variant={'triggered' if row['ground_truth_poison'] else 'clean'}",
+        }
+
+    return {
+        "poison_samples": [serialize(row) for row in poison_rows],
+        "clean_samples": [serialize(row) for row in clean_rows],
+    }
+
+
+def _dw_refresh_job_state():
+    proc = _dw_job.get("process")
+    if proc is None:
+        return
+    rc = proc.poll()
+    if rc is None:
+        return
+    log_file = _dw_job.get("log_file")
+    if log_file is not None:
+        try:
+            log_file.write(f"\n[time] end={datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}\n")
+            log_file.flush()
+            log_file.close()
+        except Exception:
+            pass
+        _dw_job["log_file"] = None
+    _dw_job["returncode"] = rc
+    _dw_job["process"] = None
+
+
+@app.get("/api/data-washing/overview")
+async def data_washing_overview():
+    _dw_refresh_job_state()
+    return _dw_collect_overview()
+
+
+@app.get("/api/data-washing/status")
+async def data_washing_status():
+    _dw_refresh_job_state()
+    proc = _dw_job.get("process")
+    log_path = _dw_job.get("log_path")
+    output_dir = _dw_job.get("output_dir")
+    summary = _dw_read_json(output_dir / "summary.json") if output_dir else None
+    return {
+        "running": proc is not None,
+        "run_id": _dw_job.get("run_id"),
+        "dataset": _dw_job.get("dataset"),
+        "started_at": _dw_job.get("started_at"),
+        "log_path": str(log_path) if log_path else None,
+        "output_dir": str(output_dir) if output_dir else None,
+        "returncode": _dw_job.get("returncode"),
+        "log_tail": _dw_tail_log(log_path),
+        "summary": summary,
+    }
+
+
+@app.post("/api/data-washing/run")
+async def data_washing_run(request: Request):
+    _dw_refresh_job_state()
+    if _dw_job.get("process") is not None:
+        raise HTTPException(status_code=409, detail="Data washing experiment is already running")
+    body = await request.json() if request.headers.get("content-type", "").startswith("application/json") else {}
+    dataset_name = body.get("dataset", "cifar10")
+    cfg = _dw_get_dataset_config(dataset_name)
+    if not _DW_SCRIPT.exists():
+        raise HTTPException(status_code=404, detail="Experiment script not found")
+    if not cfg["run_dir"].exists():
+        raise HTTPException(status_code=404, detail=f"Run directory not found: {cfg['run_dir']}")
+    if not cfg["audit_dir"].exists():
+        raise HTTPException(status_code=404, detail=f"Audit directory not found: {cfg['audit_dir']}")
+    if not cfg["data_path"].exists():
+        raise HTTPException(status_code=404, detail=f"Dataset cache not found: {cfg['data_path']}")
+
+    _DW_LOG_ROOT.mkdir(exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_id = f"materialized_trigger_detector_fixedpoison_{timestamp}"
+    output_dir = _DW_OUTPUT_ROOT / run_id
+    log_path = _DW_LOG_ROOT / f"{run_id}.log"
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    cmd = [
+        sys.executable,
+        "-u",
+        str(_DW_SCRIPT),
+        "--run-dir",
+        str(cfg["run_dir"]),
+        "--audit-dir",
+        str(cfg["audit_dir"]),
+        "--output-dir",
+        str(output_dir),
+        "--data-path",
+        str(cfg["data_path"]),
+        "--threshold-quantile",
+        "0.01",
+    ]
+    log_file = open(log_path, "w", encoding="utf-8")
+    log_file.write(f"[run] {run_id}\n")
+    log_file.write(f"[time] start={datetime.now().strftime('%Y-%m-%d %H:%M:%S %Z')}\n")
+    log_file.write(f"[dataset] {dataset_name}\n")
+    log_file.write(f"[path] run_dir={cfg['run_dir']}\n")
+    log_file.write(f"[path] audit_dir={cfg['audit_dir']}\n")
+    log_file.write(f"[path] output_dir={output_dir}\n")
+    log_file.flush()
+    proc = subprocess.Popen(
+        cmd,
+        cwd=str(_DW_ROOT),
+        stdout=log_file,
+        stderr=subprocess.STDOUT,
+        start_new_session=True,
+    )
+    _dw_job.update({
+        "process": proc,
+        "run_id": run_id,
+        "started_at": datetime.now().isoformat(),
+        "log_path": log_path,
+        "output_dir": output_dir,
+        "log_file": log_file,
+        "dataset": dataset_name,
+        "returncode": None,
+    })
+    return {
+        "status": "started",
+        "run_id": run_id,
+        "dataset": dataset_name,
+        "output_dir": str(output_dir),
+        "log_path": str(log_path),
+    }
+
+
+@app.get("/api/data-washing/result")
+async def data_washing_result(run_id: Optional[str] = None):
+    run = _dw_select_result_run(run_id)
+    if run is None:
+        raise HTTPException(status_code=404, detail="No completed data washing run found")
+    run_dir = Path(run["output_dir"])
+    samples = _dw_load_samples_for_run(run_dir)
+    return {
+        "run_id": run["run_id"],
+        "summary": run["summary"],
+        "elapsed_seconds": run.get("elapsed_seconds"),
+        **samples,
+    }
+
+
+@app.get("/api/data-washing/sample-image/{dataset_name}/{dataset_index}")
+async def data_washing_sample_image(dataset_name: str, dataset_index: int, variant: str = "clean"):
+    if dataset_name != "cifar10":
+        raise HTTPException(status_code=400, detail="Only cifar10 is supported right now")
+    dataset = _dw_get_cifar10_dataset()
+    if dataset_index < 0 or dataset_index >= len(dataset.data):
+        raise HTTPException(status_code=404, detail="Dataset index out of range")
+    image_array = dataset.data[int(dataset_index)]
+    if variant == "triggered":
+        image_array = _dw_apply_visual_trigger(image_array)
+    elif variant != "clean":
+        raise HTTPException(status_code=400, detail="Unsupported variant")
+
+    img = Image.fromarray(image_array.astype(np.uint8))
+    buffer = BytesIO()
+    img.save(buffer, format="PNG")
+    return Response(content=buffer.getvalue(), media_type="image/png")
 
 
 @app.post("/predict")
